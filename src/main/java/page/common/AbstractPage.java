@@ -1,4 +1,4 @@
-package page;
+package page.common;
 
 public abstract class AbstractPage {
 
