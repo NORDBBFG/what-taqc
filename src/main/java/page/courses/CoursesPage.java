@@ -1,6 +1,5 @@
 package page.courses;
 
-import org.graalvm.compiler.replacements.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -49,14 +48,12 @@ public class CoursesPage extends AbstractPage {
         //TODO: Find out how to log and do this stuff correctly.
     public void clickOnCourseTableRow(String id){
         try { ListOfCourseTableRows.get(Integer.parseInt(id)).click(); }
-        catch (NumberFormatException e) { Log.println("NumberFormatException"); }
-        catch (IndexOutOfBoundsException e){ Log.println("IndexOutOfBoundsException"); }
+        catch (NumberFormatException | IndexOutOfBoundsException e) { System.out.println("Exception"); }
     }
         //TODO: Find out how to log and do this stuff correctly.
     public void clickOnCourseTableEditIcon(String id){
         try { ListOfCourseTableEditIcons.get(Integer.parseInt(id)).click(); }
-        catch (NumberFormatException e) { Log.println("NumberFormatException"); }
-        catch (IndexOutOfBoundsException e){ Log.println("IndexOutOfBoundsException"); }
+        catch (NumberFormatException | IndexOutOfBoundsException e) { System.out.println("Exception"); }
     }
 
     public void clickOnLeftNavigationArrowBtn(){
