@@ -34,6 +34,7 @@ public class CoursesPage extends AbstractPage {
     }
 
     public void fillSearchCourseInListInput(String title){
+        SearchCourseInListInput.clear();
         SearchCourseInListInput.sendKeys(title);
     }
 
