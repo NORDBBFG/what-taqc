@@ -1,10 +1,12 @@
 package page.courses;
 
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import page.AbstractPage;
 
+@Getter
 public class AddCoursePage extends AbstractPage {
     @FindBy(xpath = "//input[@id='name']")      //TODO: repeats in the EditCourseDetailsPage, can be moved.
     private WebElement CourseNameInput;
@@ -15,19 +17,5 @@ public class AddCoursePage extends AbstractPage {
 
     public AddCoursePage(WebDriver driver) {
         super(driver);
-    }
-
-    public void fillCourseNameInput(String courseName){
-        CourseNameInput.clear();
-        CourseNameInput.sendKeys(courseName);
-    }
-
-        //TODO: fix disabled buttons problem (if there's even a problem).
-    public void clickOnCancelCourseAddingBtn() {
-        CancelCourseAddingBtn.click();
-    }
-
-    public void clickOnSubmitNewCourseBtn(){
-        SubmitNewCourseBtn.click();
     }
 }

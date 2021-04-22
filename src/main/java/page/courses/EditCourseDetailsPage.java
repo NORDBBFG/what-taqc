@@ -1,10 +1,12 @@
 package page.courses;
 
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import page.AbstractPage;
 
+@Getter
 public class EditCourseDetailsPage extends AbstractPage {
     @FindBy(xpath = "//div[contains(@class,'nav-tabs')]/a[1]")
     private WebElement CourseDetailsTab;
@@ -19,26 +21,5 @@ public class EditCourseDetailsPage extends AbstractPage {
 
     public EditCourseDetailsPage(WebDriver driver) {
         super(driver);
-    }
-
-    public void clickOnCourseDetailsTab(){
-        CourseDetailsTab.click();
-    }
-
-    public void fillEditCourseNameInput(String courseName){
-        CourseNameInput.clear();
-        CourseNameInput.sendKeys(courseName);
-    }
-        //TODO: fix disabled buttons problem (if there's even a problem).
-    public void clickOnDeleteCourseBtn(){
-        DeleteCourseBtn.click();
-    }
-
-    public void clickOnResetEditCourseNameInputBtn(){
-        ResetEditCourseNameInputBtn.click();
-    }
-
-    public void clickOnSubmitEditedCourseNameBtn(){
-        SubmitEditedCourseNameBtn.click();
     }
 }

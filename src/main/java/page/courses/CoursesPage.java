@@ -1,5 +1,6 @@
 package page.courses;
 
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,6 +8,7 @@ import page.AbstractPage;
 
 import java.util.List;
 
+@Getter
 public class CoursesPage extends AbstractPage {
     @FindBy(xpath = "//div[contains(@class,'col-2 offset-5')]/button")
     private WebElement AddCourseToListBtn;
@@ -27,41 +29,5 @@ public class CoursesPage extends AbstractPage {
 
     public CoursesPage(WebDriver driver) {
         super(driver);
-    }
-
-    public void clickAddCourseToListBtn(){
-        AddCourseToListBtn.click();
-    }
-
-    public void fillSearchCourseInListInput(String title){
-        SearchCourseInListInput.clear();
-        SearchCourseInListInput.sendKeys(title);
-    }
-
-    public void changeCourseListIDSortType(){
-        CourseListIDSortType.click();
-    }
-
-    public void changeCourseListNameSortType(){
-        CourseListNameSortType.click();
-    }
-
-        //TODO: Find out how to log and do this stuff correctly.
-    public void clickOnCourseTableRow(String id){
-        try { ListOfCourseTableRows.get(Integer.parseInt(id)).click(); }
-        catch (NumberFormatException | IndexOutOfBoundsException e) { System.out.println("Exception"); }
-    }
-        //TODO: Find out how to log and do this stuff correctly.
-    public void clickOnCourseTableEditIcon(String id){
-        try { ListOfCourseTableEditIcons.get(Integer.parseInt(id)).click(); }
-        catch (NumberFormatException | IndexOutOfBoundsException e) { System.out.println("Exception"); }
-    }
-
-    public void clickOnLeftNavigationArrowBtn(){
-        LeftNavigationArrowBtn.click();
-    }
-
-    public void clickOnRightNavigationArrowBtn(){
-        RightNavigationArrowBtn.click();
     }
 }
