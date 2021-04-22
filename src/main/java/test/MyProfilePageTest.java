@@ -2,7 +2,6 @@ package test;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import page.SignInPage;
 import step.MyProfilePageStep;
@@ -10,6 +9,7 @@ import step.MyProfilePageStep;
 public class MyProfilePageTest extends AbstractTest{
 
     MyProfilePageStep myProfilePageStep;
+    String XPATH_OF_USER_ICON = "//a[@class='header__header__account-user--icon___1k48U']";
 
     @BeforeMethod
     public void prepare() {
@@ -21,7 +21,7 @@ public class MyProfilePageTest extends AbstractTest{
         signInPage.fillPassword(password);
         signInPage.clickSignInButton();
 
-        driver.findElement(By.xpath("//a[@class='header__header__account-user--icon___1k48U']")).click();
+        driver.findElement(By.xpath(XPATH_OF_USER_ICON)).click();
         myProfilePageStep = new MyProfilePageStep(driver);
     }
 

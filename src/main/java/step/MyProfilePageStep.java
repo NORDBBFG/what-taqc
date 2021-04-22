@@ -2,7 +2,6 @@ package step;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.asserts.Assertion;
 import page.MyProfilePage;
 
 public class MyProfilePageStep {
@@ -37,7 +36,6 @@ public class MyProfilePageStep {
         Assert.assertEquals(myProfilePage.isChangePasswordEnable(), expected);
         return this;
     }
-
     public MyProfilePageStep verifyChangePasswordBtnEnabled(){
         Assert.assertTrue(myProfilePage.isChangePasswordEnable());
         return this;

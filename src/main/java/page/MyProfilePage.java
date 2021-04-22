@@ -10,23 +10,25 @@ import java.util.List;
 
 public class MyProfilePage extends AbstractPage {
 
-//    @FindBy(xpath = "//div[@class='container pb-2']")
-//    private WebElement block;
+    private final static String FIELD_NAME = "div[@class='col-sm-4 font-weight-bold pb-1']";
+    private final static String ELEMENT_OF_FIELD = "div[@class='col-sm-8']";
 
-    @FindBy(xpath = "//h3[@class='pt-3']")
-    private WebElement nameOfPage;
-//    @FindAll(@FindBy( xpath = "//div[@class='row mt-3']"))
-//    private List<WebElement> rows;
+    private final static String FIRST_NAME = "First Name:";
+    private final static String LAST_NAME = "Last Name:";
+    private final static String EMAIL_ADDRESS = "Email address:";
 
     private HashMap<String, WebElement> rowMap;
 
+    @FindBy(xpath = "//h3[@class='pt-3']")
+    private WebElement nameOfPage;
+    @FindBy( xpath = "//div[@class='row mt-3']")
+    private List<WebElement> rows;
     @FindBy(xpath = "//button[@type='button']")
     private WebElement changePasswordBtn;
 
     public MyProfilePage(WebDriver driver) {
         super(driver);
         rowMap = new HashMap<>();
-        getRows(driver);
     }
 
     public void clickChangePasswordBtn() {
@@ -42,39 +44,28 @@ public class MyProfilePage extends AbstractPage {
     }
 
     public String getFirstName() {
-        return getContentOfRow("First Name:");
+        return getContentOfRow(FIRST_NAME);
     }
 
     public String getLastName() {
-        return getContentOfRow("Last Name:");
+        return getContentOfRow(LAST_NAME);
     }
 
     public String getEmailAddress() {
-        return getContentOfRow("Email address:");
+        return getContentOfRow(EMAIL_ADDRESS);
     }
 
-    private void getRows(WebDriver driver) {
+    private void getRows() {
         if (rowMap.isEmpty()) {
-            List<WebElement> rows = driver.findElements(By.xpath("//div[@class='row mt-3']"));
-            rows.forEach(
-                    r -> rowMap.put(
-                            r.findElement(By.xpath("//div[@class='col-sm-4 font-weight-bold pb-1']")).getText(),
-                            r.findElement(By.xpath("//div[@class='col-sm-8']")))
-
+            rows.forEach(r -> rowMap.put(
+                    r.findElement(By.xpath(FIELD_NAME)).getText(),
+                    r.findElement(By.xpath(ELEMENT_OF_FIELD)))
             );
-
-//            for (WebElement row : rows) {
-//                System.out.println(row.findElement(By.xpath("//div[@class='col-sm-4 font-weight-bold pb-1']")).getText());
-//                rowMap.put(row.findElement(By.xpath("//div[@class='col-sm-4 font-weight-bold pb-1']")).getText(),
-//                        row.findElement(By.xpath("//div[@class='col-sm-8']")));
-//            }
-//            System.out.println(rows.size());
-//            System.out.println(rowMap.size());
         }
     }
 
     private String getContentOfRow(String rowName) {
-//        getRows();
+        getRows();
         return rowMap.get(rowName).getText();
     }
 }
