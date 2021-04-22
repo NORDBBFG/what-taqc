@@ -10,17 +10,20 @@ public class AddCourseStep {
         addCoursePage = new AddCoursePage(driver);
     }
 
-    public void fillCourseNameInput(String courseName){
+    public AddCourseStep fillCourseNameInput(String courseName){
         addCoursePage.getCourseNameInput().clear();
         addCoursePage.getCourseNameInput().sendKeys(courseName);
+      return this;
     }
 
     //TODO: fix disabled buttons problem (if there's even a problem).
-    public void clickOnCancelCourseAddingBtn() {
+    public AddCourseStep clickOnCancelCourseAddingBtn() {
         addCoursePage.getCancelCourseAddingBtn().click();
+      return this;
     }
 
-    public void clickOnSubmitNewCourseBtn(){
+    public AddCourseStep clickOnSubmitNewCourseBtn(){
         addCoursePage.getSubmitNewCourseBtn().click();
+      return this;
     }
 }

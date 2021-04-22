@@ -10,24 +10,30 @@ public class EditCourseDetailsStep {
         editCourseDetailsPage = new EditCourseDetailsPage(driver);
     }
 
-    public void clickOnCourseDetailsTab(){
+    public EditCourseDetailsStep clickOnCourseDetailsTab(){
         editCourseDetailsPage.getCourseDetailsTab().click();
+      return this;
     }
 
-    public void fillEditCourseNameInput(String courseName){
+    public EditCourseDetailsStep fillEditCourseNameInput(String courseName){
         editCourseDetailsPage.getCourseNameInput().clear();
         editCourseDetailsPage.getCourseNameInput().sendKeys(courseName);
+      return this;
     }
+
     //TODO: fix disabled buttons problem (if there's even a problem).
-    public void clickOnDeleteCourseBtn(){
+    public EditCourseDetailsStep clickOnDeleteCourseBtn(){
         editCourseDetailsPage.getDeleteCourseBtn().click();
+      return this;
     }
 
-    public void clickOnResetEditCourseNameInputBtn(){
+    public EditCourseDetailsStep clickOnResetEditCourseNameInputBtn(){
         editCourseDetailsPage.getResetEditCourseNameInputBtn().click();
+      return this;
     }
 
-    public void clickOnSubmitEditedCourseNameBtn(){
+    public EditCourseDetailsStep clickOnSubmitEditedCourseNameBtn(){
         editCourseDetailsPage.getSubmitEditedCourseNameBtn().click();
+      return this;
     }
 }

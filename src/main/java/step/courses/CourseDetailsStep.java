@@ -10,7 +10,8 @@ public class CourseDetailsStep {
         courseDetailsPage = new CourseDetailsPage(driver);
     }
 
-    public void clickOnEditCourseDetailsTab(){
+    public CourseDetailsStep clickOnEditCourseDetailsTab(){
         courseDetailsPage.getEditCourseDetailsTab().click();
+      return this;
     }
 }
