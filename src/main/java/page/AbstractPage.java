@@ -1,6 +1,7 @@
 package page;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -11,5 +12,10 @@ public abstract class AbstractPage {
     public AbstractPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
+    }
+
+    protected void fillField(WebElement field, String text){
+        field.clear();
+        field.sendKeys(text);
     }
 }

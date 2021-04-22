@@ -30,8 +30,5 @@ public class SignInPage extends AbstractPage {
         signInButton.click();
     }
 
-    private void fillField(WebElement element, String inputText) {
-        element.clear();
-        element.sendKeys(inputText);
-    }
+
 }
