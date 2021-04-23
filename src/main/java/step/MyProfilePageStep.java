@@ -3,6 +3,7 @@ package step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.MyProfilePage;
+import test.Constants;
 
 public class MyProfilePageStep {
 
@@ -43,6 +44,13 @@ public class MyProfilePageStep {
 
     public void clickChangePasswordBtn(){
         myProfilePage.clickChangePasswordBtn();
+    }
+
+
+    public MyProfilePageStep getToMyProfilePage(){
+       myProfilePage.clickArrowIcon();
+       myProfilePage.clickDropdownItem(Constants.PageName.MY_PROFILE);
+       return this;
     }
 
 }

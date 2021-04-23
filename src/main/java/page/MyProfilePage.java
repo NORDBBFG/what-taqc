@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.HashMap;
 import java.util.List;
 
-public class MyProfilePage extends AbstractPage {
+public class MyProfilePage extends UserPage {
 
     private final static String FIELD_NAME = "div[@class='col-sm-4 font-weight-bold pb-1']";
     private final static String ELEMENT_OF_FIELD = "div[@class='col-sm-8']";

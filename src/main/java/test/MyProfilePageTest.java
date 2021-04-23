@@ -1,6 +1,5 @@
 package test;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.SignInPage;
@@ -21,8 +20,7 @@ public class MyProfilePageTest extends AbstractTest{
         signInPage.fillPassword(password);
         signInPage.clickSignInButton();
 
-        driver.findElement(By.xpath(XPATH_OF_USER_ICON)).click();
-        myProfilePageStep = new MyProfilePageStep(driver);
+        myProfilePageStep = new MyProfilePageStep(driver).getToMyProfilePage();
     }
 
     @Test
