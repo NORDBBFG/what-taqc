@@ -25,22 +25,33 @@ public class LessonEditPageTest extends AbstractTest{
     }
 
     @Test
-    public void dataAboutLessonTest() {
-        lessonEditPageStep
-                .verifyNamePage("Edit a Lesson")
-                .verifyThemeName("Types")
-                .verifyGroupName("Griffindorrr");
+    public void checkInfoAboutLessonTest() {
+        String pageName = "Edit a Lesson";
+        String themeName = "Types";
+        String groupName = "Griffindorrr";
 
+        lessonEditPageStep
+                .verifyNamePage(pageName)
+                .verifyThemeName(themeName)
+                .verifyGroupName(groupName);
     }
 
     @Test
-    public void editLessonTest() {
+    public void checkInfoAboutStudentTest() {
+        String fullName = "Pavel Kundenko";
+        String mark = "11";
+        int studentId = 1;
+
         lessonEditPageStep
                 .verifyThemeNameEnabled(true)
                 .verifyGroupNameEnabled(false)
                 .verifyDateInputEnabled(true)
                 .verifyCancelButtonEnabled(true)
-                .verifySaveButtonEnabled(false);
+                .verifySaveButtonEnabled(true)
+                .verifyFullStudentName(studentId,fullName)
+                .verifyMark(studentId, mark)
+                .verifyPresence(studentId,true)
+                .getToStudentDetailsPage(studentId);
 
     }
 
