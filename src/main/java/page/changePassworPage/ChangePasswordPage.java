@@ -40,8 +40,9 @@ private WebElement pagesLabel;
 
 
 /** need to return  ‘Confirm action’ window */
-    public void clickSaveButton(){
+    public ConfirmActionWindow clickSaveButton(){
         saveButton.click();
+        return new ConfirmActionWindow(driver);
     }
     /** we need to return 'User profile' page */
     public void clickCancelButton(){

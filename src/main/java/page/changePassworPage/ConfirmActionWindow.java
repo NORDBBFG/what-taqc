@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import page.AbstractPage;
 
 public class ConfirmActionWindow extends AbstractPage {
-    WebDriver driver = null;
+
 
 @FindBy(xpath = "//h4")
     private WebElement confirmActionLabel;
