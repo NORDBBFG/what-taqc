@@ -26,12 +26,11 @@ public class LessonEditPageTest extends AbstractTest{
 
     @Test
     public void checkInfoAboutLessonTest() {
-        String pageName = "Edit a Lesson";
         String themeName = "Types";
         String groupName = "Griffindorrr";
 
         lessonEditPageStep
-                .verifyNamePage(pageName)
+                .verifyNamePage(Constants.PageName.LESSON_EDIT)
                 .verifyThemeName(themeName)
                 .verifyGroupName(groupName);
     }

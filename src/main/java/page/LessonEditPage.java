@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class LessonEditPage extends AbstractPage {
+public class LessonEditPage extends UserPage {
 //    @FindBy(xpath = "//form[@id='form']")
 //    private WebElement form;
 //    @FindBy(xpath = "//div[ends-with(@class,'form-group row')]")
@@ -122,9 +122,14 @@ public class LessonEditPage extends AbstractPage {
     }
 
     public void setMark(int number, int input) {
-        if (tableContent.size() > number) {
-            tableContent.get(number - 1)
-                    .findElement(By.xpath(MARK_XPATH)).sendKeys("" + input);
+        if (!tableContent.isEmpty()) {
+            tableContent.forEach(
+                    t -> {
+                        if (t.findElement(By.xpath(ID_XPATH)).getText().equalsIgnoreCase(""+number)) {
+                            t.findElement(By.xpath(MARK_XPATH)).sendKeys("" + input);
+                        }
+                    }
+            );
         }
     }
     public void setMark(String name, int input) {
