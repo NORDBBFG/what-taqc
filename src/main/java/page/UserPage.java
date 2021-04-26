@@ -34,15 +34,18 @@ public abstract class UserPage extends AbstractPage {
     public void clickUserAccountIcon(){
         userAccountIcon.click();
     }
+
     public void clickArrowIcon(){
         arrowIcon.click();
     }
+
     public void clickDropdownItem(String name){
         WebElement resultItem = findDropdownItem(name);
         if(resultItem!=null){
-            resultItem.click();
+           resultItem.click();
         }
     }
+
     public void clickSidebarItem(String name){
         WebElement resultItem = findSidebarItem(name);
         if(resultItem!=null){
@@ -58,6 +61,7 @@ public abstract class UserPage extends AbstractPage {
         }
         return null;
     }
+
     private WebElement findSidebarItem(String name){
         for (WebElement sidebarItem : sidebarItems) {
             if(sidebarItem.getText().equals(name)) return sidebarItem;
