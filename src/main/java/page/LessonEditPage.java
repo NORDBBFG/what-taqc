@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class LessonEditPage extends UserPage {
+public class LessonEditPage extends BasePage {
 //    @FindBy(xpath = "//form[@id='form']")
 //    private WebElement form;
 //    @FindBy(xpath = "//div[ends-with(@class,'form-group row')]")

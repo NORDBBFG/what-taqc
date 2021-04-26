@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public abstract class UserPage extends AbstractPage {
+public abstract class BasePage extends AbstractPage {
 
     private static final String USER_ICON_XPATH ="a[@class='header__header__account-user--icon___1k48U']";
 
@@ -23,7 +23,7 @@ public abstract class UserPage extends AbstractPage {
     @FindBy( xpath = "//span[@class='sidebar__menu-item___1MMsk']")
     private List<WebElement> sidebarItems;
 
-    public UserPage(WebDriver driver) {
+    public BasePage(WebDriver driver) {
         super(driver);
     }
 

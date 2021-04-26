@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class LessonDetailsPage extends UserPage {
+public class LessonDetailsPage extends BasePage {
 
 //    private static final String ABSENT_ICON_XPATH = "//*[contains(@href,'Absent')]";
     private static final String PRESENT_ICON_XPATH = "//*[contains(@href,'Present')]";
