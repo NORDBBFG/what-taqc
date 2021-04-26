@@ -1,4 +1,5 @@
 package page.changePassworPage;
+import component.ConfirmActionWindow;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +12,6 @@ public class ChangePasswordPage extends AbstractPage {
 
 @FindBy(xpath = "//h3[@class='pt-3']")
 private WebElement pagesLabel;
-
 
 
     @FindBy(xpath = "//input[@type='email']")
@@ -28,6 +28,13 @@ private WebElement pagesLabel;
     @FindBy(xpath = "//button[@class='btn button__default___3hOmG button__button___24ZfP change-password__cancel-button___1neIS w-100']")
     private WebElement cancelButton;
 
+/** ERRORS  */
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement thisFieldIsRequiredCurrentPassword;
+
+
+
+
     public void fillCurrentPasswordField(String currentPassword){
         fillField(currentPasswordField, currentPassword);
     }
@@ -36,10 +43,10 @@ private WebElement pagesLabel;
     }
     public void fillConfirmPasswordField(String confirmPassword){
         fillField(currentPasswordField, confirmPassword);
-    }
+
+}
 
 
-/** need to return  ‘Confirm action’ window */
     public ConfirmActionWindow clickSaveButton(){
         saveButton.click();
         return new ConfirmActionWindow(driver);
@@ -47,6 +54,31 @@ private WebElement pagesLabel;
     /** we need to return 'User profile' page */
     public void clickCancelButton(){
         cancelButton.click();
+    }
+
+
+
+    public boolean emailAddressIsFieldCorrectly(String email){
+        return emailField.getText().equals(email);
+    }
+    public boolean currentPasswordFieldIsEmpty(){
+        return currentPasswordField.getText().equals("");
+    }
+    public boolean newPasswordFieldIsEmpty(){
+        return newPasswordField.getText().equals("");
+    }
+    public boolean confirmPasswordFieldIsEmpty(){
+        return confirmPasswordField.getText().equals("");
+    }
+    public boolean saveButtonIsDisable(){
+        return saveButton.isDisplayed();
+    }
+    public boolean saveButtonIsEnabled(){
+        return saveButton.isEnabled();
+    }
+
+    public boolean emailAddressFieldIsDisabled(){
+        return emailField.isSelected();
     }
 
 

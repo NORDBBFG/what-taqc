@@ -24,3 +24,8 @@ public abstract class AbstractPage {
     }
 
 }
+//*[@id="root"]/div/div/div/div/form/div/div[2]
+//*[@id="root"]/div/div/div/div/form/div/div[3]
+
+//*[@id="root"]/div/div/div/div/form/div/div[2]/div[2]/div
+//*[@id="root"]/div/div/div/div/form/div/div[3]/div[2]/div

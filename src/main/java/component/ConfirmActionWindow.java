@@ -1,9 +1,10 @@
-package page.changePassworPage;
+package component;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import page.AbstractPage;
+import page.changePassworPage.ChangePasswordPage;
 
 public class ConfirmActionWindow extends AbstractPage {
 
