@@ -5,13 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class SignInPage extends AbstractPage {
-    @FindBy(name = "email")
+    @FindBy(xpath = "//input[@name='email']")
     private WebElement emailInput;
-    @FindBy(name = "password")
+    @FindBy(xpath = "//input[@name='password']")
     private WebElement passwordInput;
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement signInButton;
-    @FindBy(className = "auth__form-link___3Q9Ou")
+    @FindBy(className = "//a[@class='auth__form-link___3Q9Ou']")
     private WebElement registrationLink;
 
     public SignInPage(WebDriver driver) {
