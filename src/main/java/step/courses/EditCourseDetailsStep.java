@@ -39,6 +39,7 @@ public class EditCourseDetailsStep extends BaseStep {
         //TODO: make sure that it's a valid solution.
     public BaseStep clickOnDeleteCourseBtn(){
         editCourseDetailsPage.clickDeleteCourseBtn();
+        editCourseDetailsPage.clickConfirmDeleteCourseBtn();
         if (editCourseDetailsPage.isCourseDeletionFailed()) return this;
         else return new CoursesStep(editCourseDetailsPage.getDriver());
     }

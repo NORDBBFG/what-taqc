@@ -3,10 +3,9 @@ package page.courses;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import page.UserPage;
-import step.courses.AddCourseStep;
+import page.BasePage;
 
-public class AddCoursePage extends UserPage {
+public class AddCoursePage extends BasePage {
         //TODO: this elements repeat in the EditCourseDetailsPage, can be moved.
     @FindBy(xpath = "//input[@id='name']")
     private WebElement courseNameInput;

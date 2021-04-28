@@ -3,9 +3,9 @@ package page.courses;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import page.UserPage;
+import page.BasePage;
 
-public class EditCourseDetailsPage extends UserPage {
+public class EditCourseDetailsPage extends BasePage {
         //TODO: this elements repeat in the EditCourseDetailsPage, can be moved.
     @FindBy(xpath = "//input[@id='name']")
     private WebElement courseNameInput;
@@ -22,6 +22,8 @@ public class EditCourseDetailsPage extends UserPage {
     private WebElement failedCourseDeletionAlert;
     @FindBy(xpath = "//div[@role='alert' and contains(text(),'Inactive') or contains(text(),'included')]")
     private WebElement failedEditCourseSubmitAlert;
+    @FindBy(xpath = "//button[contains(@class,'btn-danger')]")
+    private WebElement confirmCourseDeleteBtn;
 
     public EditCourseDetailsPage(WebDriver driver) {
         super(driver);
@@ -36,6 +38,9 @@ public class EditCourseDetailsPage extends UserPage {
     }
     public void clickDeleteCourseBtn(){
         deleteCourseBtn.click();
+    }
+    public void clickConfirmDeleteCourseBtn(){
+        confirmCourseDeleteBtn.click();
     }
     public void clickResetEditCourseNameInputBtn(){
         resetEditCourseNameInputBtn.click();

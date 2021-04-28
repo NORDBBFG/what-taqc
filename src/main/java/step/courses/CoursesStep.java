@@ -1,6 +1,7 @@
 package step.courses;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import page.courses.CoursesPage;
 import step.BaseStep;
 
@@ -12,6 +13,26 @@ public class CoursesStep extends BaseStep {
     }
 
         //TODO: make verify methods list for expected conditions.
+
+    public CoursesStep verifyPageHeaderName(String expected){
+        Assert.assertEquals(coursesPage.getPageHeaderText(), expected);
+      return this;
+    }
+
+    public CoursesStep verifyNumberOfCoursesDisplayed(Boolean expected){
+        Assert.assertEquals(coursesPage.isNumberOfCoursesDisplayed(), expected);
+      return this;
+    }
+
+    public CoursesStep verifySearchCourseInListInputDisplayed(Boolean expected){
+        Assert.assertEquals(coursesPage.isSearchCourseInListInputDisplayed(), expected);
+      return this;
+    }
+
+    public CoursesStep verifyCourseName(int courseID, String expected){
+        Assert.assertEquals(coursesPage.getCourseNameText(courseID),expected);
+      return this;
+    }
 
     public AddCourseStep clickAddCourseToListBtn(){
         coursesPage.clickAddCourseToListBtn();

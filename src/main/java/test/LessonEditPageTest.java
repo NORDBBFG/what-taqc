@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import page.SignInPage;
 import step.LessonEditPageStep;
 
-public class LessonEditPageTest extends AbstractTest{
+public class LessonEditPageTest extends BaseTest {
     LessonEditPageStep lessonEditPageStep;
 
     @BeforeMethod

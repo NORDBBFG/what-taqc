@@ -7,9 +7,9 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public abstract class UserPage extends AbstractPage {
+public abstract class BasePage extends AbstractPage {
 
-    private static final String USER_ICON_XPATH ="a[@class='header__header__account-user--icon___1k48U']";
+    private static final String USER_ICON_XPATH ="//a[@class='header__header__account-user--icon___1k48U']";
 
     @FindBy( xpath = "//div[contains(@class,'header__header__logo___2h_2V')]")
     private WebElement logo;
@@ -23,7 +23,7 @@ public abstract class UserPage extends AbstractPage {
     @FindBy( xpath = "//span[@class='sidebar__menu-item___1MMsk']")
     private List<WebElement> sidebarItems;
 
-    public UserPage(WebDriver driver) {
+    public BasePage(WebDriver driver) {
         super(driver);
     }
 
@@ -42,7 +42,7 @@ public abstract class UserPage extends AbstractPage {
     public void clickDropdownItem(String name){
         WebElement resultItem = findDropdownItem(name);
         if(resultItem!=null){
-           resultItem.click();
+            resultItem.click();
         }
     }
 
@@ -62,7 +62,7 @@ public abstract class UserPage extends AbstractPage {
         return null;
     }
 
-    private WebElement findSidebarItem(String name){
+    public WebElement findSidebarItem(String name){
         for (WebElement sidebarItem : sidebarItems) {
             if(sidebarItem.getText().equals(name)) return sidebarItem;
         }
