@@ -14,10 +14,11 @@ import org.openqa.selenium.opera.OperaOptions;
 import java.util.concurrent.TimeUnit;
 
 /**
- * In package resours
+ *
+ * In package resources you can change default options
+ * Just de-comment property in driverConfig.properties and set your own value
  *
  * */
-
 
 public class DriverOption {
 
