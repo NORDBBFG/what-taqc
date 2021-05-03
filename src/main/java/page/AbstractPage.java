@@ -3,6 +3,7 @@ package page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 
 public abstract class AbstractPage {
@@ -11,7 +12,8 @@ public abstract class AbstractPage {
 
     public AbstractPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(this.driver, this);
+      //  PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(this.driver,10),this);
     }
 
     protected void fillField(WebElement element, String inputText) {
@@ -24,8 +26,4 @@ public abstract class AbstractPage {
     }
 
 }
-//*[@id="root"]/div/div/div/div/form/div/div[2]
-//*[@id="root"]/div/div/div/div/form/div/div[3]
 
-//*[@id="root"]/div/div/div/div/form/div/div[2]/div[2]/div
-//*[@id="root"]/div/div/div/div/form/div/div[3]/div[2]/div

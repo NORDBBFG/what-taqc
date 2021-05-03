@@ -1,42 +1,53 @@
 package step;
 
+import component.ConfirmActionWindow;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.AbstractPage;
 import page.changePassworPage.ChangePasswordPage;
 
-public class ChangePasswordPageSteps extends AbstractPage {
-    ChangePasswordPage page = new ChangePasswordPage(driver);
+public class ChangePasswordPageSteps {
+    ChangePasswordPage changePasswordPage;
 
-
-    public boolean VerifiedElementsInitialStateStep(String email){
-        return page.emailAddressIsFieldCorrectly(email)
-                && page.newPasswordFieldIsEmpty()
-                && page.currentPasswordFieldIsEmpty()
-                && page.confirmPasswordFieldIsEmpty()
-                && page.saveButtonIsDisable()
-                && page.emailAddressFieldIsDisabled();
+    public ChangePasswordPageSteps VerifiedElementsInitialStateStep(String email){
+            Assert.assertTrue(
+                    changePasswordPage.emailAddressIsFieldCorrectly(email)
+                    && changePasswordPage.newPasswordFieldIsEmpty()
+                    && changePasswordPage.currentPasswordFieldIsEmpty()
+                    && changePasswordPage.confirmPasswordFieldIsEmpty()
+                    && changePasswordPage.confirmSaveButtonIsDisable()
+                    && changePasswordPage.emailAddressFieldIsDisabled());
+        return this;
     }
 
-public void fillChangePasswordPageStep(String currentPassword, String newPassword, String confirmPassword){
-    page.fillCurrentPasswordField(currentPassword);
-    page.fillNewPasswordField(newPassword);
-        page.fillConfirmPasswordField(confirmPassword);
+public ChangePasswordPageSteps fillChangePasswordPageStep(String currentPassword, String newPassword, String confirmPassword){
+    changePasswordPage.fillCurrentPasswordField(currentPassword);
+    changePasswordPage.fillNewPasswordField(newPassword);
+    changePasswordPage.fillConfirmPasswordField(confirmPassword);
+        return this;
 }
 
-
-public void fillCurrentPasswordFieldStep(String currentPassword){
-        page.fillCurrentPasswordField(currentPassword);
+public ChangePasswordPageSteps fillCurrentPasswordFieldStep(String currentPassword){
+    changePasswordPage.fillCurrentPasswordField(currentPassword);
+    return this;
 }
-    public void fillNewPasswordFieldStep(String newtPassword){
-        page.fillNewPasswordField(newtPassword);
-    }
-    public void fillConfirmPasswordFieldStep(String confirmPassword){
-        page.fillConfirmPasswordField(confirmPassword);
+
+    public ChangePasswordPageSteps fillNewPasswordFieldStep(String newtPassword){
+        changePasswordPage.fillNewPasswordField(newtPassword);
+        return this;
     }
 
+    public ChangePasswordPageSteps fillConfirmPasswordFieldStep(String confirmPassword){
+        changePasswordPage.fillConfirmPasswordField(confirmPassword);
+        return this;
+    }
+
+public ConfirmActionWindowSteps clickSaveButtonStep(WebDriver driver){
+    changePasswordPage.clickSaveButton();
+    return new ConfirmActionWindowSteps(driver);
+}
 
     public ChangePasswordPageSteps(WebDriver driver) {
-        super(driver);
+        changePasswordPage = new ChangePasswordPage(driver);
     }
 }

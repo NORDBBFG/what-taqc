@@ -20,7 +20,6 @@ public class ConfirmActionWindow extends AbstractPage {
     @FindBy(xpath = "//button[@class='close']")
     private WebElement closeButton;
 
-
     public ChangePasswordPage clickCancelButton(){
         cancelButton.click();
         return new ChangePasswordPage(driver);
@@ -30,7 +29,11 @@ public class ConfirmActionWindow extends AbstractPage {
         confirmButton.click();
     }
 
-
+public boolean verifyConfirmActionWindow() throws InterruptedException {
+        Thread.sleep(500);
+        String expect = confirmActionLabel.getText();
+        return expect.equals("Confirm action");
+}
 
 
     public ConfirmActionWindow(WebDriver driver) {

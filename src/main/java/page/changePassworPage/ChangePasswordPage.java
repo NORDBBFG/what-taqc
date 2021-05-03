@@ -1,5 +1,5 @@
 package page.changePassworPage;
-import component.ConfirmActionWindow;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,9 +28,22 @@ private WebElement pagesLabel;
     @FindBy(xpath = "//button[@class='btn button__default___3hOmG button__button___24ZfP change-password__cancel-button___1neIS w-100']")
     private WebElement cancelButton;
 
-/** ERRORS  */
-    @FindBy(xpath = "//button[@type='submit']")
-    private WebElement thisFieldIsRequiredCurrentPassword;
+/** ERRORS
+    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
+    private WebElement FieldIsRequiredMassageCurrentPassword;
+
+    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
+    private WebElement FieldIsRequiredMassageCurrentPassword;
+    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
+    private WebElement FieldIsRequiredMassageCurrentPassword;
+    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
+    private WebElement FieldIsRequiredMassageCurrentPassword;
+
+    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
+    private WebElement FieldIsRequiredMassageCurrentPassword;
+    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
+    private WebElement FieldIsRequiredMassageCurrentPassword; */
+
 
 
 
@@ -39,17 +52,16 @@ private WebElement pagesLabel;
         fillField(currentPasswordField, currentPassword);
     }
     public void fillNewPasswordField(String newPassword){
-        fillField(currentPasswordField, newPassword);
+        fillField(newPasswordField, newPassword);
     }
     public void fillConfirmPasswordField(String confirmPassword){
-        fillField(currentPasswordField, confirmPassword);
+        fillField(confirmPasswordField, confirmPassword);
 
 }
 
 
-    public ConfirmActionWindow clickSaveButton(){
+    public void clickSaveButton(){
         saveButton.click();
-        return new ConfirmActionWindow(driver);
     }
     /** we need to return 'User profile' page */
     public void clickCancelButton(){
@@ -59,7 +71,8 @@ private WebElement pagesLabel;
 
 
     public boolean emailAddressIsFieldCorrectly(String email){
-        return emailField.getText().equals(email);
+        String currentEmail = emailField.getAttribute("value");
+        return currentEmail.equals(email);
     }
     public boolean currentPasswordFieldIsEmpty(){
         return currentPasswordField.getText().equals("");
@@ -70,15 +83,24 @@ private WebElement pagesLabel;
     public boolean confirmPasswordFieldIsEmpty(){
         return confirmPasswordField.getText().equals("");
     }
-    public boolean saveButtonIsDisable(){
+    public boolean confirmSaveButtonIsDisable(){
         return saveButton.isDisplayed();
     }
-    public boolean saveButtonIsEnabled(){
+
+   /* public boolean verifyFieldIsRequiredMassageIsAppeared(){
+        return FieldIsRequiredMassageCurrentPassword.getText().equals("This field is required");
+    }*/
+
+    public void clickOnPagesLabel(){
+        pagesLabel.click();
+    }
+
+    public boolean confirmSaveButtonIsEnabled(){
         return saveButton.isEnabled();
     }
 
     public boolean emailAddressFieldIsDisabled(){
-        return emailField.isSelected();
+        return emailField.isDisplayed();
     }
 
 
