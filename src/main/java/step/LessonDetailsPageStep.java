@@ -54,8 +54,9 @@ public class LessonDetailsPageStep {
         return this;
     }
 
-    public void clickCancelButton(){
+    public ListOfLessonPageStep clickCancelButton(WebDriver driver){
         lessonDetailsPage.clickCancelButton();
+        return new ListOfLessonPageStep(driver);
     }
     public void getToStudentDetailsPage(int number){
         lessonDetailsPage.clickStudent(number);
