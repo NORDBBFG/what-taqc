@@ -12,8 +12,8 @@ public abstract class AbstractPage {
 
     public AbstractPage(WebDriver driver) {
         this.driver = driver;
-      //  PageFactory.initElements(this.driver, this);
-        PageFactory.initElements(new AjaxElementLocatorFactory(this.driver,10),this);
+        PageFactory.initElements(this.driver, this);
+
     }
 
     protected void fillField(WebElement element, String inputText) {
