@@ -74,7 +74,6 @@ public class CoursesPage extends BasePage {
     public void changeCourseListNameSortType(){
         courseListNameSortType.click();
     }
-        //TODO: make this methods other way.
     public void clickCourseTableRow(String id){
         try { listOfCourseTableRows.get(Integer.parseInt(id)).click(); }
         catch (NumberFormatException | IndexOutOfBoundsException e) { System.out.println("Exception"); }
