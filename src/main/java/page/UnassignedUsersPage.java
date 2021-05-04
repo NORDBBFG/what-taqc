@@ -1,85 +1,155 @@
 package page;
 
 
-import lombok.Getter;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
-import component.WebElements.UnassignedUsers;
+import component.WebElements.UnassignedUsersSort;
+import component.WebElements.UnassignedUsersRole;
+
 import java.util.List;
 
-@Getter
+
 public class UnassignedUsersPage extends BasePage {
+
+
+    private static final String EMAIL_XPATH = "//tr/td[4]";
+    private static final String ADD_ROLE_XPATH = "//button[text()='Add role']";
+    private static final String CELL_XPATH = "//td";
+
+
     @FindBy(xpath = "//input[contains(@class,'searchInput')]")
-    private WebElement person;
+    private WebElement inputPerson;
     @FindBy(xpath = "//tr/th/span")
     private List<WebElement> sortUnassignedUsers;
-    @FindBy(xpath = "//button[text()='Add role']")
-    private WebElement addRole;
-    @FindBy(xpath = "//select")
-    private Select select;
-//        @FindBy(xpath = "//th/span[text()='#']")
-//    private WebElement sortSymbol;
-//        @FindBy(xpath = "//th/span[text()='Name']")
-//    private WebElement sortName;
-//        @FindBy(xpath = "//th/span[text()='Surname']")
-//    private WebElement sortSurname;
-//        @FindBy(xpath = "//th/span[text()='Email']")
-//    private WebElement sortEmail;
-//    @FindBy(xpath = "//td[@class='xh-highlight']")
-//    private List<WebElement> info;
 
 
-    //    public String getPerson(){
-//        return person.getAttribute("value");
-//    }
+    @FindBy(xpath = "//tbody//tr")
+    private List<WebElement> tableContent;
 
-
-
-
-
-
-    public WebElement ChoseSort(String unassignedUsers) {
-
-        switch (unassignedUsers) {
-
-            case UnassignedUsers.SYMBOL:
-                return getSortUnassignedUsers().get(Integer.parseInt(UnassignedUsers.SYMBOL));
-//                        UnassignedPage.getSort().get(Integer.parseInt(String.valueOf(SortButton.SYMBOL))).click();
-            case UnassignedUsers.NAME:
-                return getSortUnassignedUsers().get(Integer.parseInt(UnassignedUsers.NAME));
-            case UnassignedUsers.SURNAME:
-                return getSortUnassignedUsers().get(Integer.parseInt(UnassignedUsers.SURNAME));
-            case UnassignedUsers.EMAIL:
-                return getSortUnassignedUsers().get(Integer.parseInt(UnassignedUsers.EMAIL));
-        }
-
-
-        return null;
-    }
-
-    public WebElement ChoseRole(String unassignedUsers) {
-
-        switch (unassignedUsers) {
-
-            case UnassignedUsers.CHOOSE:
-                return getSortUnassignedUsers().get(Integer.parseInt(UnassignedUsers.CHOOSE));
-//                        UnassignedPage.getSort().get(Integer.parseInt(String.valueOf(SortButton.SYMBOL))).click();
-            case UnassignedUsers.STUDENT:
-                return getSortUnassignedUsers().get(Integer.parseInt(UnassignedUsers.STUDENT));
-            case UnassignedUsers.MENTOR:
-                return getSortUnassignedUsers().get(Integer.parseInt(UnassignedUsers.MENTOR));
-            case UnassignedUsers.SECRETARY  :
-                return getSortUnassignedUsers().get(Integer.parseInt(UnassignedUsers.SECRETARY));
-        }
-
-
-        return null;
-    }
-
+    WebDriver driver;
 
     public UnassignedUsersPage(WebDriver driver) {
         super(driver);
+        this.driver = driver;
+
+    }
+
+
+    public String getIdUser(String email) {
+        List<WebElement> row = getElementsOfMass(email);
+        if (!row.isEmpty())
+            return row.get(0).getText();
+
+        return null;
+    }
+
+    public String getUnassignedUser(int number) {
+        List<WebElement> row = getElementsOfMass(number);
+        if (!row.isEmpty())
+            return row.get(1).getText();
+
+        return null;
+    }
+
+    public String getUnassignedUser(String email) {
+        List<WebElement> row = getElementsOfMass(email);
+        if (!row.isEmpty())
+            return row.get(1).getText();
+
+        return null;
+    }
+
+
+    public String getSurnameUser(int number) {
+
+
+        List<WebElement> row = getElementsOfMass(number);
+        if (!row.isEmpty())
+            return row.get(2).getText();
+
+        return null;
+    }
+
+    public String getSurnameUser(String email) {
+        List<WebElement> row = getElementsOfMass(email);
+        if (!row.isEmpty())
+            return row.get(2).getText();
+
+        return null;
+    }
+
+
+    public String getEmailUser(int number) {
+        List<WebElement> row = getElementsOfMass(number);
+        if (!row.isEmpty())
+            return row.get(3).getText();
+
+        return null;
+    }
+
+
+    public void addRoleButtonClick(int number) {
+        List<WebElement> row = getElementsOfMass(number);
+        if (!row.isEmpty())
+            row.get(4).findElement(By.xpath(ADD_ROLE_XPATH)).click();
+
+    }
+
+
+    public void ChoseSort(String unassignedUsers) {
+
+        switch (unassignedUsers) {
+            case UnassignedUsersSort.SYMBOL:
+                sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SYMBOL)).click();
+                break;
+//                        UnassignedPage.getSort().get(Integer.parseInt(String.valueOf(SortButton.SYMBOL))).click();
+            case UnassignedUsersSort.NAME:
+                sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.NAME)).click();
+                break;
+            case UnassignedUsersSort.SURNAME:
+                sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SURNAME)).click();
+                break;
+            case UnassignedUsersSort.EMAIL:
+                sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.EMAIL)).click();
+                break;
+        }
+    }
+
+    public void ChoseUserRole(int number, String unassignedUsers) {
+        List<WebElement> row = getElementsOfMass(number);
+        if (!row.isEmpty())
+            row.get(4).findElement(By.xpath("//select")).click();
+        switch (unassignedUsers) {
+            case UnassignedUsersRole.CHOOSE:
+                row.get(4).findElement(By.xpath("//select//option[@value='0']")).click();
+                break;
+            case UnassignedUsersRole.STUDENT:
+                row.get(4).findElement(By.xpath("//select//option[@value='1']")).click();
+                break;
+            case UnassignedUsersRole.MENTOR:
+                row.get(4).findElement(By.xpath("//select//option[@value='2']")).click();
+                break;
+            case UnassignedUsersRole.SECRETARY:
+                row.get(4).findElement(By.xpath("//select//option[@value='3']")).click();
+                break;
+        }
+    }
+
+    private List<WebElement> getElementsOfMass(int numberOfRow) {
+        if (!tableContent.isEmpty())
+            return tableContent.get(numberOfRow).findElements(By.xpath(CELL_XPATH));
+        return null;
+    }
+
+    private List<WebElement> getElementsOfMass(String emailOfRole) {
+        for (WebElement webElement : tableContent) {
+            if (webElement.findElement(By.xpath(EMAIL_XPATH)).getText().matches(emailOfRole)) {
+                return webElement.findElements(By.xpath(CELL_XPATH));
+            }
+        }
+
+        return null;
     }
 }

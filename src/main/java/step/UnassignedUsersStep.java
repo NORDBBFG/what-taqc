@@ -1,10 +1,8 @@
 package step;
 
 
-import component.WebElements.UnassignedUsers;
-//import component.WebElements.UnassignedUsers.RoleSelect;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import page.UnassignedUsersPage;
 
 public class UnassignedUsersStep {
@@ -13,23 +11,64 @@ public class UnassignedUsersStep {
 
     public UnassignedUsersStep(WebDriver driver) {
         UnassignedPage = new UnassignedUsersPage(driver);
+        UnassignedPage.clickSidebarItem("Assigment");
+
     }
 
-    public UnassignedUsersStep AddRoleClick() {
-        UnassignedPage.getAddRole().click();
+
+    public UnassignedUsersStep AddRoleButtonClick(int number) {
+        UnassignedPage.addRoleButtonClick(number);
         return this;
     }
 
-    public void ChoseUserSort(String unassignedUsers) {
+    public UnassignedUsersStep ChoseUserSort( String unassignedUsers) {
 
-        WebElement addSort = UnassignedPage.ChoseSort(unassignedUsers);
-        addSort.click();
+        UnassignedPage.ChoseSort( unassignedUsers);
+        return this;
+    }
+    public UnassignedUsersStep ChoseUserChoseRole( int number, String unassignedUsers) {
+
+        UnassignedPage.ChoseUserRole( number, unassignedUsers);
+        return this;
+    }
+    public UnassignedUsersStep getIdUser(String email) {
+
+        System.out.println(UnassignedPage.getIdUser(email));
+        return this;
 
     }
-    public void ChoseUserRole(String roleSelect) {
+    public UnassignedUsersStep getUnassignedUser(int number) {
 
-        WebElement addRole = UnassignedPage.ChoseSort(roleSelect);
-        addRole.click();
+        System.out.println(UnassignedPage.getUnassignedUser(number));
+        return this;
     }
+
+    public UnassignedUsersStep getUnassignedUser(String email) {
+
+        System.out.println(UnassignedPage.getUnassignedUser(email));
+        return this;
+    }
+
+    public UnassignedUsersStep getSurnameUser(int number) {
+
+        System.out.println(UnassignedPage.getSurnameUser(number));
+        return this;
+    }
+
+    public UnassignedUsersStep getSurnameUser(String email) {
+
+        System.out.println(UnassignedPage.getSurnameUser(email));
+        return this;
+    }
+
+    public UnassignedUsersStep getEmailUser(int number) {
+
+        System.out.println(UnassignedPage.getEmailUser(number));
+        return this;
+    }
+
+
+
+
 
 }
