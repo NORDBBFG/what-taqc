@@ -1,6 +1,15 @@
 package page.common;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+
 public abstract class AbstractPage {
 
-    // TODO driver dependency
+    private WebDriver driver;
+
+    public AbstractPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
+    }
 }
