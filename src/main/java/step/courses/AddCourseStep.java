@@ -17,7 +17,6 @@ public class AddCourseStep {
         Assert.assertEquals(addCoursePage.isSubmitBtnEnabled(), expected);
       return this;
     }
-
     public AddCourseStep fillCourseNameInput(String courseName){
         addCoursePage.fillCourseNameInput(courseName);
       return this;
