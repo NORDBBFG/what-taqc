@@ -98,7 +98,7 @@ public class UnassignedUsersPage extends BasePage {
     }
 
 
-    public void ChoseSort(String unassignedUsers) {
+    public void choseSort(String unassignedUsers) {
 
         switch (unassignedUsers) {
             case UnassignedUsersSort.SYMBOL:
@@ -117,7 +117,7 @@ public class UnassignedUsersPage extends BasePage {
         }
     }
 
-    public void ChoseUserRole(int number, String unassignedUsers) {
+    public void choseUserRole(int number, String unassignedUsers) {
         List<WebElement> row = getElementsOfMass(number);
         if (!row.isEmpty())
             row.get(4).findElement(By.xpath("//select")).click();

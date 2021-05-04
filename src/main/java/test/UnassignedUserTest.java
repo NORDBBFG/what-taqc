@@ -24,12 +24,14 @@ public class UnassignedUserTest extends AbstractTest {
     }
     @Test
     public void ChoseUserRole(){
-        String i = "abbadabba@gmail.com";
+        String mailOfUser = "abbadabba@gmail.com";
+        String expectedSurnameUser = "Dabba";
 
-        coursesStep.getSurnameUser(1)
-                   .getSurnameUser(i)
-                   .ChoseUserChoseRole(1, UnassignedUsersRole.STUDENT )
-                   .ChoseUserSort(WebElements.UnassignedUsersSort.SYMBOL);
+
+        coursesStep.verifySurnameUser(1, expectedSurnameUser)
+                   .verifySurnameUser(mailOfUser, expectedSurnameUser)
+                   .choseUserChoseRole(1, UnassignedUsersRole.STUDENT )
+                   .choseUserSort(WebElements.UnassignedUsersSort.SYMBOL);
 
 
     }
