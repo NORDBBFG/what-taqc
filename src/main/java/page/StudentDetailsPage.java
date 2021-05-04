@@ -4,34 +4,38 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class StudentDetailsPage extends AbstractPage{
+public class StudentDetailsPage extends BasePage {
 
-    @FindBy(xpath = "//div[@class='nav nav-tabs']/a[contains(text(), 'Student details')]")
-    private WebElement label;
+    @FindBy(xpath = "//a[contains(@class, 'tab__active')]")
+    private WebElement labelPage;
 
     @FindBy(xpath = "//div[@class='col-12 col-md-6']")
     private WebElement firstName;
 
-    @FindBy(xpath = "(//div[@class='col-12 col-md-6 '])[1]")
+    @FindBy(xpath = "//div[@class='col-12 col-md-6 ']/span[not(contains(text(), '@'))]")
     private WebElement lastName;
 
-    @FindBy(xpath = "(//div[@class='col-12 col-md-6 '])[2]")
+    @FindBy(xpath = "//span[contains(text(), '@')]")
     private WebElement email;
 
-    @FindBy(xpath = "(//div[@class='col-12 col-md-6 d-flex flex-wrap lead'])[1]")
-    private List<WebElement> groups;
+    @FindBy(xpath = "//span[contains(text(), '@')]")
+    private WebElement iconOfGroup;
 
-    @FindBy(xpath = "(//div[@class='col-12 col-md-6 d-flex flex-wrap lead'])[2]")
-    private List<WebElement> lessons;
+    @FindBy(xpath = "//a[contains(@href, '/groups/')]")
+    private List<WebElement> listOfGroups;
+
+    @FindBy(xpath = "//a[contains(@href, '/lessons/')]")
+    private List<WebElement> listOfLessons;
 
     public StudentDetailsPage(WebDriver driver) {
         super(driver);
     }
 
     public String getLabel(){
-        return label.getText();
+        return labelPage.getText();
     }
 
     public String getFirstName(){
@@ -46,36 +50,37 @@ public class StudentDetailsPage extends AbstractPage{
         return email.getText();
     }
 
-    public int getCountGroup(){
-        return groups.size();
+    public List<WebElement> getListOfGroups(){
+        return listOfGroups;
     }
 
-    public int getCountLessons(){
-        return lessons.size();
+    public List<String> getListLabelsOfGroups(){
+        List<String> listLabelsOfGroups = new ArrayList<>();
+
+        for (WebElement element: listOfGroups) {
+            listLabelsOfGroups.add(element.getText());
+        }
+        return listLabelsOfGroups;
     }
 
-    // Refactor
-    public boolean labelIsExists(){
-        return label.getText().contains("Student details");
+    public int getQuantityGroup(){
+        return listOfGroups.size();
     }
 
-    public boolean firstNameIsExists(String first_name){
-        return firstName.getText().contains(first_name);
+    public List<WebElement> getListOfLessons(){
+        return listOfLessons;
     }
 
-    public boolean lastNameIsExists(String last_name){
-        return lastName.getText().contains(last_name);
+    public List<String> getListLabelsOfLessons(){
+        List<String> listLabelsOfLessons = new ArrayList<>();
+
+        for (WebElement element: listOfLessons) {
+            listLabelsOfLessons.add(element.getText());
+        }
+        return listLabelsOfLessons;
     }
 
-    public boolean emailIsExists(String email_address){
-        return email.getText().contains(email_address);
-    }
-
-    public boolean listGroupsIsEmpty(){
-        return groups.isEmpty();
-    }
-
-    public boolean listLessonsIsEmpty(){
-        return lessons.isEmpty();
+    public int getQuantityLessons(){
+        return listOfLessons.size();
     }
 }
