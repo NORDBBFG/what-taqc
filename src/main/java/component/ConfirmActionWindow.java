@@ -8,6 +8,9 @@ import page.changePassworPage.ChangePasswordPage;
 
 public class ConfirmActionWindow extends AbstractPage {
 
+    public ConfirmActionWindow(WebDriver driver) {
+        super(driver);
+    }
 
 @FindBy(xpath = "//h4")
     private WebElement confirmActionLabel;
@@ -34,9 +37,4 @@ public boolean verifyConfirmActionWindow() throws InterruptedException {
         String expect = confirmActionLabel.getText();
         return expect.equals("Confirm action");
 }
-
-
-    public ConfirmActionWindow(WebDriver driver) {
-        super(driver);
-    }
 }

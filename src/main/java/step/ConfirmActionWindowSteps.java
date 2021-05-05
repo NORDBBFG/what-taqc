@@ -7,6 +7,10 @@ import page.AbstractPage;
 import page.changePassworPage.ChangePasswordPage;
 
 public class ConfirmActionWindowSteps {
+
+    public ConfirmActionWindowSteps(WebDriver driver) {
+        confirmActionWindow = new ConfirmActionWindow(driver);
+    }
     ConfirmActionWindow confirmActionWindow;
 
     public ChangePasswordPageSteps clickConfirmButton(WebDriver driver){
@@ -23,7 +27,5 @@ public class ConfirmActionWindowSteps {
         return this;
     }
 
-    public ConfirmActionWindowSteps(WebDriver driver) {
-        confirmActionWindow = new ConfirmActionWindow(driver);
-    }
+
 }

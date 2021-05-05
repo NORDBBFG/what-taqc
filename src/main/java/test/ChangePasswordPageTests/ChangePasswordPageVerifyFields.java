@@ -31,6 +31,6 @@ ChangePasswordPageSteps changePasswordPageSteps;
         String newPassword = "123456789qQ";
 
         changePasswordPageSteps
-                .VerifiedElementsInitialStateStep(mail);
+                .verifiedElementsInitialStateStep(mail);
     }
 }

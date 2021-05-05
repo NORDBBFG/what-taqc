@@ -7,9 +7,13 @@ import page.AbstractPage;
 import page.changePassworPage.ChangePasswordPage;
 
 public class ChangePasswordPageSteps {
+
+    public ChangePasswordPageSteps(WebDriver driver) {
+        changePasswordPage = new ChangePasswordPage(driver);
+    }
     ChangePasswordPage changePasswordPage;
 
-    public ChangePasswordPageSteps VerifiedElementsInitialStateStep(String email){
+    public ChangePasswordPageSteps verifiedElementsInitialStateStep(String email){
             Assert.assertTrue(
                     changePasswordPage.emailAddressIsFieldCorrectly(email)
                     && changePasswordPage.newPasswordFieldIsEmpty()
@@ -32,8 +36,8 @@ public ChangePasswordPageSteps fillCurrentPasswordFieldStep(String currentPasswo
     return this;
 }
 
-    public ChangePasswordPageSteps fillNewPasswordFieldStep(String newtPassword){
-        changePasswordPage.fillNewPasswordField(newtPassword);
+    public ChangePasswordPageSteps fillNewPasswordFieldStep(String newPassword){
+        changePasswordPage.fillNewPasswordField(newPassword);
         return this;
     }
 
@@ -46,8 +50,8 @@ public ConfirmActionWindowSteps clickSaveButtonStep(WebDriver driver){
     changePasswordPage.clickSaveButton();
     return new ConfirmActionWindowSteps(driver);
 }
-
-    public ChangePasswordPageSteps(WebDriver driver) {
-        changePasswordPage = new ChangePasswordPage(driver);
+//TODO add return to method
+    public void clickCancelButtonStep(WebDriver driver){
+        changePasswordPage.clickCancelButton();
     }
 }

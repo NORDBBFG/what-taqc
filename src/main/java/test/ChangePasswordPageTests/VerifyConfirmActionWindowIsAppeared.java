@@ -29,7 +29,7 @@ public class VerifyConfirmActionWindowIsAppeared extends AbstractTest {
         String newPassword = "123456789qQ";
 
         changePasswordPageSteps
-                .VerifiedElementsInitialStateStep(mail)
+                .verifiedElementsInitialStateStep(mail)
                 .fillCurrentPasswordFieldStep(currentPassword)
                 .fillNewPasswordFieldStep(newPassword)
                 .fillConfirmPasswordFieldStep(newPassword)
