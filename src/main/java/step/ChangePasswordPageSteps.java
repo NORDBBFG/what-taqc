@@ -50,6 +50,19 @@ public ConfirmActionWindowSteps clickSaveButtonStep(WebDriver driver){
     changePasswordPage.clickSaveButton();
     return new ConfirmActionWindowSteps(driver);
 }
+
+public ChangePasswordPageSteps clickOnCurrentPasswordField(){
+        changePasswordPage.clickOnCurrentPasswordField();
+        return this;
+}
+
+public ChangePasswordPageSteps verifyCurrentPasswordFieldErrorMessage(String errorString, boolean expected) {
+    changePasswordPage.clickOnCurrentPasswordField();
+    changePasswordPage.clickOnPagesLabel();
+        boolean actual = changePasswordPage.verifyCurrentPasswordErrorField(errorString);
+        Assert.assertEquals(actual, expected, "Error message ["+errorString+"] did not found.");
+        return this;
+}
 //TODO add return to method
     public void clickCancelButtonStep(WebDriver driver){
         changePasswordPage.clickCancelButton();

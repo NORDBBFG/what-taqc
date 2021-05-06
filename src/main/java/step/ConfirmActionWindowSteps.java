@@ -23,7 +23,7 @@ public class ConfirmActionWindowSteps {
     }
     public ConfirmActionWindowSteps verifyConfirmActionWindow(boolean expected) throws InterruptedException {
         boolean result = confirmActionWindow.verifyConfirmActionWindow();
-        Assert.assertEquals(result,expected , "Do not equals expected: "+expected+" Result: "+ result);
+        Assert.assertEquals(result, expected, "Do not equals expected: "+expected+" Result: "+ result);
         return this;
     }
 

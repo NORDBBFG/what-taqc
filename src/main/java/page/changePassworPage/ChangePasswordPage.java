@@ -30,21 +30,12 @@ private WebElement pagesLabel;
     @FindBy(xpath = "//button[contains(@Class, 'cancel-button')]")
     private WebElement cancelButton;
 
-/** ERRORS
-    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
-    private WebElement FieldIsRequiredMassageCurrentPassword;
-
-    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
-    private WebElement FieldIsRequiredMassageCurrentPassword;
-    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
-    private WebElement FieldIsRequiredMassageCurrentPassword;
-    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
-    private WebElement FieldIsRequiredMassageCurrentPassword;
-
-    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
-    private WebElement FieldIsRequiredMassageCurrentPassword;
-    @FindBy(xpath = "//div[@class='col-md-8 px-0']//input[@name='currentPassword']//div[@class='text-danger mt-3']")
-    private WebElement FieldIsRequiredMassageCurrentPassword; */
+    @FindBy(xpath = "//input[@name='currentPassword']//following-sibling::div")
+    private WebElement currentPasswordErrorField;
+    @FindBy(xpath = "//input[@name='newPassword']//following-sibling::div")
+    private WebElement newPasswordErrorField;
+    @FindBy(xpath = "//input[@name='confirmNewPassword']//following-sibling::div")
+    private WebElement confirmPasswordErrorField;
 
     public void fillCurrentPasswordField(String currentPassword){
         fillField(currentPasswordField, currentPassword);
@@ -81,12 +72,19 @@ private WebElement pagesLabel;
         return saveButton.isDisplayed();
     }
 
-   /* public boolean verifyFieldIsRequiredMassageIsAppeared(){
-        return FieldIsRequiredMassageCurrentPassword.getText().equals("This field is required");
-    }*/
+    public boolean verifyCurrentPasswordErrorField(String message){
+        return currentPasswordErrorField.getText().equals(message);
+    }
+
+    public String getCurrentPasswordErrorMessage(String message){
+        return currentPasswordField.getText();
+    }
 
     public void clickOnPagesLabel(){
         pagesLabel.click();
+    }
+    public void clickOnCurrentPasswordField(){
+        currentPasswordField.click();
     }
 
     public boolean confirmSaveButtonIsEnabled(){
