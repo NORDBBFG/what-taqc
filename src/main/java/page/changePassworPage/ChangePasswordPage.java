@@ -76,6 +76,14 @@ private WebElement pagesLabel;
         return currentPasswordErrorField.getText().equals(message);
     }
 
+    public boolean verifyNewPasswordErrorField(String message){
+        return newPasswordField.getText().equals(message);
+    }
+
+    public boolean verifyConfirmPasswordErrorField(String message){
+        return confirmPasswordField.getText().equals(message);
+    }
+
     public String getCurrentPasswordErrorMessage(String message){
         return currentPasswordField.getText();
     }
