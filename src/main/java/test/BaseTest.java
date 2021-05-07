@@ -3,12 +3,12 @@ package test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+public abstract class AbstractTest {
     protected WebDriver driver;
 
     @BeforeSuite
@@ -19,7 +19,7 @@ public class BaseTest {
         driver.get("http://localhost:8080");
     }
 
-    @AfterSuite
+    @AfterMethod
     public void tearDown() {
         driver.quit();
     }

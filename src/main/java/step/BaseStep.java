@@ -1,4 +1,9 @@
 package step;
 
-public class BaseStep {
+public abstract class BaseStep {
+
+
+
+
+
 }
