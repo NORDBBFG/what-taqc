@@ -91,11 +91,13 @@ public class LessonEditPageStep {
         return this;
     }
 
-    public void clickCancelButton(){
+    public ListOfLessonPageStep clickCancelButton(WebDriver driver){
         lessonEditPage.clickCancelButton();
+        return new ListOfLessonPageStep(driver);
     }
-    public void clickSaveButton(){
+    public ListOfLessonPageStep clickSaveButton(WebDriver driver){
         lessonEditPage.clickSaveButton();
+        return new ListOfLessonPageStep(driver);
     }
     public void getToStudentDetailsPage(int number){
         lessonEditPage.clickStudent(number);
