@@ -46,22 +46,10 @@ public class LessonDetailsPageStep {
         Assert.assertEquals(lessonDetailsPage.getFullStudentName(studentId),expected);
         return this;
     }
-
-    public LessonDetailsPageStep verifyMark(String studentName, String expected){
-        Assert.assertEquals(lessonDetailsPage.getMark(studentName),expected);
-        return this;
-    }
-
     public LessonDetailsPageStep verifyMark(int studentId, String expected){
         Assert.assertEquals(lessonDetailsPage.getMark(studentId),expected);
         return this;
     }
-
-    public LessonDetailsPageStep verifyPresence(String studentName, boolean expected){
-        Assert.assertEquals(lessonDetailsPage.getPresence(studentName),expected);
-        return this;
-    }
-
     public LessonDetailsPageStep verifyPresence(int studentId, boolean expected){
         Assert.assertEquals(lessonDetailsPage.getPresence(studentId),expected);
         return this;
@@ -72,8 +60,9 @@ public class LessonDetailsPageStep {
         return this;
     }
 
-    public void clickCancelButton(){
+    public ListOfLessonPageStep clickCancelButton(WebDriver driver){
         lessonDetailsPage.clickCancelButton();
+        return new ListOfLessonPageStep(driver);
     }
 
     public void getToStudentDetailsPage(int number){

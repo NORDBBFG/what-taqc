@@ -40,7 +40,7 @@ public class LessonDetailsPageTest extends BaseTest {
                 .verifyMentorName(mentorName)
                 .verifyDate(lessonDate)
                 .verifyTime(lessonTime)
-                .clickCancelButton();
+                .clickCancelButton(driver);
     }
 
     @Test

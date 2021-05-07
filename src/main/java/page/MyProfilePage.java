@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import test.Constants;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,9 +13,7 @@ public class MyProfilePage extends BasePage {
 
     private final static String FIELD_NAME = "div[@class='col-sm-4 font-weight-bold pb-1']";
     private final static String ELEMENT_OF_FIELD = "div[@class='col-sm-8']";
-    private final static String FIRST_NAME = "First Name:";
-    private final static String LAST_NAME = "Last Name:";
-    private final static String EMAIL_ADDRESS = "Email address:";
+
     private HashMap<String, WebElement> rowMap;
 
     @FindBy(xpath = "//h3[@class='pt-3']")
@@ -42,15 +41,15 @@ public class MyProfilePage extends BasePage {
     }
 
     public String getFirstName() {
-        return getContentOfRow(FIRST_NAME);
+        return getContentOfRow(Constants.DetailsAboutUser.FIRST_NAME);
     }
 
     public String getLastName() {
-        return getContentOfRow(LAST_NAME);
+        return getContentOfRow(Constants.DetailsAboutUser.LAST_NAME);
     }
 
     public String getEmailAddress() {
-        return getContentOfRow(EMAIL_ADDRESS);
+        return getContentOfRow(Constants.DetailsAboutUser.EMAIL_ADDRESS);
     }
 
     private void getRows() {
