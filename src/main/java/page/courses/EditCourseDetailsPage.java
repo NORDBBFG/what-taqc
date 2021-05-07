@@ -7,7 +7,7 @@ import page.BasePage;
 
 public class EditCourseDetailsPage extends BasePage {
         //TODO: this elements repeat in the EditCourseDetailsPage, can be moved.
-    @FindBy(xpath = "//input[@id='name']")
+    @FindBy(xpath = "//input")
     private WebElement courseNameInput;
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitEditedCourseNameBtn;
@@ -24,6 +24,8 @@ public class EditCourseDetailsPage extends BasePage {
     private WebElement failedEditCourseSubmitAlert;
     @FindBy(xpath = "//button[contains(@class,'btn-danger')]")
     private WebElement confirmCourseDeleteBtn;
+    @FindBy(xpath = "//h3")
+    private WebElement pageHeader;
 
     public EditCourseDetailsPage(WebDriver driver) {
         super(driver);
@@ -34,7 +36,11 @@ public class EditCourseDetailsPage extends BasePage {
     }
     public void fillEditCourseNameInput(String courseName){
         courseNameInput.clear();
+        // Problem is here.
         courseNameInput.sendKeys(courseName);
+    }
+    public void clearEditCourseNameInput(){
+        courseNameInput.clear();
     }
     public void clickDeleteCourseBtn(){
         deleteCourseBtn.click();
@@ -62,5 +68,12 @@ public class EditCourseDetailsPage extends BasePage {
     }
     public boolean isDeleteCourseBtnEnabled(){
         return deleteCourseBtn.isEnabled();
+    }
+    public String getPageHeaderNameText(){
+        return pageHeader.getText();
+    }
+    public String getEditCourseInputValue() throws InterruptedException{
+        Thread.sleep(1000);
+        return courseNameInput.getAttribute("value");
     }
 }

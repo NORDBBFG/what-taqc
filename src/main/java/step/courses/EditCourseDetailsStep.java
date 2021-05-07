@@ -1,6 +1,7 @@
 package step.courses;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import page.courses.EditCourseDetailsPage;
 import step.BaseStep;
@@ -13,6 +14,15 @@ public class EditCourseDetailsStep extends BaseStep {
     }
 
         //TODO: make verify methods list for expected conditions.
+
+    public EditCourseDetailsStep verifyEditCourseNameInput(String expected) throws InterruptedException{
+        Assert.assertEquals(editCourseDetailsPage.getEditCourseInputValue(), expected);
+      return this;
+    }
+    public EditCourseDetailsStep verifyPageHeaderName(String expected){
+        Assert.assertEquals(editCourseDetailsPage.getPageHeaderNameText(), expected);
+      return this;
+    }
 
     public EditCourseDetailsStep verifySubmitBtnEnabled(boolean expected){
         Assert.assertEquals(editCourseDetailsPage.isSubmitBtnEnabled(), expected);
@@ -33,6 +43,10 @@ public class EditCourseDetailsStep extends BaseStep {
     }
     public EditCourseDetailsStep fillEditCourseNameInput(String courseName){
         editCourseDetailsPage.fillEditCourseNameInput(courseName);
+      return this;
+    }
+    public EditCourseDetailsStep clearEditCourseNameInput(){
+        editCourseDetailsPage.clearEditCourseNameInput();
       return this;
     }
 

@@ -27,7 +27,7 @@ public class CoursesStep extends BaseStep {
       return this;
     }
     public CoursesStep verifyCourseName(int courseID, String expected){
-        Assert.assertEquals(coursesPage.getCourseNameText(courseID),expected);
+        Assert.assertEquals(coursesPage.getCourseNameText(courseID), expected);
       return this;
     }
 
