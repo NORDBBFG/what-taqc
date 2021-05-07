@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeSuite;
 import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
+
     protected WebDriver driver;
 
     @BeforeSuite

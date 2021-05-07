@@ -7,50 +7,26 @@ import org.openqa.selenium.support.FindBy;
 
 public class RegistrationPage extends Page {
 
-    private static final String REGISTRATION_LINK ="//a[@href='/registration']";
     private static final String SIGNUP_BUTTON ="//button[@type='submit']";
-    @FindBy(xpath = "//h3[contains(text(),'Sign in to WHAT')]")
+    @FindBy(xpath = "//h3")
     private WebElement pageName;
-    @FindBy(xpath = REGISTRATION_LINK)
-    private WebElement registrationLink;
     @FindBy(xpath = "//input[@id='firstName']")
     private WebElement firstNameInput;
-    @FindBy(name = "lastName")
+    @FindBy(xpath = "//input[@id='lastName']")
     private WebElement lastNameInput;
-    @FindBy(name = "email")
+    @FindBy(xpath = "//input[@id='email']")
     private WebElement emailInput;
-    @FindBy(name = "password")
+    @FindBy(xpath = "//input[@id='password']")
     private WebElement passwordInput;
-    @FindBy(name = "confirmPassword")
+    @FindBy(xpath = "//input[@id='confirm-password']")
     private WebElement confirmPasswordInput;
-
-    @FindBy (xpath = SIGNUP_BUTTON )
+    @FindBy (xpath = SIGNUP_BUTTON)
     private WebElement signUpButton;
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
     }
 
-//    private WebElement findRegistrationItem(String name){
-//
-//        if(registrationLink.findElement(By.xpath(REGISTRATION_LINK)).getText().equalsIgnoreCase(name)) {
-//            return registrationLink;
-//        }
-//        return null;
-//    }
-
-    public void clickRegistrationLink() {
-        registrationLink.click();
-    }
-
-//    public void clickRegistrationItem(String name){
-//        WebElement resultItem = findRegistrationItem(name);
-//        if(resultItem!=null){
-//            resultItem.click();
-//        }
-//    }
-
-    public boolean isRegistrationLinkEnable() { return true;}
     public String getPageName() {
         return pageName.getText();
     }
@@ -77,14 +53,10 @@ public class RegistrationPage extends Page {
         signUpButton.click();
     }
 
-    private void fillField(WebElement element, String inputText) {
-        element.clear();
-        element.sendKeys(inputText);
-    }
-
     private String getField(WebElement element) {
         return element.getAttribute("value");
     }
+
     public String getFirstName() { return getField(firstNameInput); }
 
     public String getLastName() {

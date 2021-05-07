@@ -16,8 +16,8 @@ public class RegistrationPageTest extends BaseTest {
     @BeforeMethod
     public void prepare() {
         signInPage = new SignInPage(driver);
+        signInPage.clickRegistrationLink();
         registrationPageStep = new RegistrationPageStep(driver);
-//        registrationPageStep.getRegistrationPage();
     }
 
     @Test
@@ -41,15 +41,5 @@ public class RegistrationPageTest extends BaseTest {
         registrationPageStep
                 .verifySignUpButtonEnable()
                 .clickSignUpButton();
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        try {
-            Thread.sleep(5000);
-            driver.quit();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }

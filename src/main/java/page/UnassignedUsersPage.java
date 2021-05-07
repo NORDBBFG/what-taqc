@@ -6,36 +6,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import component.WebElements.UnassignedUsersSort;
-import component.WebElements.UnassignedUsersRole;
-
+import test.Constants;
 import java.util.List;
 
-
 public class UnassignedUsersPage extends BasePage {
-
 
     private static final String EMAIL_XPATH = "//tr/td[4]";
     private static final String ADD_ROLE_XPATH = "//button[text()='Add role']";
     private static final String CELL_XPATH = "//td";
 
-
     @FindBy(xpath = "//input[contains(@class,'searchInput')]")
     private WebElement inputPerson;
     @FindBy(xpath = "//tr/th/span")
     private List<WebElement> sortUnassignedUsers;
-
-
     @FindBy(xpath = "//tbody//tr")
     private List<WebElement> tableContent;
 
-    WebDriver driver;
-
     public UnassignedUsersPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
-
     }
-
 
     public String getIdUser(String email) {
         List<WebElement> row = getElementsOfMass(email);
@@ -61,9 +50,7 @@ public class UnassignedUsersPage extends BasePage {
         return null;
     }
 
-
     public String getSurnameUser(int number) {
-
 
         List<WebElement> row = getElementsOfMass(number);
         if (!row.isEmpty())
@@ -80,7 +67,6 @@ public class UnassignedUsersPage extends BasePage {
         return null;
     }
 
-
     public String getEmailUser(int number) {
         List<WebElement> row = getElementsOfMass(number);
         if (!row.isEmpty())
@@ -89,14 +75,11 @@ public class UnassignedUsersPage extends BasePage {
         return null;
     }
 
-
     public void addRoleButtonClick(int number) {
         List<WebElement> row = getElementsOfMass(number);
         if (!row.isEmpty())
             row.get(4).findElement(By.xpath(ADD_ROLE_XPATH)).click();
-
     }
-
 
     public void choseSort(String unassignedUsers) {
 
@@ -104,7 +87,6 @@ public class UnassignedUsersPage extends BasePage {
             case UnassignedUsersSort.SYMBOL:
                 sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SYMBOL)).click();
                 break;
-//                        UnassignedPage.getSort().get(Integer.parseInt(String.valueOf(SortButton.SYMBOL))).click();
             case UnassignedUsersSort.NAME:
                 sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.NAME)).click();
                 break;
@@ -122,16 +104,16 @@ public class UnassignedUsersPage extends BasePage {
         if (!row.isEmpty())
             row.get(4).findElement(By.xpath("//select")).click();
         switch (unassignedUsers) {
-            case UnassignedUsersRole.CHOOSE:
+            case Constants.UnassignedUsersSelectRole.CHOOSE:
                 row.get(4).findElement(By.xpath("//select//option[@value='0']")).click();
                 break;
-            case UnassignedUsersRole.STUDENT:
+            case Constants.UnassignedUsersSelectRole.STUDENT:
                 row.get(4).findElement(By.xpath("//select//option[@value='1']")).click();
                 break;
-            case UnassignedUsersRole.MENTOR:
+            case Constants.UnassignedUsersSelectRole.MENTOR:
                 row.get(4).findElement(By.xpath("//select//option[@value='2']")).click();
                 break;
-            case UnassignedUsersRole.SECRETARY:
+            case Constants.UnassignedUsersSelectRole.SECRETARY:
                 row.get(4).findElement(By.xpath("//select//option[@value='3']")).click();
                 break;
         }
@@ -149,7 +131,6 @@ public class UnassignedUsersPage extends BasePage {
                 return webElement.findElements(By.xpath(CELL_XPATH));
             }
         }
-
         return null;
     }
 }

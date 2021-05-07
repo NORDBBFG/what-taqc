@@ -35,9 +35,9 @@ public class EditCourseDetailsStep extends BaseStep {
       return this;
     }
 
-    public CourseDetailsStep clickOnCourseDetailsTab(){
+    public CourseDetailsStep clickOnCourseDetailsTab(WebDriver driver){
         editCourseDetailsPage.clickCourseDetailsTab();
-      return new CourseDetailsStep(editCourseDetailsPage.getDriver());
+      return new CourseDetailsStep(driver);
     }
     public EditCourseDetailsStep fillEditCourseNameInput(String courseName){
         editCourseDetailsPage.fillEditCourseNameInput(courseName);
@@ -48,11 +48,11 @@ public class EditCourseDetailsStep extends BaseStep {
       return this;
     }
 
-    public BaseStep clickOnDeleteCourseBtn(){
+    public BaseStep clickOnDeleteCourseBtn(WebDriver driver){
         editCourseDetailsPage.clickDeleteCourseBtn();
         editCourseDetailsPage.clickConfirmDeleteCourseBtn();
         if (editCourseDetailsPage.isCourseDeletionFailed()) return this;
-        else return new CoursesStep(editCourseDetailsPage.getDriver());
+        else return new CoursesStep(driver);
     }
 
     public EditCourseDetailsStep clickOnResetEditCourseNameInputBtn(){
@@ -60,9 +60,9 @@ public class EditCourseDetailsStep extends BaseStep {
       return this;
     }
 
-    public BaseStep clickOnSubmitEditedCourseNameBtn(){
+    public BaseStep clickOnSubmitEditedCourseNameBtn(WebDriver driver){
         editCourseDetailsPage.clickSubmitEditedCourseNameBtn();
       if (editCourseDetailsPage.isEditCourseSubmitFailed()) return this;
-      else return new CoursesStep(editCourseDetailsPage.getDriver());
+      else return new CoursesStep(driver);
     }
 }

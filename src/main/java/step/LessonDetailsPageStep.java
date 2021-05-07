@@ -16,42 +16,52 @@ public class LessonDetailsPageStep {
         Assert.assertEquals(lessonDetailsPage.getPageName(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyThemeName(String expected){
         Assert.assertEquals(lessonDetailsPage.getThemeName(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyGroupName(String expected){
         Assert.assertEquals(lessonDetailsPage.getGroupName(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyMentorName(String expected){
         Assert.assertEquals(lessonDetailsPage.getMentorName(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyDate(String expected){
         Assert.assertEquals(lessonDetailsPage.getDate(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyTime(String expected){
         Assert.assertEquals(lessonDetailsPage.getTime(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyFullStudentName(int studentId, String expected){
         Assert.assertEquals(lessonDetailsPage.getFullStudentName(studentId),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyMark(String studentName, String expected){
         Assert.assertEquals(lessonDetailsPage.getMark(studentName),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyMark(int studentId, String expected){
         Assert.assertEquals(lessonDetailsPage.getMark(studentId),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyPresence(String studentName, boolean expected){
         Assert.assertEquals(lessonDetailsPage.getPresence(studentName),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyPresence(int studentId, boolean expected){
         Assert.assertEquals(lessonDetailsPage.getPresence(studentId),expected);
         return this;
@@ -65,17 +75,20 @@ public class LessonDetailsPageStep {
     public void clickCancelButton(){
         lessonDetailsPage.clickCancelButton();
     }
+
     public void getToStudentDetailsPage(int number){
         lessonDetailsPage.clickStudent(number);
     }
+
     public void getToStudentDetailsPage(String name){
         lessonDetailsPage.clickStudent(name);
     }
+
     public void getToMentorDetailsPage(){
         lessonDetailsPage.clickMentor();
     }
+
     public void getToGroupDetailsPage(){
         lessonDetailsPage.clickGroup();
     }
-
 }

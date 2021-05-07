@@ -12,11 +12,9 @@ public class MyProfilePage extends BasePage {
 
     private final static String FIELD_NAME = "div[@class='col-sm-4 font-weight-bold pb-1']";
     private final static String ELEMENT_OF_FIELD = "div[@class='col-sm-8']";
-
     private final static String FIRST_NAME = "First Name:";
     private final static String LAST_NAME = "Last Name:";
     private final static String EMAIL_ADDRESS = "Email address:";
-
     private HashMap<String, WebElement> rowMap;
 
     @FindBy(xpath = "//h3[@class='pt-3']")

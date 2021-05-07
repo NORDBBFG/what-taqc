@@ -29,17 +29,18 @@ public class CoursesStep extends BaseStep {
       return this;
     }
 
-    public AddCourseStep clickAddCourseToListBtn(){
+    public AddCourseStep clickAddCourseToListBtn(WebDriver driver){
         coursesPage.clickAddCourseToListBtn();
-      return new AddCourseStep(coursesPage.getDriver());
+      return new AddCourseStep(driver);
     }
-    public CourseDetailsStep clickCourseTableRow(String id){
+    public CourseDetailsStep clickCourseTableRow(String id, WebDriver driver){
         coursesPage.clickCourseTableRow(id);
-        return new CourseDetailsStep(coursesPage.getDriver());
+        return new CourseDetailsStep(driver);
     }
-    public EditCourseDetailsStep clickCourseTableEditIcon(String id){
+
+    public EditCourseDetailsStep clickCourseTableEditIcon(String id, WebDriver driver){
         coursesPage.clickCourseTableEditIcon(id);
-        return new EditCourseDetailsStep(coursesPage.getDriver());
+        return new EditCourseDetailsStep(driver);
     }
     public CoursesStep fillSearchCourseInListInput(String title){
         coursesPage.fillSearchCourseInListInput(title);

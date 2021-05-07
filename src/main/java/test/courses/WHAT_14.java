@@ -9,6 +9,7 @@ import test.BaseTest;
 import test.Constants;
 
 public class WHAT_14 extends BaseTest {
+
     EditCourseDetailsStep editCourseDetailsStep;
 
     @BeforeClass
@@ -27,7 +28,7 @@ public class WHAT_14 extends BaseTest {
         CoursesStep coursesStep = new CoursesStep(driver);
         coursesStep
                 .verifyPageHeaderName(Constants.PageName.COURSE_LIST)
-                .clickCourseTableEditIcon(courseID);
+                .clickCourseTableEditIcon(courseID, driver);
 
         editCourseDetailsStep = new EditCourseDetailsStep(driver);
         editCourseDetailsStep
