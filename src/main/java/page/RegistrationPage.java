@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RegistrationPage extends AbstractPage {
+public class RegistrationPage extends Page {
 
     private static final String REGISTRATION_LINK ="//a[@href='/registration']";
     private static final String SIGNUP_BUTTON ="//button[@type='submit']";
