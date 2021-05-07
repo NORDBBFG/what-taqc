@@ -30,8 +30,9 @@ public class SignInPage extends Page {
         signInButton.click();
     }
 
-    private void fillField(WebElement element, String inputText) {
+    public void fillField(WebElement element, String inputText) {
         element.clear();
         element.sendKeys(inputText);
     }
 }
+
