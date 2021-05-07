@@ -1,9 +1,7 @@
 package step;
 
-import component.ConfirmActionWindow;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import page.AbstractPage;
 import page.changePassworPage.ChangePasswordPage;
 
 public class ChangePasswordPageSteps {

@@ -3,9 +3,9 @@ package page.changePassworPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import page.AbstractPage;
+import page.BasePage;
 
-public class ChangePasswordPage extends AbstractPage {
+public class ChangePasswordPage extends BasePage {
 
     public ChangePasswordPage(WebDriver driver) {
         super(driver);

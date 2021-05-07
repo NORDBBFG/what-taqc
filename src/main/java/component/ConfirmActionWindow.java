@@ -3,10 +3,10 @@ package component;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import page.AbstractPage;
+import page.BasePage;
 import page.changePassworPage.ChangePasswordPage;
 
-public class ConfirmActionWindow extends AbstractPage {
+public class ConfirmActionWindow extends BasePage {
 
     public ConfirmActionWindow(WebDriver driver) {
         super(driver);
