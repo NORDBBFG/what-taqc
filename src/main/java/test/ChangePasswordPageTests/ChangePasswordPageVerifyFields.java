@@ -5,9 +5,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.SignInPage;
 import step.ChangePasswordPageSteps;
-import test.AbstractTest;
+import test.BaseTest;
 
-public class ChangePasswordPageVerifyFields extends AbstractTest {
+public class ChangePasswordPageVerifyFields extends BaseTest {
 ChangePasswordPageSteps changePasswordPageSteps;
     @BeforeMethod
     public void prepare() {

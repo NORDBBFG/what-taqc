@@ -8,7 +8,7 @@ package test;
 
         import component.WebElements.UnassignedUsersRole;
 
-public class UnassignedUserTest extends AbstractTest {
+public class UnassignedUserTest extends BaseTest {
     UnassignedUsersStep coursesStep;
     SignInPage signInPage;
     @BeforeTest
