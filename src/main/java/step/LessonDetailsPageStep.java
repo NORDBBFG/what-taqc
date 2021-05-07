@@ -40,16 +40,8 @@ public class LessonDetailsPageStep {
         Assert.assertEquals(lessonDetailsPage.getFullStudentName(studentId),expected);
         return this;
     }
-    public LessonDetailsPageStep verifyMark(String studentName, String expected){
-        Assert.assertEquals(lessonDetailsPage.getMark(studentName),expected);
-        return this;
-    }
     public LessonDetailsPageStep verifyMark(int studentId, String expected){
         Assert.assertEquals(lessonDetailsPage.getMark(studentId),expected);
-        return this;
-    }
-    public LessonDetailsPageStep verifyPresence(String studentName, boolean expected){
-        Assert.assertEquals(lessonDetailsPage.getPresence(studentName),expected);
         return this;
     }
     public LessonDetailsPageStep verifyPresence(int studentId, boolean expected){

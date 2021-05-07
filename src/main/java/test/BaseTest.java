@@ -1,22 +1,16 @@
 package test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-
-import java.util.concurrent.TimeUnit;
+import org.testng.annotations.AfterSuit;
+import org.testng.annotations.BeforeSuit;
+import service.DriverOption;
 
 public abstract class BaseTest {
     protected WebDriver driver;
 
     @BeforeSuite
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get("http://localhost:8080");
+        driver = DriverOption.manage();
     }
 
     @AfterSuite
