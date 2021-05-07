@@ -79,4 +79,12 @@ public class Constants {
         String TIME = "Time";
     }
 
+    public interface UnassignedUsersSelectRole {
+
+        String CHOOSE = "Choose role";
+        String STUDENT = "student";
+        String MENTOR = "mentor";
+        String SECRETARY = "secretary";
+    }
+
 }

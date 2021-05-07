@@ -23,19 +23,16 @@ public class LessonEditPage extends BasePage {
 
     @FindBy(xpath = "//h3")
     private WebElement namePage;
-
     @FindBy(xpath = "//input[@name='themeName']")
     private WebElement themeNameInput;
     @FindBy(xpath = "//input[@name='groupName']")
     private WebElement groupNameInput;
     @FindBy(xpath = "//input[@name='lessonD']")
     private WebElement dateInput;
-
     @FindBy(xpath = "//thead//th")
     private List<WebElement> tableHeadlines;
     @FindBy(xpath = "//tbody//tr")
     private List<WebElement> tableContent;
-
     @FindBy(xpath = "//button[@form='form']")
     private WebElement cancelButton;
     @FindBy(xpath = "//button[@type='submit']")
@@ -48,12 +45,15 @@ public class LessonEditPage extends BasePage {
     public String getPageName() {
         return namePage.getText();
     }
+
     public String getThemeName() {
         return themeNameInput.getAttribute("value");
     }
+
     public String getGroupName() {
         return groupNameInput.getAttribute("value");
     }
+
     public String getFullStudentName(int number) {
         if (!tableContent.isEmpty()) {
             for (WebElement webElement : tableContent) {
@@ -64,6 +64,7 @@ public class LessonEditPage extends BasePage {
         }
         return null;
     }
+
     public String getMark(int number) {
         if (!tableContent.isEmpty()) {
             for (WebElement webElement : tableContent) {
@@ -74,6 +75,7 @@ public class LessonEditPage extends BasePage {
         }
         return null;
     }
+
     public String getMark(String name) {
         if (!tableContent.isEmpty()) {
             for (WebElement webElement : tableContent) {
@@ -84,6 +86,7 @@ public class LessonEditPage extends BasePage {
         }
         return null;
     }
+
     public boolean getPresence(int number) {
         if (!tableContent.isEmpty()) {
             for (WebElement webElement : tableContent) {
@@ -94,6 +97,7 @@ public class LessonEditPage extends BasePage {
         }
         return false;
     }
+
     public boolean getPresence(String name) {
         if (!tableContent.isEmpty()) {
             for (WebElement webElement : tableContent) {
@@ -108,15 +112,19 @@ public class LessonEditPage extends BasePage {
     public boolean isGroupNameEnabled() {
         return groupNameInput.isEnabled();
     }
+
     public boolean isThemeNameInputEnabled() {
         return themeNameInput.isEnabled();
     }
+
     public boolean isDateInputEnabled() {
         return dateInput.isEnabled();
     }
+
     public boolean isCancelButtonEnabled() {
         return cancelButton.isEnabled();
     }
+
     public boolean isSaveButtonEnabled() {
         return saveButton.isEnabled();
     }
@@ -132,6 +140,7 @@ public class LessonEditPage extends BasePage {
             );
         }
     }
+
     public void setMark(String name, int input) {
         if (!tableContent.isEmpty()) {
             tableContent.forEach(
@@ -143,12 +152,15 @@ public class LessonEditPage extends BasePage {
             );
         }
     }
+
     public void setThemeName(String name) {
         themeNameInput.sendKeys(name);
     }
+
     public void setDateInput(String dateInput) {
         this.dateInput.sendKeys(dateInput);
     }
+
     public void clickPresence(int number) {
         if (!tableContent.isEmpty()) {
             for (WebElement webElement : tableContent) {
@@ -158,6 +170,7 @@ public class LessonEditPage extends BasePage {
             }
         }
     }
+
     public void clickPresence(String name) {
         if (!tableContent.isEmpty()) {
             for (WebElement webElement : tableContent) {
@@ -167,16 +180,20 @@ public class LessonEditPage extends BasePage {
             }
         }
     }
+
     public void clickCancelButton() {
         cancelButton.click();
     }
+
     public void clickSaveButton() {
         saveButton.click();
     }
+
     public void clickStudent(String name){
         WebElement student = getStudent(name);
         if(student!=null) student.click();
     }
+
     public void clickStudent(int number){
         WebElement student = getStudent(number);
         if(student!=null) student.click();
@@ -192,6 +209,7 @@ public class LessonEditPage extends BasePage {
         }
         return null;
     }
+
     private WebElement getStudent(String name) {
         if (!tableContent.isEmpty()) {
             for (WebElement webElement : tableContent) {

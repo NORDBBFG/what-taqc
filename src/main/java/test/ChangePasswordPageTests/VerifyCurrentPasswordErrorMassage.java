@@ -8,7 +8,9 @@ import step.ChangePasswordPageSteps;
 import test.BaseTest;
 
 public class VerifyCurrentPasswordErrorMassage extends BaseTest {
+
     ChangePasswordPageSteps changePasswordPageSteps;
+
     @BeforeMethod
     public void prepare() {
         SignInPage signInPage = new SignInPage(driver);
@@ -22,6 +24,7 @@ public class VerifyCurrentPasswordErrorMassage extends BaseTest {
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div/div[4]/div/button/span")).click();
         changePasswordPageSteps = new ChangePasswordPageSteps(driver);
     }
+
     @Test
     public void verifyCurrentPasswordFieldError() {
         String errorMassage = "This field is required";

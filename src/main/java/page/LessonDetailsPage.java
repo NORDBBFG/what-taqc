@@ -25,14 +25,12 @@ public class LessonDetailsPage extends BasePage {
 
     @FindBy(xpath = "//h3") //TODO
     private WebElement namePage;
-
     @FindBy(xpath = "//thead//th") //TODO
     private List<WebElement> tableHeadlines;
     @FindBy(xpath = "//tbody//tr") //TODO
     private List<WebElement> tableContent;
     @FindBy(xpath = "//*[contains(@class,'row') and contains(@class,'mb-4')] | //div[@ class='row']")
     private List<WebElement> rows;
-
     @FindBy(xpath = "//button[@form='form']")  //TODO
     private WebElement cancelButton;
 
@@ -43,6 +41,7 @@ public class LessonDetailsPage extends BasePage {
     public String getPageName() {
         return namePage.getText();
     }
+
     public String getThemeName() {
         WebElement webElement = getValueOfFieldByNameOfField(Constants.LessonDetails.LESSON_NAME);
         if(webElement!=null){
@@ -50,6 +49,7 @@ public class LessonDetailsPage extends BasePage {
         }
         return null;
     }
+
     public String getMentorName() {
         WebElement webElement = getValueOfFieldByNameOfField(Constants.LessonDetails.MENTOR_NAME);
         if(webElement!=null){
@@ -57,6 +57,7 @@ public class LessonDetailsPage extends BasePage {
         }
         return null;
     }
+
     public String getGroupName() {
         WebElement webElement = getValueOfFieldByNameOfField(Constants.LessonDetails.GROUP_NAME);
         if(webElement!=null){
@@ -64,6 +65,7 @@ public class LessonDetailsPage extends BasePage {
         }
         return null;
     }
+
     public String getDate() {
         WebElement webElement = getValueOfFieldByNameOfField(Constants.LessonDetails.LESSON_DATE);
         if(webElement!=null){
@@ -71,6 +73,7 @@ public class LessonDetailsPage extends BasePage {
         }
         return null;
     }
+
     public String getTime() {
         WebElement webElement = getValueOfFieldByNameOfField(Constants.LessonDetails.LESSON_TIME);
         if(webElement!=null){
@@ -89,6 +92,7 @@ public class LessonDetailsPage extends BasePage {
         }
         return null;
     }
+
     public String getMark(int number) {
         return getPresentStudentsNumberAndMark().get(""+number);
     }
@@ -109,6 +113,7 @@ public class LessonDetailsPage extends BasePage {
         }
         return presentStudents;
     }
+
     public List<String> getAbsentStudentsName() {
         List<String> absentStudents = new ArrayList<>();
         if (!tableContent.isEmpty()) {
@@ -124,21 +129,26 @@ public class LessonDetailsPage extends BasePage {
     public boolean isCancelButtonEnabled() {
         return cancelButton.isEnabled();
     }
+
     public void clickCancelButton() {
         cancelButton.click();
     }
+
     public void clickStudent(String name){
         WebElement student = getStudent(name);
         if(student!=null) student.click();
     }
+
     public void clickStudent(int number){
         WebElement student = getStudent(number);
         if(student!=null) student.click();
     }
+
     public void clickMentor() {
         WebElement mentor = getValueOfFieldByNameOfField(Constants.LessonDetails.MENTOR_NAME);
         if(mentor!=null) mentor.click();
     }
+
     public void clickGroup() {
         WebElement group = getValueOfFieldByNameOfField(Constants.LessonDetails.GROUP_NAME);
         if(group!=null) group.click();
@@ -154,6 +164,7 @@ public class LessonDetailsPage extends BasePage {
         }
         return null;
     }
+
     private WebElement getStudent(int number) {
         if (!tableContent.isEmpty()) {
             for (WebElement webElement : tableContent) {
@@ -164,6 +175,7 @@ public class LessonDetailsPage extends BasePage {
         }
         return null;
     }
+
     private WebElement getStudent(String name) {
         if (!tableContent.isEmpty()) {
             for (WebElement webElement : tableContent) {
@@ -174,5 +186,4 @@ public class LessonDetailsPage extends BasePage {
         }
         return null;
     }
-
 }

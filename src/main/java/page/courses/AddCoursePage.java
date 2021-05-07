@@ -11,7 +11,6 @@ public class AddCoursePage extends BasePage {
     private WebElement courseNameInput;
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitNewCourseBtn;
-
     @FindBy(xpath = "//div[contains(@class,'d-flex')]/a[.='Cancel']")
     private WebElement CancelCourseAddingBtn;
 
@@ -23,12 +22,15 @@ public class AddCoursePage extends BasePage {
         courseNameInput.clear();
         courseNameInput.sendKeys(courseName);
     }
+
     public void clickCancelCourseAddingBtn() {
         CancelCourseAddingBtn.click();
     }
+
     public void clickSubmitNewCourseBtn(){
         submitNewCourseBtn.click();
     }
+
     public boolean isSubmitBtnEnabled() {
         return submitNewCourseBtn.isEnabled();
     }

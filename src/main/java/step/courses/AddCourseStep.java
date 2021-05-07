@@ -15,16 +15,19 @@ public class AddCourseStep {
         Assert.assertEquals(addCoursePage.isSubmitBtnEnabled(), expected);
       return this;
     }
+
     public AddCourseStep fillCourseNameInput(String courseName){
         addCoursePage.fillCourseNameInput(courseName);
       return this;
     }
-    public CoursesStep clickCancelCourseAddingBtn() {
+
+    public CoursesStep clickCancelCourseAddingBtn(WebDriver driver) {
         addCoursePage.clickCancelCourseAddingBtn();
-      return new CoursesStep(addCoursePage.getDriver());
+      return new CoursesStep(driver);
     }
-    public CoursesStep clickSubmitNewCourseBtn(){
+
+    public CoursesStep clickSubmitNewCourseBtn(WebDriver driver){
         addCoursePage.clickSubmitNewCourseBtn();
-      return new CoursesStep(addCoursePage.getDriver());
+      return new CoursesStep(driver);
     }
 }

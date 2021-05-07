@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.List;
 
 public abstract class BasePage extends Page {
@@ -19,7 +18,6 @@ public abstract class BasePage extends Page {
     private WebElement arrowIcon;
     @FindBy( xpath = "//*[contains(@class,'dropdown-list--item')]")
     private List<WebElement> dropdownListItems;
-
     @FindBy( xpath = "//span[@class='sidebar__menu-item___1MMsk']")
     private List<WebElement> sidebarItems;
 

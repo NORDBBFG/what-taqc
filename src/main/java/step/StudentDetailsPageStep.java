@@ -86,5 +86,4 @@ public class StudentDetailsPageStep {
         Assert.assertTrue(studentDetailsPage.getQuantityLessons() > 0, "List of lessons is displayed");
         return this;
     }
-
 }

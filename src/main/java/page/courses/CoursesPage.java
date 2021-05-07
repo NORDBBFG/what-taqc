@@ -26,7 +26,6 @@ public class CoursesPage extends BasePage {
     private WebElement leftNavigationArrowBtn;
     @FindBy(xpath = "//nav[contains(@class,'flex-row')]/ul[3]//button")
     private WebElement rightNavigationArrowBtn;
-
     @FindBy(xpath = "//h2")
     private WebElement pageHeader;
     @FindBy(xpath = "//span[contains(@class,'col-2')]")
@@ -64,20 +63,25 @@ public class CoursesPage extends BasePage {
     public void clickAddCourseToListBtn(){
         addCourseToListBtn.click();
     }
+
     public void fillSearchCourseInListInput(String title){
         searchCourseInListInput.clear();
         searchCourseInListInput.sendKeys(title);
     }
+
     public void changeCourseListIDSortType(){
         courseListIDSortType.click();
     }
+
     public void changeCourseListNameSortType(){
         courseListNameSortType.click();
     }
+
     public void clickCourseTableRow(String id){
         try { listOfCourseTableRows.get(Integer.parseInt(id)).click(); }
         catch (NumberFormatException | IndexOutOfBoundsException e) { System.out.println("Exception"); }
     }
+
     public void clickCourseTableEditIcon(String id){
         try { listOfCourseTableEditIcons.get(Integer.parseInt(id)).click(); }
         catch (NumberFormatException | IndexOutOfBoundsException e) { System.out.println("Exception"); }
@@ -86,6 +90,7 @@ public class CoursesPage extends BasePage {
     public void clickLeftNavigationArrowBtn(){
         leftNavigationArrowBtn.click();
     }
+
     public void clickRightNavigationArrowBtn(){
         rightNavigationArrowBtn.click();
     }

@@ -8,7 +8,9 @@ import step.ChangePasswordPageSteps;
 import test.BaseTest;
 
 public class VerifyConfirmActionWindowIsAppeared extends BaseTest {
+
     ChangePasswordPageSteps changePasswordPageSteps;
+
     @BeforeMethod
     public void prepare() {
         SignInPage signInPage = new SignInPage(driver);
@@ -22,8 +24,10 @@ public class VerifyConfirmActionWindowIsAppeared extends BaseTest {
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div/div[4]/div/button/span")).click();
         changePasswordPageSteps = new ChangePasswordPageSteps(driver);
     }
+
     @Test
     public void changePasswordVerifyFields() throws InterruptedException {
+
         String mail = "admin.@gmail.com";
         String currentPassword = "admiN_12";
         String newPassword = "123456789qQ";

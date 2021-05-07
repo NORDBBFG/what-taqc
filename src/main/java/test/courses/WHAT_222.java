@@ -13,6 +13,7 @@ import test.BaseTest;
 import test.Constants;
 
 public class WHAT_222 extends BaseTest {
+
     CoursesStep coursesStep;
 
     @BeforeClass

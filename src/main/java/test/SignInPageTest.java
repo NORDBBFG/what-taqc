@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import page.SignInPage;
 
 public class SignInPageTest extends BaseTest {
+
     SignInPage signInPage;
 
     @BeforeMethod

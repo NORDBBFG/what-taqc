@@ -7,6 +7,7 @@ import page.SignInPage;
 import step.LessonEditPageStep;
 
 public class LessonEditPageTest extends BaseTest {
+
     LessonEditPageStep lessonEditPageStep;
 
     @BeforeMethod
@@ -51,7 +52,5 @@ public class LessonEditPageTest extends BaseTest {
                 .verifyMark(studentId, mark)
                 .verifyPresence(studentId,true)
                 .getToStudentDetailsPage(studentId);
-
     }
-
 }

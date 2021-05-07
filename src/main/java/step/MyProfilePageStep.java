@@ -37,6 +37,7 @@ public class MyProfilePageStep {
         Assert.assertEquals(myProfilePage.isChangePasswordEnable(), expected);
         return this;
     }
+
     public MyProfilePageStep verifyChangePasswordBtnEnabled(){
         Assert.assertTrue(myProfilePage.isChangePasswordEnable());
         return this;
@@ -46,11 +47,9 @@ public class MyProfilePageStep {
         myProfilePage.clickChangePasswordBtn();
     }
 
-
     public MyProfilePageStep getToMyProfilePage(){
        myProfilePage.clickArrowIcon();
        myProfilePage.clickDropdownItem(Constants.PageName.MY_PROFILE);
        return this;
     }
-
 }

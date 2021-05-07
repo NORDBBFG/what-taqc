@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeSuit;
 import service.DriverOption;
 
 public abstract class BaseTest {
+
     protected WebDriver driver;
 
     @BeforeSuite

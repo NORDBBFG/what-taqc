@@ -3,7 +3,6 @@ package step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.RegistrationPage;
-//import test.Constants;
 
 public class RegistrationPageStep {
 
@@ -11,7 +10,6 @@ public class RegistrationPageStep {
 
     public RegistrationPageStep(WebDriver driver) {
         registrationPage = new RegistrationPage(driver);
-        getRegistrationPage();
     }
 
     public RegistrationPageStep verifyPageName(String expected) {
@@ -80,11 +78,6 @@ public class RegistrationPageStep {
     }
 
     public RegistrationPageStep verifySignUpButtonEnable() {
-        return this;
-    }
-
-    public RegistrationPageStep getRegistrationPage() {
-        registrationPage.clickRegistrationLink();
         return this;
     }
 }

@@ -3,7 +3,6 @@ package page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,28 +10,20 @@ public class EditStudentsDetailsPage extends BasePage{
 
     @FindBy(xpath = "//div[@class='nav nav-tabs']//a[not(contains(@class, 'tab__active'))]")
     private WebElement labelStudentsDetails;
-
     @FindBy(xpath = "//a[contains(@class, 'tab__active')]")
     private WebElement labelEditStudentsDetails;
-
     @FindBy(xpath = "//input[@name='firstName']")
     private WebElement firstName;
-
     @FindBy(xpath = "//input[@name='lastName']")
     private WebElement lastName;
-
     @FindBy(xpath = "//input[@name='email']")
     private WebElement email;
-
     @FindBy(xpath = "//li[@data-groupid]")
     private List<WebElement> listOfGroups;
-
     @FindBy(xpath = "//button[contains(@class, 'exclude-btn')]")
     private WebElement buttonExclude;
-
     @FindBy(xpath = "//button[@type='reset']")
     private WebElement buttonClear;
-
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement buttonSave;
 

@@ -7,6 +7,7 @@ import page.SignInPage;
 import step.LessonDetailsPageStep;
 
 public class LessonDetailsPageTest extends BaseTest {
+
     LessonDetailsPageStep lessonDetailsPageStep;
 
     @BeforeMethod

@@ -16,26 +16,32 @@ public class LessonDetailsPageStep {
         Assert.assertEquals(lessonDetailsPage.getPageName(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyThemeName(String expected){
         Assert.assertEquals(lessonDetailsPage.getThemeName(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyGroupName(String expected){
         Assert.assertEquals(lessonDetailsPage.getGroupName(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyMentorName(String expected){
         Assert.assertEquals(lessonDetailsPage.getMentorName(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyDate(String expected){
         Assert.assertEquals(lessonDetailsPage.getDate(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyTime(String expected){
         Assert.assertEquals(lessonDetailsPage.getTime(),expected);
         return this;
     }
+
     public LessonDetailsPageStep verifyFullStudentName(int studentId, String expected){
         Assert.assertEquals(lessonDetailsPage.getFullStudentName(studentId),expected);
         return this;
@@ -58,17 +64,20 @@ public class LessonDetailsPageStep {
         lessonDetailsPage.clickCancelButton();
         return new ListOfLessonPageStep(driver);
     }
+
     public void getToStudentDetailsPage(int number){
         lessonDetailsPage.clickStudent(number);
     }
+
     public void getToStudentDetailsPage(String name){
         lessonDetailsPage.clickStudent(name);
     }
+
     public void getToMentorDetailsPage(){
         lessonDetailsPage.clickMentor();
     }
+
     public void getToGroupDetailsPage(){
         lessonDetailsPage.clickGroup();
     }
-
 }

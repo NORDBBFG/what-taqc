@@ -8,20 +8,20 @@ import page.changePassworPage.ChangePasswordPage;
 
 public class ConfirmActionWindow extends BasePage {
 
-    public ConfirmActionWindow(WebDriver driver) {
-        super(driver);
-    }
-
-@FindBy(xpath = "//h4")
+    @FindBy(xpath = "//h4")
     private WebElement confirmActionLabel;
-    @FindBy(xpath = "//div[@class='modal-window__modal-body___3v1gd modal-body']")
+    @FindBy(xpath = "//div[contains(@class, 'modal-body')]")
     private WebElement confirmActionMessage;
-    @FindBy(xpath = "//button[@class='btn btn-secondary modal-window__modal-btn___bRf5m']")
+    @FindBy(xpath = "//button[contains(@class, 'btn-secondary')]")
     private WebElement cancelButton;
-    @FindBy(xpath = "//button[@class='btn btn-success modal-window__modal-btn___bRf5m']")
+    @FindBy(xpath = "//button[contains(@class, 'btn-success')]")
     private WebElement confirmButton;
     @FindBy(xpath = "//button[@class='close']")
     private WebElement closeButton;
+
+    public ConfirmActionWindow(WebDriver driver) {
+        super(driver);
+    }
 
     public ChangePasswordPage clickCancelButton(){
         cancelButton.click();
@@ -32,9 +32,9 @@ public class ConfirmActionWindow extends BasePage {
         confirmButton.click();
     }
 
-public boolean verifyConfirmActionWindow() throws InterruptedException {
+    public boolean verifyConfirmActionWindow() throws InterruptedException {
         Thread.sleep(500);
         String expect = confirmActionLabel.getText();
         return expect.equals("Confirm action");
-}
+    }
 }
