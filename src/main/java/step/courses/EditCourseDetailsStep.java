@@ -13,8 +13,6 @@ public class EditCourseDetailsStep extends BaseStep {
         editCourseDetailsPage = new EditCourseDetailsPage(driver);
     }
 
-        //TODO: make verify methods list for expected conditions.
-
     public EditCourseDetailsStep verifyEditCourseNameInput(String expected) throws InterruptedException{
         Assert.assertEquals(editCourseDetailsPage.getEditCourseInputValue(), expected);
       return this;
@@ -50,7 +48,6 @@ public class EditCourseDetailsStep extends BaseStep {
       return this;
     }
 
-        //TODO: make sure that it's a valid solution.
     public BaseStep clickOnDeleteCourseBtn(){
         editCourseDetailsPage.clickDeleteCourseBtn();
         editCourseDetailsPage.clickConfirmDeleteCourseBtn();
@@ -63,7 +60,6 @@ public class EditCourseDetailsStep extends BaseStep {
       return this;
     }
 
-        //TODO: make sure that it's a valid solution.
     public BaseStep clickOnSubmitEditedCourseNameBtn(){
         editCourseDetailsPage.clickSubmitEditedCourseNameBtn();
       if (editCourseDetailsPage.isEditCourseSubmitFailed()) return this;

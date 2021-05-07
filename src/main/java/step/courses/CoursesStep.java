@@ -12,8 +12,6 @@ public class CoursesStep extends BaseStep {
         coursesPage = new CoursesPage(driver);
     }
 
-        //TODO: make verify methods list for expected conditions.
-
     public CoursesStep verifyPageHeaderName(String expected){
         Assert.assertEquals(coursesPage.getPageHeaderText(), expected);
       return this;

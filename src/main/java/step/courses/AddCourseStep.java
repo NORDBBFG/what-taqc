@@ -11,8 +11,6 @@ public class AddCourseStep {
         addCoursePage = new AddCoursePage(driver);
     }
 
-        //TODO: make verify methods list for expected conditions.
-
     public AddCourseStep verifySubmitButtonEnabled(boolean expected){
         Assert.assertEquals(addCoursePage.isSubmitBtnEnabled(), expected);
       return this;

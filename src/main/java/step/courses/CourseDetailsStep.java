@@ -11,8 +11,6 @@ public class CourseDetailsStep {
         courseDetailsPage = new CourseDetailsPage(driver);
     }
 
-        //TODO: make verify methods list for expected conditions.
-
     public CourseDetailsStep verifyCourseName(String expected){
         Assert.assertEquals(courseDetailsPage.getCourseNameText(), expected);
       return this;
