@@ -10,7 +10,7 @@ import java.util.List;
 public class StudentDetailsPage extends BasePage {
 
     @FindBy(xpath = "//a[contains(@class, 'tab__active')]")
-    private WebElement labelPage;
+    private WebElement labelStudentsDetails;
 
     @FindBy(xpath = "//div[@class='col-12 col-md-6']")
     private WebElement firstName;
@@ -35,7 +35,7 @@ public class StudentDetailsPage extends BasePage {
     }
 
     public String getLabel(){
-        return labelPage.getText();
+        return labelStudentsDetails.getText();
     }
 
     public String getFirstName(){
