@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPage extends AbstractPage {
+public class SignInPage extends Page {
     @FindBy(xpath = "//input[@name='email']")
     private WebElement emailInput;
     @FindBy(xpath = "//input[@name='password']")

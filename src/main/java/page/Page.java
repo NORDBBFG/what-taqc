@@ -6,11 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 
-public abstract class AbstractPage {
+public abstract class Page {
 
     protected WebDriver driver;
 
-    public AbstractPage(WebDriver driver) {
+    public Page(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
 
