@@ -6,10 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-
 import java.util.concurrent.TimeUnit;
 
-public abstract class AbstractTest {
+public abstract class BaseTest {
     protected WebDriver driver;
 
     @BeforeSuite

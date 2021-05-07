@@ -7,7 +7,7 @@ import page.SignInPage;
 import step.EditStudentDetailsPageStep;
 import step.StudentDetailsPageStep;
 
-public class StudentDetailsTest extends AbstractTest {
+public class StudentDetailsTest extends BaseTest {
 
     StudentDetailsPageStep studentDetailsPageStep;
     EditStudentDetailsPageStep editStudentDetailsPageStep;

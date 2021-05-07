@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPage extends Page {
+public class SignInPage extends BasePage {
     @FindBy(xpath = "//input[@name='email']")
     private WebElement emailInput;
     @FindBy(xpath = "//input[@name='password']")
@@ -35,4 +35,3 @@ public class SignInPage extends Page {
         element.sendKeys(inputText);
     }
 }
-

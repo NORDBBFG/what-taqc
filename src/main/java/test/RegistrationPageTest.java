@@ -8,7 +8,7 @@ import step.RegistrationPageStep;
 
 import java.util.Random;
 
-public class RegistrationPageTest extends AbstractTest {
+public class RegistrationPageTest extends BaseTest {
 
     SignInPage signInPage;
     RegistrationPageStep registrationPageStep;
