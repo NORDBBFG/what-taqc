@@ -3,8 +3,9 @@ package step.courses;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.courses.AddCoursePage;
+import step.BaseStep;
 
-public class AddCourseStep {
+public class AddCourseStep extends BaseStep {
     private final AddCoursePage addCoursePage;
 
     public AddCourseStep(WebDriver driver) {
