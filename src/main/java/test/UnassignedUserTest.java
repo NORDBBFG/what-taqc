@@ -1,17 +1,17 @@
 package test;
 
-        import component.WebElements;
-        import org.testng.annotations.BeforeTest;
+        import org.testng.annotations.BeforeClass;
         import org.testng.annotations.Test;
         import page.SignInPage;
         import step.UnassignedUsersStep;
 
         import component.WebElements.UnassignedUsersRole;
+        import component.WebElements.UnassignedUsersSort;
 
 public class UnassignedUserTest extends AbstractTest {
     UnassignedUsersStep coursesStep;
     SignInPage signInPage;
-    @BeforeTest
+    @BeforeClass
     public void preCond(){
         signInPage = new SignInPage(driver);
         String email = "admin.@gmail.com";
@@ -30,8 +30,12 @@ public class UnassignedUserTest extends AbstractTest {
 
         coursesStep.verifySurnameUser(1, expectedSurnameUser)
                    .verifySurnameUser(mailOfUser, expectedSurnameUser)
-                   .choseUserChoseRole(1, UnassignedUsersRole.STUDENT )
-                   .choseUserSort(WebElements.UnassignedUsersSort.SYMBOL);
+
+                   .verifyAddRoleButtonEnabled(1, true)
+                   .verifyChoseSortEnabled(UnassignedUsersSort.NAME, true)
+                   .verifyChoseUserRole(1, UnassignedUsersRole.STUDENT, true)
+                   .choseUserRole(1, UnassignedUsersRole.STUDENT);
+        coursesStep.choseSortType(UnassignedUsersSort.NAME);
 
 
     }

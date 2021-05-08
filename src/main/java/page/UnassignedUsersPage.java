@@ -89,6 +89,45 @@ public class UnassignedUsersPage extends BasePage {
         return null;
     }
 
+    public boolean addRoleButtonEnabled(int number) {
+        List<WebElement> row = getElementsOfMass(number);
+        if (!row.isEmpty())
+            return row.get(4).findElement(By.xpath(ADD_ROLE_XPATH)).isEnabled();
+        return false;
+    }
+
+    public boolean choseSortEnabled(String unassignedUsers) {
+
+        switch (unassignedUsers) {
+            case UnassignedUsersSort.SYMBOL:
+                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SYMBOL)).isEnabled();
+//                        UnassignedPage.getSort().get(Integer.parseInt(String.valueOf(SortButton.SYMBOL))).click();
+            case UnassignedUsersSort.NAME:
+                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.NAME)).isEnabled();
+            case UnassignedUsersSort.SURNAME:
+                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SURNAME)).isEnabled();
+            case UnassignedUsersSort.EMAIL:
+                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.EMAIL)).isEnabled();
+        }
+        return false;
+    }
+
+    public boolean choseUserRoleEnabled(int number, String unassignedUsers) {
+        List<WebElement> row = getElementsOfMass(number);
+        if (!row.isEmpty())
+            row.get(4).findElement(By.xpath("//select")).click();
+        switch (unassignedUsers) {
+            case UnassignedUsersRole.CHOOSE:
+                return row.get(4).findElement(By.xpath("//select//option[@value='0']")).isEnabled();
+            case UnassignedUsersRole.STUDENT:
+                return row.get(4).findElement(By.xpath("//select//option[@value='1']")).isEnabled();
+            case UnassignedUsersRole.MENTOR:
+                return row.get(4).findElement(By.xpath("//select//option[@value='2']")).isEnabled();
+            case UnassignedUsersRole.SECRETARY:
+                return row.get(4).findElement(By.xpath("//select//option[@value='3']")).isEnabled();
+        }
+        return false;
+    }
 
     public void addRoleButtonClick(int number) {
         List<WebElement> row = getElementsOfMass(number);
@@ -97,8 +136,7 @@ public class UnassignedUsersPage extends BasePage {
 
     }
 
-
-    public void choseSort(String unassignedUsers) {
+    public void choseSortType(String unassignedUsers) {
 
         switch (unassignedUsers) {
             case UnassignedUsersSort.SYMBOL:
