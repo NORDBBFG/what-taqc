@@ -22,6 +22,7 @@ public class UnassignedUserTest extends AbstractTest {
         signInPage.clickSignInButton();
         coursesStep = new UnassignedUsersStep(driver);
     }
+
     @Test
     public void ChoseUserRole(){
         String mailOfUser = "abbadabba@gmail.com";
