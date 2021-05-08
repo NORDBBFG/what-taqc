@@ -9,7 +9,6 @@ import test.BaseTest;
 import test.Constants;
 
 public class WHAT_14 extends BaseTest {
-
     EditCourseDetailsStep editCourseDetailsStep;
 
     @BeforeClass
@@ -41,10 +40,16 @@ public class WHAT_14 extends BaseTest {
         String initialCourseName = "Курс для демо";
 
         editCourseDetailsStep
-                .clearEditCourseNameInput()
-                //.verifyEditCourseNameInput("")
+                // (step'1')
+                // Clean the 'Course Name' field, verify it's cleaned.
+                .fillEditCourseNameInput("")
+                .verifyEditCourseNameInput("")
+                // (step'2')
+                // Fill the empty 'Course Name' field with 'Basic Course', verify it's filled.
                 .fillEditCourseNameInput(newCourseName)
                 .verifyEditCourseNameInput(newCourseName)
+                // (step'3')
+                // Click on the 'Clear' button, verify that the 'Course Name' in it's initial state.
                 .clickOnResetEditCourseNameInputBtn()
                 .verifyEditCourseNameInput(initialCourseName);
     }
