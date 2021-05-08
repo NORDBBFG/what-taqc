@@ -6,7 +6,8 @@ import org.testng.annotations.Test;
 import page.SignInPage;
 import step.LessonDetailsPageStep;
 
-public class LessonDetailsPageTest extends AbstractTest{
+public class LessonDetailsPageTest extends BaseTest {
+
     LessonDetailsPageStep lessonDetailsPageStep;
 
     @BeforeMethod
@@ -39,7 +40,7 @@ public class LessonDetailsPageTest extends AbstractTest{
                 .verifyMentorName(mentorName)
                 .verifyDate(lessonDate)
                 .verifyTime(lessonTime)
-                .clickCancelButton();
+                .clickCancelButton(driver);
     }
 
     @Test

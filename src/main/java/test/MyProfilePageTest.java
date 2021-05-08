@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import page.SignInPage;
 import step.MyProfilePageStep;
 
-public class MyProfilePageTest extends AbstractTest{
+public class MyProfilePageTest extends BaseTest {
 
     MyProfilePageStep myProfilePageStep;
     String XPATH_OF_USER_ICON = "//a[@class='header__header__account-user--icon___1k48U']";

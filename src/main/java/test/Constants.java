@@ -10,8 +10,8 @@ public class Constants {
         String MENTOR_DETAILS = "Mentor Details";
         String MENTOR_LIST = "Mentors";
 
-        String STUDENT_EDIT = "Student Editing";
-        String STUDENT_DETAILS = "Student Details";
+        String STUDENT_EDIT_DETAILS = "Edit student details";
+        String STUDENT_DETAILS = "Student details";
         String STUDENT_LIST = "Students";
 
         String SECRETARY_EDIT = "Edit Secretary's details";
@@ -77,6 +77,14 @@ public class Constants {
         String DATE_END = "Date of finish";
 
         String TIME = "Time";
+    }
+
+    public interface UnassignedUsersSelectRole {
+
+        String CHOOSE = "Choose role";
+        String STUDENT = "student";
+        String MENTOR = "mentor";
+        String SECRETARY = "secretary";
     }
 
 }

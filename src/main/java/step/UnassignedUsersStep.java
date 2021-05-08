@@ -1,7 +1,5 @@
 package step;
 
-
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.UnassignedUsersPage;
