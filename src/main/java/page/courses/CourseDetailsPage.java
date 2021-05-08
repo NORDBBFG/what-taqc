@@ -5,11 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import page.BasePage;
 
+import static constants.XPath.Common.*;
+import static constants.XPath.CourseDetailsPage.*;
+
 public class CourseDetailsPage extends BasePage {
 
-    @FindBy(xpath = "//div[contains(@class,'nav-tabs')]/a[contains(text(),'Edit')]")
+    @FindBy(xpath = H3)
+    private WebElement pagesLabel;
+    @FindBy(xpath = EDIT_COURSE_DETAILS_TAB)
     private WebElement editCourseDetailsTab;
-    @FindBy(xpath = "//div[@class='row']/div/following-sibling::div/span")
+    @FindBy(xpath = COURSE_NAME)
     private WebElement courseName;
 
     public CourseDetailsPage(WebDriver driver) {
@@ -22,5 +27,9 @@ public class CourseDetailsPage extends BasePage {
 
     public String getCourseNameText(){
         return courseName.getText();
+    }
+
+    public String getPagesLabel() {
+        return pagesLabel.getText();
     }
 }

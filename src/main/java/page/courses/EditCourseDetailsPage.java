@@ -5,25 +5,28 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import page.BasePage;
 
+import static constants.XPath.Common.*;
+import static constants.XPath.EditCourseDetailsPage.*;
+
 public class EditCourseDetailsPage extends BasePage {
-        //TODO: this elements repeat in the EditCourseDetailsPage, can be moved.
-    @FindBy(xpath = "//input")
+
+    @FindBy(xpath = COURSE_NAME_INPUT)
     private WebElement courseNameInput;
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = SAVE_BUTTON)
     private WebElement submitEditedCourseNameBtn;
-    @FindBy(xpath = "//div[contains(@class,'nav-tabs')]/a[1]")
+    @FindBy(xpath = COURSE_DETAILS_TAB)
     private WebElement courseDetailsTab;
-    @FindBy(xpath = "//button[contains(@class,'remove-button')]")
+    @FindBy(xpath = DELETE_COURSE_BTN)
     private WebElement deleteCourseBtn;
-    @FindBy(xpath = "//button[@type='reset']")
+    @FindBy(xpath = RESET_BUTTON)
     private WebElement resetEditCourseNameInputBtn;
-    @FindBy(xpath = "//div[@role='alert' and contains(text(),'not found') or contains(text(),'active')]")
+    @FindBy(xpath = FAILED_COURSE_DELETION_ALERT)
     private WebElement failedCourseDeletionAlert;
-    @FindBy(xpath = "//div[@role='alert' and contains(text(),'Inactive') or contains(text(),'included')]")
+    @FindBy(xpath = FAILED_EDIT_COURSE_SUBMIT_ALERT)
     private WebElement failedEditCourseSubmitAlert;
-    @FindBy(xpath = "//button[contains(@class,'btn-danger')]")
+    @FindBy(xpath = CONFIRM_COURSE_DELETE_BTN)
     private WebElement confirmCourseDeleteBtn;
-    @FindBy(xpath = "//h3")
+    @FindBy(xpath = H3)
     private WebElement pageHeader;
 
     public EditCourseDetailsPage(WebDriver driver) {
