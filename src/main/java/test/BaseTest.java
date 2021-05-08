@@ -1,8 +1,8 @@
 package test;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuit;
-import org.testng.annotations.BeforeSuit;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import service.DriverOption;
 
 public abstract class BaseTest {

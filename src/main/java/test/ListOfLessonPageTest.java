@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import page.SignInPage;
 import step.ListOfLessonPageStep;
 
-public class ListOfLessonPageTest extends AbstractTest {
+public class ListOfLessonPageTest extends BaseTest {
 
     ListOfLessonPageStep listOfLessonPageStep;
 

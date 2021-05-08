@@ -15,8 +15,8 @@ public class CourseDetailsStep {
         Assert.assertEquals(courseDetailsPage.getCourseNameText(), expected);
       return this;
     }
-    public EditCourseDetailsStep clickEditCourseDetailsTab(){
+    public EditCourseDetailsStep clickEditCourseDetailsTab(WebDriver driver){
         courseDetailsPage.clickEditCourseDetailsTab();
-      return new EditCourseDetailsStep(courseDetailsPage.getDriver());
+      return new EditCourseDetailsStep(driver);
     }
 }
