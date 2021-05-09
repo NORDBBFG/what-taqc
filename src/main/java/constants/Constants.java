@@ -4,45 +4,51 @@ public class Constants {
 
     public static String NUMBER = "#";
 
-    public interface PageName{
-        String MY_PROFILE = "My Profile";
-        String CHANGE_PASSWORD = "Change Password";
+    public interface PageName {
+        String MY_PROFILE = "My Profile",
+                CHANGE_PASSWORD = "Change Password",
+                LOD_OUT = "Log Out",
 
-        String MENTOR_EDIT = "Mentor Editing";
-        String MENTOR_DETAILS = "Mentor Details";
-        String MENTOR_LIST = "Mentors";
+        MENTOR_EDIT = "Mentor Editing",
+                MENTOR_DETAILS = "Mentor Details",
+                MENTOR_LIST = "Mentors",
 
-        String STUDENT_EDIT_DETAILS = "Edit student details";
-        String STUDENT_DETAILS = "Student details";
-        String STUDENT_LIST = "Students";
+        STUDENT_EDIT_DETAILS = "Edit student details",
+                STUDENT_DETAILS = "Student details",
+                STUDENT_LIST = "Students",
 
-        String SECRETARY_EDIT = "Edit Secretary's details";
-        String SECRETARY_DETAILS = "Secretary's details";
-        String SECRETARY_LIST = "Secretaries";
+        SECRETARY_EDIT = "Edit Secretary's details",
+                SECRETARY_DETAILS = "Secretary's details",
+                SECRETARY_LIST = "Secretaries",
 
-        String LESSON_EDIT = "Edit a Lesson";
-        String LESSON_DETAILS = "Lesson details";
-        String LESSON_LIST = "Lessons";
+        LESSON_EDIT = "Edit a Lesson",
+                LESSON_DETAILS = "Lesson details",
+                LESSON_LIST = "Lessons",
 
-        String GROUP_EDIT = "Group Editing";
-        String GROUP_DETAILS = "Group:";
-        String GROUP_LIST = "Groups";
+        GROUP_EDIT = "Group Editing",
+                GROUP_DETAILS = "Group:",
+                GROUP_LIST = "Groups",
 
-        String COURSE_EDIT = "Course Editing";
-        String COURSE_DETAILS = "Course Details";
-        String COURSE_LIST = "Courses";
+        COURSE_EDIT = "Course Editing",
+                COURSE_DETAILS = "Course Details",
+                COURSE_LIST = "Courses",
+
+        SUPPORT = "Support",
+                UNASSIGNED = "Unassigned",
+
+        SIGN_IN = "Sign in",
+                REGISTRATION = "Sign up";
     }
 
-    public interface LessonDetails{
-        String LESSON_NAME = "Lesson Theme:";
-        String MENTOR_NAME  = "Mentor name:";
-
-        String GROUP_NAME = "Group name:";
-        String LESSON_DATE = "Lesson Date:";
-        String LESSON_TIME = "Lesson Time:";
+    public interface LessonDetails {
+        String LESSON_NAME = "Lesson Theme:",
+                MENTOR_NAME = "Mentor name:",
+                GROUP_NAME = "Group name:",
+                LESSON_DATE = "Lesson Date:",
+                LESSON_TIME = "Lesson Time:";
     }
 
-    public interface DetailsAboutUser{
+    public interface DetailsAboutUser {
         String FIRST_NAME = "First Name:";
         String LAST_NAME = "Last Name:";
 
@@ -53,7 +59,7 @@ public class Constants {
         String COURSE = "Course('s):";
     }
 
-    public interface ListUser{
+    public interface ListUser {
         String NAME = "Name";
         String SURNAME = "Surname";
 
@@ -62,7 +68,7 @@ public class Constants {
         String ROLE = "Choose role";
     }
 
-    public interface ListFeatures{
+    public interface ListFeatures {
         String EDIT = "Edit";
 
         String GROUP_NAME = "Group Name";

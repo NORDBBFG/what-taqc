@@ -67,7 +67,7 @@ public class XPath {
                 NAME_FIELD_INFO_LESSON_XPATH = "div[contains(@class,'col-sm-6 font-weight-bolder')]",
                 MARK_XPATH = "td[@class='text-center align-content-center']",
                 ID_XPATH = "th[@scope='row']",
-                CANCEL_BTN = "//button[@class='btn-secondary']",
+                CANCEL_BTN = "//button[contains(@class,'btn-secondary')]",
 
 
                 CONFIRM_COURSE_DELETE_BTN = "//button[contains(@class,'btn-danger')]";
