@@ -5,13 +5,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import page.BasePage;
 
+import static constants.XPath.AddCoursePage.*;
+import static constants.XPath.Common.*;
+
 public class AddCoursePage extends BasePage {
-        //TODO: this elements repeat in the EditCourseDetailsPage, can be moved.
-    @FindBy(xpath = "//input[@id='name']")
+
+    @FindBy(xpath = H3)
+    private WebElement pagesLabel;
+    @FindBy(xpath = COURSE_NAME_INPUT)
     private WebElement courseNameInput;
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = SAVE_BUTTON)
     private WebElement submitNewCourseBtn;
-    @FindBy(xpath = "//div[contains(@class,'d-flex')]/a[.='Cancel']")
+    @FindBy(xpath = CANCEL_COURSE_ADDING_BTN)
     private WebElement CancelCourseAddingBtn;
 
     public AddCoursePage(WebDriver driver) {
@@ -33,5 +38,9 @@ public class AddCoursePage extends BasePage {
 
     public boolean isSubmitBtnEnabled() {
         return submitNewCourseBtn.isEnabled();
+    }
+
+    public String getPagesLabel() {
+        return pagesLabel.getText();
     }
 }
