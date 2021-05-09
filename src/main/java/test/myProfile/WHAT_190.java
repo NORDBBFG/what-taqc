@@ -7,7 +7,9 @@ import test.BaseTest;
 import constants.Constants;
 
 /**
- * Description
+ * This test case verifies that any @User from UsersDifferentRoleRegisteredInSystem.csv
+ * (Secretary, Mentor, Student) has access to his personal data and can get
+ * correct data about his profile.
  */
 
 public class WHAT_190 extends BaseTest {

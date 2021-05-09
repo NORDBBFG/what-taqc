@@ -1,44 +1,30 @@
 package test.courses;
 
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+import constants.Constants;
 import org.testng.annotations.Test;
-import page.SignInPage;
-import step.courses.CoursesStep;
+import page.support.SupportPage;
+import step.support.SupportPageStep;
 import test.BaseTest;
-import test.Constants;
 
 public class WHAT_222 extends BaseTest {
 
-    CoursesStep coursesStep;
-
-    @BeforeClass
-    public void preCond(){
-        SignInPage signInPage = new SignInPage(driver);
-        String email = "mashalarykova@gmailexample.com";
-        String password = "User1_qwerty1!";
-        String sidebarItemSupport = "Support";
-
-        signInPage.fillEmail(email);
-        signInPage.fillPassword(password);
-        signInPage.clickSignInButton();
-
-        Assert.assertEquals(signInPage.findSidebarItem("Support").getText(), sidebarItemSupport);
-        signInPage.clickSidebarItem(Constants.PageName.COURSE_LIST);
-        coursesStep = new CoursesStep(driver);
-    }
-
     @Test
     public void DisplayForStudent(){
+        String email = "mashalarykova@gmailexample.com";
+        String password = "User1_qwerty1!";
         String courseNameBefSort = "fantasy111";
         int courseIDBefSort = 7;
 
-        coursesStep
+        //preconditions
+        signInPageStep
+                .setEmail(email)
+                .setPassword(password)
+                .clickSignInBtn(SupportPageStep.class, driver)
+                .verifySidebarItemSupport(SupportPageStep.class, SupportPage.class, true, driver)
+        //step('1')
+                .clickCoursesSidebar(SupportPage.class, driver)
                 .verifyPageHeaderName(Constants.PageName.COURSE_LIST)
+        //step('2')
                 .verifyNumberOfCoursesDisplayed(true)
                 .verifySearchCourseInListInputDisplayed(true)
                 .verifyCourseName(courseIDBefSort, courseNameBefSort);

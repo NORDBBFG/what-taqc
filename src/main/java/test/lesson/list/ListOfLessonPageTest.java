@@ -1,39 +1,27 @@
 package test.lesson.list;
 
-import org.openqa.selenium.By;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import page.signin.SignInPage;
-import step.lesson.ListOfLessonPageStep;
-import test.BaseTest;
 import constants.Constants;
+import org.testng.annotations.Test;
+import page.student.ListOfStudentPage;
+import step.student.ListOfStudentsPageStep;
+import test.BaseTest;
 
 public class ListOfLessonPageTest extends BaseTest {
 
-    ListOfLessonPageStep listOfLessonPageStep;
-
-    @BeforeMethod
-    public void prepare() {
-        SignInPage signInPage = new SignInPage(driver);
+    @Test
+    public void exampleLessonTest() {
         String email = "admin.@gmail.com";
         String password = "admiN_12";
-
-        signInPage.fillEmail(email);
-        signInPage.fillPassword(password);
-        signInPage.clickSignInButton();
-        driver.findElement(By.xpath("//a[@data-id='3']")).click();
-
-        listOfLessonPageStep = new ListOfLessonPageStep(driver);
-    }
-
-    @Test
-    public void checkInfoAboutLessonTest() {
         String count = "19 lessons";
         String themeName = "Types";
         String date = "Sat Feb 01 2020";
         String time = "00:00:00";
 
-        listOfLessonPageStep
+        signInPageStep
+                .setEmail(email)
+                .setPassword(password)
+                .clickSignInBtn(ListOfStudentsPageStep.class,driver)
+                .clickLessonSidebar(ListOfStudentPage.class,driver)
                 .verifyNamePage(Constants.PageName.LESSON_LIST)
                 .verifyAddLessonBtnEnabled(true)
                 .verifyButtonPageEnabled(1, true)
@@ -53,7 +41,6 @@ public class ListOfLessonPageTest extends BaseTest {
                 .verifyThemeName(themeName)
                 .clickCancelButton(driver)
                 .clickSorting(1);
-
     }
 
 }

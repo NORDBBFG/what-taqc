@@ -1,46 +1,31 @@
 package test.courses;
 
-import org.testng.annotations.BeforeClass;
+import constants.Constants;
 import org.testng.annotations.Test;
-import page.SignInPage;
-import step.courses.CoursesStep;
-import step.courses.EditCourseDetailsStep;
+import page.student.ListOfStudentPage;
+import step.student.ListOfStudentsPageStep;
 import test.BaseTest;
-import test.Constants;
 
 public class WHAT_14 extends BaseTest {
 
-    EditCourseDetailsStep editCourseDetailsStep;
-
-    @BeforeClass
-    public void preCond(){
-
-        SignInPage signInPage = new SignInPage(driver);
+    @Test
+    public void verifyValuesReturn() throws InterruptedException{
         String email = "admin.@gmail.com";
         String password = "admiN_12";
         String courseID = "0";
-
-        signInPage.fillEmail(email);
-        signInPage.fillPassword(password);
-        signInPage.clickSignInButton();
-        signInPage.clickSidebarItem(Constants.PageName.COURSE_LIST);
-
-        CoursesStep coursesStep = new CoursesStep(driver);
-        coursesStep
-                .verifyPageHeaderName(Constants.PageName.COURSE_LIST)
-                .clickCourseTableEditIcon(courseID, driver);
-
-        editCourseDetailsStep = new EditCourseDetailsStep(driver);
-        editCourseDetailsStep
-                .verifyPageHeaderName(Constants.PageName.COURSE_EDIT);
-    }
-
-    @Test
-    public void verifyValuesReturn() throws InterruptedException{
         String newCourseName = "Basic Course";
         String initialCourseName = "Курс для демо";
 
-        editCourseDetailsStep
+        //preconditions
+        signInPageStep
+                .setEmail(email)
+                .setPassword(password)
+                .clickSignInBtn(ListOfStudentsPageStep.class, driver)
+                .clickCoursesSidebar(ListOfStudentPage.class,driver)
+                .verifyPageHeaderName(Constants.PageName.COURSE_LIST)
+                .clickCourseTableEditIcon(courseID, driver)
+                .verifyPageHeaderName(Constants.PageName.COURSE_EDIT)
+        //step('1')
                 .clearEditCourseNameInput()
                 //.verifyEditCourseNameInput("")
                 .fillEditCourseNameInput(newCourseName)

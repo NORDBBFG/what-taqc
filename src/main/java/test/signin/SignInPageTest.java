@@ -1,6 +1,7 @@
 package test.signin;
 
 import org.testng.annotations.Test;
+import step.student.ListOfStudentsPageStep;
 import test.BaseTest;
 
 public class SignInPageTest extends BaseTest {
@@ -10,8 +11,9 @@ public class SignInPageTest extends BaseTest {
         String email = "admin.@gmail.com";
         String password = "admiN_12";
 
-        signInPageStep.setEmail(email)
+        signInPageStep
+                .setEmail(email)
                 .setPassword(password)
-                .clickSignInBtn();
+                .clickSignInBtn(ListOfStudentsPageStep.class, driver);
     }
 }
