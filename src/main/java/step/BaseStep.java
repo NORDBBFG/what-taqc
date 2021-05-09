@@ -4,91 +4,163 @@ import constants.Constants;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.BasePage;
+import page.signin.SignInPage;
+import page.unassigned.UnassignedUsersPage;
 import step.courses.CoursesStep;
+import step.group.ListOfGroupsPageStep;
 import step.lesson.ListOfLessonPageStep;
+import step.mentor.ListOfMentorsPageStep;
 import step.myprofile.MyProfilePageStep;
+import step.secretary.ListOfSecretaryPageStep;
+import step.signin.SignInPageStep;
 import step.student.ListOfStudentsPageStep;
+import step.support.SupportPageStep;
+import step.unassigned.UnassignedUsersStep;
 
 import java.lang.reflect.InvocationTargetException;
 
-public abstract class BaseStep {
+public abstract class BaseStep extends Step {
 
-    public ListOfStudentsPageStep clickStudentSidebar(Class<? extends BasePage> context, WebDriver driver) {
-        try {
-            Thread.sleep(5000); //due to load list
-            BasePage basePage = context.getConstructor(WebDriver.class).newInstance(driver);
-            basePage.clickSidebarItem(Constants.PageName.STUDENT_LIST);
-            return new ListOfStudentsPageStep(driver);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
-            return null;
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            return null;
-        }
+    public ListOfStudentsPageStep clickStudentsSidebar(Class<? extends BasePage> context, WebDriver driver) {
+        clickSidebarItem(context, Constants.PageName.STUDENT_LIST, driver);
+        return new ListOfStudentsPageStep(driver);
     }
 
     public ListOfLessonPageStep clickLessonSidebar(Class<? extends BasePage> context, WebDriver driver) {
-        try {
-            Thread.sleep(5000); //due to load list
-            BasePage basePage = context.getConstructor(WebDriver.class).newInstance(driver);
-            basePage.clickSidebarItem(Constants.PageName.LESSON_LIST);
-            return new ListOfLessonPageStep(driver);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
-            return null;
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            return null;
-        }
+        clickSidebarItem(context, Constants.PageName.LESSON_LIST, driver);
+        return new ListOfLessonPageStep(driver);
     }
 
     public CoursesStep clickCoursesSidebar(Class<? extends BasePage> context, WebDriver driver) {
-        try {
-            Thread.sleep(5000); //due to load list
-            BasePage basePage = context.getConstructor(WebDriver.class).newInstance(driver);
-            basePage.clickSidebarItem(Constants.PageName.GROUP_LIST);
-            return new CoursesStep(driver);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
-            return null;
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            return null;
-        }
+        clickSidebarItem(context, Constants.PageName.COURSE_LIST, driver);
+        return new CoursesStep(driver);
+    }
+
+    public ListOfSecretaryPageStep clickSecretariesSidebar(Class<? extends BasePage> context, WebDriver driver) {
+        clickSidebarItem(context, Constants.PageName.SECRETARY_LIST, driver);
+        return new ListOfSecretaryPageStep(driver);
+    }
+
+    public UnassignedUsersStep clickUnassignedSidebar(Class<? extends BasePage> context, WebDriver driver) {
+        clickSidebarItem(context, Constants.PageName.UNASSIGNED, driver);
+        return new UnassignedUsersStep(driver);
+    }
+
+    public SupportPageStep clickSupportSidebar(Class<? extends BasePage> context, WebDriver driver) {
+        clickSidebarItem(context, Constants.PageName.SUPPORT, driver);
+        return new SupportPageStep(driver);
+    }
+
+    public ListOfMentorsPageStep clickMentorsSidebar(Class<? extends BasePage> context, WebDriver driver) {
+        clickSidebarItem(context, Constants.PageName.MENTOR_LIST, driver);
+        return new ListOfMentorsPageStep(driver);
+    }
+
+    public ListOfGroupsPageStep clickGroupsSidebar(Class<? extends BasePage> context, WebDriver driver) {
+        clickSidebarItem(context, Constants.PageName.GROUP_LIST, driver);
+        return new ListOfGroupsPageStep(driver);
     }
 
 
     public MyProfilePageStep clickMyProfile(Class<? extends BasePage> context, WebDriver driver) {
+        clickDropdownItem(context, Constants.PageName.MY_PROFILE, driver);
+        return new MyProfilePageStep(driver);
+    }
+
+    public MyProfilePageStep clickChangePassword(Class<? extends BasePage> context, WebDriver driver) {
+        clickDropdownItem(context, Constants.PageName.CHANGE_PASSWORD, driver);
+        return new MyProfilePageStep(driver);
+    }
+
+    public SignInPageStep clickLogOut(Class<? extends BasePage> context, WebDriver driver) {
+        clickDropdownItem(context, Constants.PageName.LOD_OUT, driver);
+        return new SignInPageStep(driver);
+    }
+
+
+    public <T extends BaseStep> T verifySidebarItemStudents(Class<? extends BaseStep> stepContext,
+                                                            Class<? extends BasePage> pageContext,
+                                                            boolean expected, WebDriver driver) {
+        return verifySidebarItem(stepContext, pageContext, expected, Constants.PageName.STUDENT_LIST, driver);
+    }
+
+    public <T extends BaseStep> T verifySidebarItemLessons(Class<? extends BaseStep> stepContext,
+                                                           Class<? extends BasePage> pageContext,
+                                                           boolean expected, WebDriver driver) {
+        return verifySidebarItem(stepContext, pageContext, expected, Constants.PageName.LESSON_LIST, driver);
+    }
+
+    public <T extends BaseStep> T verifySidebarItemCourses(Class<? extends BaseStep> stepContext,
+                                                            Class<? extends BasePage> pageContext,
+                                                            boolean expected, WebDriver driver) {
+        return verifySidebarItem(stepContext, pageContext, expected, Constants.PageName.COURSE_LIST, driver);
+    }
+
+    public <T extends BaseStep> T verifySidebarItemSecretaries(Class<? extends BaseStep> stepContext,
+                                                            Class<? extends BasePage> pageContext,
+                                                            boolean expected, WebDriver driver) {
+        return verifySidebarItem(stepContext, pageContext, expected, Constants.PageName.SECRETARY_LIST, driver);
+    }
+
+    public <T extends BaseStep> T verifySidebarItemUnassigned(Class<? extends BaseStep> stepContext,
+                                                           Class<? extends BasePage> pageContext,
+                                                           boolean expected, WebDriver driver) {
+        return verifySidebarItem(stepContext, pageContext, expected, Constants.PageName.UNASSIGNED, driver);
+    }
+
+    public <T extends BaseStep> T verifySidebarItemSupport(Class<? extends BaseStep> stepContext,
+                                                            Class<? extends BasePage> pageContext,
+                                                            boolean expected, WebDriver driver) {
+        return verifySidebarItem(stepContext, pageContext, expected, Constants.PageName.SUPPORT, driver);
+    }
+
+    public <T extends BaseStep> T verifySidebarItemMentors(Class<? extends BaseStep> stepContext,
+                                                            Class<? extends BasePage> pageContext,
+                                                            boolean expected, WebDriver driver) {
+        return verifySidebarItem(stepContext, pageContext, expected, Constants.PageName.MENTOR_LIST, driver);
+    }
+
+    public <T extends BaseStep> T verifySidebarItemGroups(Class<? extends BaseStep> stepContext,
+                                                            Class<? extends BasePage> pageContext,
+                                                            boolean expected, WebDriver driver) {
+        return verifySidebarItem(stepContext, pageContext, expected, Constants.PageName.GROUP_LIST, driver);
+    }
+
+
+    private void clickSidebarItem(Class<? extends BasePage> context,
+                                  String item, WebDriver driver) {
+        try {
+            Thread.sleep(5000); //due to load list
+            BasePage basePage = context.getConstructor(WebDriver.class).newInstance(driver);
+            basePage.clickSidebarItem(item);
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
+            throw new RuntimeException("No such page");
+        } catch (InterruptedException e) {
+            throw new RuntimeException("Element is not found for 5 sec");
+        }
+    }
+
+    private void clickDropdownItem(Class<? extends BasePage> context,
+                                   String item, WebDriver driver) {
         try {
             BasePage basePage = context.getConstructor(WebDriver.class).newInstance(driver);
             basePage.clickArrowIcon();
-            basePage.clickDropdownItem(Constants.PageName.MY_PROFILE);
-            return new MyProfilePageStep(driver);
+            basePage.clickDropdownItem(item);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
-            return null;
+            throw new RuntimeException("No such page");
         }
     }
 
-
-    public <T extends BaseStep> T verifySidebarItemLessons(Class<? extends BaseStep> stepContext,
-                                             Class<? extends BasePage> pageContext,
-                                             boolean expected, WebDriver driver) {
+    private <T extends BaseStep> T verifySidebarItem(Class<? extends BaseStep> stepContext,
+                                                     Class<? extends BasePage> pageContext,
+                                                     boolean expected, String item, WebDriver driver) {
         try {
             BasePage basePage = pageContext.getConstructor(WebDriver.class).newInstance(driver);
-            Assert.assertEquals(basePage.dropdownItemExist(Constants.PageName.LESSON_LIST), expected);
+            Assert.assertEquals(basePage.dropdownItemExist(item), expected);
             return (T) stepContext.newInstance();
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
-            return null;
-        }
-    }
-
-    public <T extends BaseStep> T verifySidebarItemStudents(Class<? extends BaseStep> stepContext,
-                                              Class<? extends BasePage> pageContext,
-                                              boolean expected, WebDriver driver) {
-        try {
-            BasePage basePage = pageContext.getConstructor(WebDriver.class).newInstance(driver);
-            Assert.assertEquals(basePage.dropdownItemExist(Constants.PageName.STUDENT_LIST), expected);
-            return (T) stepContext.newInstance();
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
-            return null;
+            //TODO: add logging
+            throw new RuntimeException("No such page or step");
         }
     }
 

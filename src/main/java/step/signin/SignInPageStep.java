@@ -5,9 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.signin.SignInPage;
 import step.BaseStep;
+import step.Step;
 import step.student.ListOfStudentsPageStep;
+import step.support.SupportPageStep;
 
-public class SignInPageStep {
+public class SignInPageStep extends Step {
 
     SignInPage signInPage;
 
@@ -15,38 +17,41 @@ public class SignInPageStep {
         signInPage = new SignInPage(driver);
     }
 
-    public SignInPageStep setEmail(String email){
+    public SignInPageStep setEmail(String email) {
         signInPage.fillEmail(email);
         return this;
     }
 
-    public SignInPageStep setPassword(String password){
+    public SignInPageStep setPassword(String password) {
         signInPage.fillPassword(password);
         return this;
     }
 
-    public SignInPageStep verifyEmail(String expected){
-        Assert.assertEquals(signInPage.getEmail(),expected);
+    public SignInPageStep verifyEmail(String expected) {
+        Assert.assertEquals(signInPage.getEmail(), expected);
         return this;
     }
 
-    public SignInPageStep verifyPassword(String expected){
-        Assert.assertEquals(signInPage.getPassword(),expected);
+    public SignInPageStep verifyPassword(String expected) {
+        Assert.assertEquals(signInPage.getPassword(), expected);
         return this;
     }
 
-    public void clickSignInBtn(){
+    public <T extends BaseStep> T clickSignInBtn(Class<? extends BaseStep> context, WebDriver driver) {
         signInPage.clickSignInButton();
-    }
-
-    public <T extends BaseStep> T clickSignInBtn(Class<? extends BaseStep> context, WebDriver driver){
-        signInPage.clickSignInButton();
-        switch (context.getName()){
+        switch (context.getName()) {
             case Classes.Steps.LIST_OF_STUDENTS_PAGE_STEP:
                 return (T) new ListOfStudentsPageStep(driver);
+            case Classes.Steps.SUPPORT_PAGE_STEP:
+                return (T) new SupportPageStep(driver);
             default:
-                return null;
+                throw new RuntimeException("SignInPage not redirecting to this context");
         }
+    }
+
+    public SignInPageStep clickSignInBtnNotSuccessful() {
+        signInPage.clickSignInButton();
+        return this;
     }
 
 }
