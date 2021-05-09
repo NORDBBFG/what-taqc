@@ -29,6 +29,7 @@ public class Constants {
         String COURSE_EDIT = "Course Editing";
         String COURSE_DETAILS = "Course Details";
         String COURSE_LIST = "Courses";
+        String COURSE_ADD = "Add a course";
     }
 
     public interface LessonDetails{

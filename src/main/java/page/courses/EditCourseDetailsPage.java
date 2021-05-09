@@ -36,7 +36,7 @@ public class EditCourseDetailsPage extends BasePage {
     }
 
     public void fillEditCourseNameInput(String courseName) throws InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(1000);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("document.evaluate('//input', document, null, 9, null).singleNodeValue.value = ''");
         courseNameInput.sendKeys(courseName);

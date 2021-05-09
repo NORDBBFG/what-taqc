@@ -12,7 +12,7 @@ import step.courses.CoursesStep;
 import test.BaseTest;
 import test.Constants;
 
-public class WHAT_222 extends BaseTest {
+public class WHAT_221 extends BaseTest {
 
     CoursesStep coursesStep;
 
@@ -41,6 +41,7 @@ public class WHAT_222 extends BaseTest {
                 .verifyPageHeaderName(Constants.PageName.COURSE_LIST)
                 .verifyNumberOfCoursesDisplayed(true)
                 .verifySearchCourseInListInputDisplayed(true)
-                .verifyCourseName(courseIDBefSort, courseNameBefSort);
+                .verifyCourseName(courseIDBefSort, courseNameBefSort)
+                .verifyAddCourseToListBtnDisplayed(true);
     }
 }

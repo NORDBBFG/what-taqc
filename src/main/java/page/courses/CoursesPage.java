@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import page.BasePage;
 
 import java.util.List;
@@ -41,6 +40,10 @@ public class CoursesPage extends BasePage {
 
     public Boolean isSearchCourseInListInputDisplayed(){
         return searchCourseInListInput.isDisplayed();
+    }
+
+    public Boolean isAddCourseToListBtnDisplayed(){
+        return addCourseToListBtn.isDisplayed();
     }
 
     public String getCourseNameText(Integer courseID){
