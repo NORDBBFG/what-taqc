@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.List;
 
 public abstract class BasePage extends Page {
@@ -53,6 +56,16 @@ public abstract class BasePage extends Page {
         if(resultItem!=null){
             resultItem.click();
         }
+    }
+
+    public boolean waitVisibility(WebElement element, int time) {
+        WebDriverWait wait = new WebDriverWait(driver, time);
+        try {
+            wait.until(ExpectedConditions.visibilityOf(element));
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     private WebElement findDropdownItem(String name){

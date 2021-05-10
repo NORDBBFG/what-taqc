@@ -8,25 +8,35 @@ import org.openqa.selenium.support.FindBy;
 import constants.Constants.UnassignedUsersSort;
 import constants.Constants;
 import page.BasePage;
-
+import static constants.Constants.UnassignedUsersSelectRole.*;
 import java.util.List;
 
+
 public class UnassignedUsersPage extends BasePage {
+
 
     private static final String EMAIL_XPATH = "//tr/td[4]";
     private static final String ADD_ROLE_XPATH = "//button[text()='Add role']";
     private static final String CELL_XPATH = "//td";
 
+
     @FindBy(xpath = "//input[contains(@class,'searchInput')]")
     private WebElement inputPerson;
     @FindBy(xpath = "//tr/th/span")
     private List<WebElement> sortUnassignedUsers;
+
+
     @FindBy(xpath = "//tbody//tr")
     private List<WebElement> tableContent;
 
+    WebDriver driver;
+
     public UnassignedUsersPage(WebDriver driver) {
         super(driver);
+        this.driver = driver;
+
     }
+
 
     public String getIdUser(String email) {
         List<WebElement> row = getElementsOfMass(email);
@@ -52,7 +62,9 @@ public class UnassignedUsersPage extends BasePage {
         return null;
     }
 
+
     public String getSurnameUser(int number) {
+
 
         List<WebElement> row = getElementsOfMass(number);
         if (!row.isEmpty())
@@ -69,6 +81,7 @@ public class UnassignedUsersPage extends BasePage {
         return null;
     }
 
+
     public String getEmailUser(int number) {
         List<WebElement> row = getElementsOfMass(number);
         if (!row.isEmpty())
@@ -77,13 +90,54 @@ public class UnassignedUsersPage extends BasePage {
         return null;
     }
 
+    public boolean addRoleButtonEnabled(int number) {
+        List<WebElement> row = getElementsOfMass(number);
+        if (!row.isEmpty())
+            return row.get(4).findElement(By.xpath(ADD_ROLE_XPATH)).isEnabled();
+        return false;
+    }
+
+    public boolean choseSortEnabled(String unassignedUsers) {
+
+        switch (unassignedUsers) {
+            case UnassignedUsersSort.SYMBOL:
+                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SYMBOL)).isEnabled();
+//                        UnassignedPage.getSort().get(Integer.parseInt(String.valueOf(SortButton.SYMBOL))).click();
+            case UnassignedUsersSort.NAME:
+                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.NAME)).isEnabled();
+            case UnassignedUsersSort.SURNAME:
+                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SURNAME)).isEnabled();
+            case UnassignedUsersSort.EMAIL:
+                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.EMAIL)).isEnabled();
+        }
+        return false;
+    }
+
+    public boolean choseUserRoleEnabled(int number, String unassignedUsers) {
+        List<WebElement> row = getElementsOfMass(number);
+        if (!row.isEmpty())
+            row.get(4).findElement(By.xpath("//select")).click();
+        switch (unassignedUsers) {
+            case CHOOSE:
+                return row.get(4).findElement(By.xpath("//select//option[@value='0']")).isEnabled();
+            case STUDENT:
+                return row.get(4).findElement(By.xpath("//select//option[@value='1']")).isEnabled();
+            case MENTOR:
+                return row.get(4).findElement(By.xpath("//select//option[@value='2']")).isEnabled();
+            case SECRETARY:
+                return row.get(4).findElement(By.xpath("//select//option[@value='3']")).isEnabled();
+        }
+        return false;
+    }
+
     public void addRoleButtonClick(int number) {
         List<WebElement> row = getElementsOfMass(number);
         if (!row.isEmpty())
             row.get(4).findElement(By.xpath(ADD_ROLE_XPATH)).click();
+
     }
 
-    public void choseSort(String unassignedUsers) {
+    public void choseSortType(String unassignedUsers) {
 
         switch (unassignedUsers) {
             case UnassignedUsersSort.SYMBOL:
@@ -133,6 +187,7 @@ public class UnassignedUsersPage extends BasePage {
                 return webElement.findElements(By.xpath(CELL_XPATH));
             }
         }
+
         return null;
     }
 }
