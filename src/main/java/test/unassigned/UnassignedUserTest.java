@@ -1,19 +1,15 @@
 package test.unassigned;
 
-        import org.testng.annotations.BeforeClass;
-        import org.testng.annotations.Test;
-        import page.SignInPage;
-        import step.UnassignedUsersStep;
-import constants.Constants;
+import constants.Constants.UnassignedUsersSort;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.signin.SignInPage;
 import step.unassigned.UnassignedUsersStep;
 import test.BaseTest;
-import step.UnassignedUsersStep;
-        import component.WebElements.UnassignedUsersRole;
-        import component.WebElements.UnassignedUsersSort;
 
+import static constants.Constants.UnassignedUsersSelectRole.*;
+
+public class UnassignedUserTest extends BaseTest {
     UnassignedUsersStep coursesStep;
     SignInPage signInPage;
     @BeforeClass
@@ -39,8 +35,9 @@ import step.UnassignedUsersStep;
 
                    .verifyAddRoleButtonEnabled(1, true)
                    .verifyChoseSortEnabled(UnassignedUsersSort.NAME, true)
-                   .verifyChoseUserRole(1, UnassignedUsersRole.STUDENT, true)
-                   .choseUserRole(1, UnassignedUsersRole.STUDENT);
+
+                   .verifyChoseUserRole(1, STUDENT, true)
+                   .choseUserRole(1, STUDENT);
         coursesStep.choseSortType(UnassignedUsersSort.NAME);
 
 

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import constants.Constants.UnassignedUsersSort;
 import constants.Constants;
 import page.BasePage;
-
+import static constants.Constants.UnassignedUsersSelectRole.*;
 import java.util.List;
 
 
@@ -118,13 +118,13 @@ public class UnassignedUsersPage extends BasePage {
         if (!row.isEmpty())
             row.get(4).findElement(By.xpath("//select")).click();
         switch (unassignedUsers) {
-            case UnassignedUsersRole.CHOOSE:
+            case CHOOSE:
                 return row.get(4).findElement(By.xpath("//select//option[@value='0']")).isEnabled();
-            case UnassignedUsersRole.STUDENT:
+            case STUDENT:
                 return row.get(4).findElement(By.xpath("//select//option[@value='1']")).isEnabled();
-            case UnassignedUsersRole.MENTOR:
+            case MENTOR:
                 return row.get(4).findElement(By.xpath("//select//option[@value='2']")).isEnabled();
-            case UnassignedUsersRole.SECRETARY:
+            case SECRETARY:
                 return row.get(4).findElement(By.xpath("//select//option[@value='3']")).isEnabled();
         }
         return false;
