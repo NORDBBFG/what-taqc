@@ -46,6 +46,10 @@ public class CoursesPage extends BasePage {
         return searchCourseInListInput.isDisplayed();
     }
 
+    public Boolean isAddCourseToListBtnDisplayed(){
+        return addCourseToListBtn.isDisplayed();
+    }
+
     public String getCourseNameText(Integer courseID){
         String courseIDXpath = "//tr[@data-student-id='"+courseID+"']/td[1]";
         String courseNameXpath = "//tr[@data-student-id='"+courseID+"']/td[2]";

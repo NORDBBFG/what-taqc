@@ -32,6 +32,7 @@ public class Constants {
         COURSE_EDIT = "Course Editing",
                 COURSE_DETAILS = "Course Details",
                 COURSE_LIST = "Courses",
+                COURSE_ADD = "Add a course",
 
         SUPPORT = "Support",
                 UNASSIGNED = "Unassigned",

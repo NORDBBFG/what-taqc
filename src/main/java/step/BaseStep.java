@@ -4,8 +4,6 @@ import constants.Constants;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.BasePage;
-import page.signin.SignInPage;
-import page.unassigned.UnassignedUsersPage;
 import step.courses.CoursesStep;
 import step.group.ListOfGroupsPageStep;
 import step.lesson.ListOfLessonPageStep;
@@ -156,8 +154,8 @@ public abstract class BaseStep extends Step {
                                                      boolean expected, String item, WebDriver driver) {
         try {
             BasePage basePage = pageContext.getConstructor(WebDriver.class).newInstance(driver);
-            Assert.assertEquals(basePage.dropdownItemExist(item), expected);
-            return (T) stepContext.newInstance();
+            Assert.assertEquals(basePage.sidebarItemExist(item), expected);
+            return (T) stepContext.getConstructor(WebDriver.class).newInstance(driver);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
             //TODO: add logging
             throw new RuntimeException("No such page or step");
