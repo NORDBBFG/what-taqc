@@ -1,8 +1,7 @@
 package test;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import service.DriverOption;
 import step.signin.SignInPageStep;
 
@@ -11,13 +10,13 @@ public abstract class BaseTest {
     protected WebDriver driver;
     protected SignInPageStep signInPageStep;
 
-    @BeforeSuite
+    @BeforeClass
     public void setUp() {
         driver = DriverOption.manage();
         signInPageStep = new SignInPageStep(driver);
     }
 
-    @AfterSuite
+    @AfterClass
     public void tearDown() {
         driver.quit();
     }
