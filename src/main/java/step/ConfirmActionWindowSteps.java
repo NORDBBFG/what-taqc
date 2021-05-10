@@ -3,8 +3,9 @@ package step;
 import component.ConfirmActionWindow;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import step.changepassword.ChangePasswordPageSteps;
 
-public class ConfirmActionWindowSteps {
+public class ConfirmActionWindowSteps extends BaseStep {
 
     ConfirmActionWindow confirmActionWindow;
 
