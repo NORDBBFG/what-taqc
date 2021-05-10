@@ -21,6 +21,6 @@ public class WHAT_197 extends BaseTest {
                 .clickStudentsSidebar(ListOfStudentPage.class, driver)
         // step('1')
                 .clickCurrentStudent(driver)
-                .verifyListOfGroupsIsDisplayed();
+                .verifyListOfLessonsIsDisplayed();
     }
 }
