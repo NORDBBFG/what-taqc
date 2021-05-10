@@ -16,7 +16,6 @@ public class WHAT_14 extends BaseTest {
         String newCourseName = "Basic Course";
         String initialCourseName = "Курс для демо";
 
-        //preconditions
         signInPageStep
                 .setEmail(email)
                 .setPassword(password)
@@ -25,11 +24,16 @@ public class WHAT_14 extends BaseTest {
                 .verifyPageHeaderName(Constants.PageName.COURSE_LIST)
                 .clickCourseTableEditIcon(courseID, driver)
                 .verifyPageHeaderName(Constants.PageName.COURSE_EDIT)
-        //step('1')
-                .clearEditCourseNameInput()
-                //.verifyEditCourseNameInput("")
+                // step('1')
+                // Clean 'Course name' field, verify 'Course Name' field is cleaned.
+                .fillEditCourseNameInput("")
+                .verifyEditCourseNameInput("")
+                // step('2')
+                // Fill 'Course name' field, verify it's value is 'Basic Course'.
                 .fillEditCourseNameInput(newCourseName)
                 .verifyEditCourseNameInput(newCourseName)
+                // (step'3')
+                // Click on the 'Clear' button, verify that the 'Course Name' in it's initial state.
                 .clickOnResetEditCourseNameInputBtn()
                 .verifyEditCourseNameInput(initialCourseName);
     }
