@@ -5,6 +5,7 @@ import org.testng.Assert;
 import page.changepassword.ChangePasswordPage;
 import step.BaseStep;
 import step.ConfirmActionWindowSteps;
+import step.myprofile.MyProfilePageStep;
 
 public class ChangePasswordPageSteps extends BaseStep {
 
@@ -65,7 +66,8 @@ public class ChangePasswordPageSteps extends BaseStep {
     }
 
     //TODO add return to method
-    public void clickCancelButtonStep(WebDriver driver) {
+    public MyProfilePageStep clickCancelButtonStep(WebDriver driver) {
         changePasswordPage.clickCancelButton();
+        return new MyProfilePageStep(driver);
     }
 }

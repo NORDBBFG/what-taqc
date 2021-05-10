@@ -6,7 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import page.BasePage;
 
 import static constants.XPath.ChangePasswordPage.*;
-import static constants.XPath.Common.*;
+import static constants.XPath.Common.H3;
+import static constants.XPath.Common.SAVE_BUTTON;
 
 public class ChangePasswordPage extends BasePage {
 
