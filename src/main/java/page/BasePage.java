@@ -60,7 +60,7 @@ public abstract class BasePage extends Page {
         return null;
     }
 
-    public WebElement findSidebarItem(String name){
+    private WebElement findSidebarItem(String name){
         for (WebElement sidebarItem : sidebarItems) {
             if(sidebarItem.getText().equals(name)) return sidebarItem;
         }

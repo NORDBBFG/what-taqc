@@ -8,26 +8,30 @@ import page.BasePage;
 
 import java.util.List;
 
+import static constants.XPath.Common.H2;
+import static constants.XPath.CoursesPage.*;
+
 public class CoursesPage extends BasePage {
-    @FindBy(xpath = "//div[contains(@class,'col-2 offset-5')]/button")
+
+    @FindBy(xpath = ADD_COURSE_TO_LIST_BTN)
     private WebElement addCourseToListBtn;
-    @FindBy(xpath = "//input[contains(@class,'search')]")
+    @FindBy(xpath = SEARCH_COURSE_IN_LIST_INPUT)
     private WebElement searchCourseInListInput;
-    @FindBy(xpath = "//span[@data-sorting-param='id']")
+    @FindBy(xpath = COURSE_LIST_ID_SORT_TYPE)
     private WebElement courseListIDSortType;
-    @FindBy(xpath = "//span[@data-sorting-param='name']")
+    @FindBy(xpath = COURSE_LIST_NAME_SORT_TYPE)
     private WebElement courseListNameSortType;
-    @FindBy(xpath = "//tr[contains(@class,'list-of-courses')]")
+    @FindBy(xpath = LIST_OF_COURSE_TABLE_ROWS)
     private List <WebElement> listOfCourseTableRows;
-    @FindBy(xpath = "//td[@data-student-id]/*")
+    @FindBy(xpath = LIST_OF_COURSE_TABLE_EDIT_ICONS)
     private List <WebElement> listOfCourseTableEditIcons;
-    @FindBy(xpath = "//nav[contains(@class,'flex-row')]/ul[1]//button")
+    @FindBy(xpath = LEFT_NAVIGATION_ARROW_BTN)
     private WebElement leftNavigationArrowBtn;
-    @FindBy(xpath = "//nav[contains(@class,'flex-row')]/ul[3]//button")
+    @FindBy(xpath = RIGHT_NAVIGATION_ARROW_BTN)
     private WebElement rightNavigationArrowBtn;
-    @FindBy(xpath = "//h2")
+    @FindBy(xpath = H2)
     private WebElement pageHeader;
-    @FindBy(xpath = "//span[contains(@class,'col-2')]")
+    @FindBy(xpath = NUMBER_OF_COURSES)
     private WebElement numberOfCourses;
 
     public String getPageHeaderText(){

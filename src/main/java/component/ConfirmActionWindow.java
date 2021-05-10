@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import page.BasePage;
-import page.changePassworPage.ChangePasswordPage;
+import page.changepassword.ChangePasswordPage;
 
 public class ConfirmActionWindow extends BasePage {
 
