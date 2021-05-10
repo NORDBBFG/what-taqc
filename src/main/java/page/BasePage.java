@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+
 public abstract class BasePage extends Page {
 
     private static final String USER_ICON_XPATH ="//a[@class='header__header__account-user--icon___1k48U']";
@@ -78,4 +79,6 @@ public abstract class BasePage extends Page {
         }
         return null;
     }
+
+
 }
