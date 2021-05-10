@@ -9,7 +9,7 @@ import test.BaseTest;
 
 import static constants.Constants.UnassignedUsersSelectRole.*;
 
-public class UnassignedUserTest extends BaseTest {
+public class WHAT_51 extends BaseTest {
     UnassignedUsersStep coursesStep;
     SignInPage signInPage;
     @BeforeClass
