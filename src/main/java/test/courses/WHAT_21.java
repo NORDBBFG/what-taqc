@@ -1,38 +1,28 @@
 package test.courses;
 
-import org.testng.annotations.BeforeClass;
+import constants.Constants;
 import org.testng.annotations.Test;
-import page.SignInPage;
-import step.courses.AddCourseStep;
+import page.courses.CoursesPage;
+import page.student.ListOfStudentPage;
 import step.courses.CoursesStep;
-import step.courses.EditCourseDetailsStep;
+import step.student.ListOfStudentsPageStep;
 import test.BaseTest;
-import test.Constants;
 
 public class WHAT_21 extends BaseTest {
-    CoursesStep coursesStep;
-
-    @BeforeClass
-    public void preCond(){
-        SignInPage signInPage = new SignInPage(driver);
-        String email = "admin.@gmail.com";
-        String password = "admiN_12";
-
-        signInPage.fillEmail(email);
-        signInPage.fillPassword(password);
-        signInPage.clickSignInButton();
-        signInPage.clickSidebarItem(Constants.PageName.COURSE_LIST);
-
-        coursesStep = new CoursesStep(driver);
-        coursesStep.verifyPageHeaderName(Constants.PageName.COURSE_LIST);
-    }
 
     @Test
     public void verifySearchFillingSymbols() throws InterruptedException {
+        String email = "admin.@gmail.com";
+        String password = "admiN_12";
         String invalidCourseName = "!@#$%^&*()";
         String errorMessageText = "Invalid course name";
 
-        coursesStep
+        signInPageStep
+                .setEmail(email)
+                .setPassword(password)
+                .clickSignInBtn(ListOfStudentsPageStep.class, driver)
+                .clickCoursesSidebar(ListOfStudentPage.class, driver)
+                .verifyPageHeaderName(Constants.PageName.COURSE_LIST)
                 // (step'1')
                 // Click on the 'Add a course' button, verify the 'Add a course' page opened.
                 .clickAddCourseToListBtn(driver)

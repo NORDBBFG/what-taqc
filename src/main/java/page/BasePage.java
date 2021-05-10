@@ -29,6 +29,10 @@ public abstract class BasePage extends Page {
         return findDropdownItem(name) != null;
     }
 
+    public boolean sidebarItemExist(String name){
+        return findSidebarItem(name) != null;
+    }
+
     public void clickUserAccountIcon(){
         userAccountIcon.click();
     }
