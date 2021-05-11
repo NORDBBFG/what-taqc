@@ -59,7 +59,8 @@ public class XPath {
                 CANCEL_BUTTON = "//button[contains(@Class, 'cancel-button')]",
                 CURRENT_PASSWORD_ERROR_FIELD = "//input[@name='currentPassword']//following-sibling::div",
                 NEW_PASSWORD_ERROR_FIELD = "//input[@name='newPassword']//following-sibling::div",
-                CONFIRM_PASSWORD_ERROR_FIELD = "//input[@name='confirmNewPassword']//following-sibling::div";
+                CONFIRM_PASSWORD_ERROR_FIELD = "//input[@name='confirmNewPassword']//following-sibling::div",
+                PASSWORD_SUCCESSFULLY_CHANGED_MESSAGE = "//div[@role='alert']";
     }
 
     public interface AddCoursePage {

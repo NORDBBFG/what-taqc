@@ -4,6 +4,7 @@ import constants.Constants;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.BasePage;
+import step.changepassword.ChangePasswordPageSteps;
 import step.courses.CoursesStep;
 import step.group.ListOfGroupsPageStep;
 import step.lesson.ListOfLessonPageStep;
@@ -65,9 +66,9 @@ public abstract class BaseStep extends Step {
         return new MyProfilePageStep(driver);
     }
 
-    public MyProfilePageStep clickChangePassword(Class<? extends BasePage> context, WebDriver driver) {
+    public ChangePasswordPageSteps clickChangePassword(Class<? extends BasePage> context, WebDriver driver) {
         clickDropdownItem(context, Constants.PageName.CHANGE_PASSWORD, driver);
-        return new MyProfilePageStep(driver);
+        return new ChangePasswordPageSteps(driver);
     }
 
     public SignInPageStep clickLogOut(Class<? extends BasePage> context, WebDriver driver) {

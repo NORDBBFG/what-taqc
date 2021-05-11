@@ -4,7 +4,9 @@ import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.signin.SignInPage;
+import page.student.ListOfStudentPage;
 import step.changepassword.ChangePasswordPageSteps;
+import step.student.ListOfStudentsPageStep;
 import test.BaseTest;
 
 public class VerifyConfirmActionWindowIsAppeared extends BaseTest {
@@ -31,6 +33,7 @@ public class VerifyConfirmActionWindowIsAppeared extends BaseTest {
         String mail = "admin.@gmail.com";
         String currentPassword = "admiN_12";
         String newPassword = "123456789qQ";
+        String alertMessage = "The password has been successfully changed";
 
         changePasswordPageSteps
                 .verifiedElementsInitialStateStep(mail)
@@ -38,6 +41,8 @@ public class VerifyConfirmActionWindowIsAppeared extends BaseTest {
                 .fillNewPasswordFieldStep(newPassword)
                 .fillConfirmPasswordFieldStep(newPassword)
                 .clickSaveButtonStep(driver)
-                .verifyConfirmActionWindow(true);
+                .verifyConfirmActionWindow(true)
+                .clickConfirmButton(driver)
+                .verifyFollowingAlertMessage(alertMessage, true);
     }
 }
