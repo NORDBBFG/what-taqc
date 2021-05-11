@@ -3,10 +3,7 @@ package page.group;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import page.BasePage;
 
@@ -19,9 +16,9 @@ public class ListOfGroupsPage extends BasePage {
 
     @FindBy(xpath = "//h2[text()='Groups']")
     private WebElement groupsPageName;
-    @FindBy(xpath = "//button[text()=\"Upload Group('s)\"]")
+    @FindBy(xpath = "//button[text()=\'Upload Group('s)\']")
     private WebElement uploadGroupButton;
-    @FindBy(xpath = "//button[text()='Add a group']")
+    @FindBy(xpath = "//button/span[text()='Add a group']")
     private WebElement addGroupButton;
     @FindBy(xpath = "//thead//span[text()='#']")
     private WebElement rowNumberHeader;
@@ -36,7 +33,9 @@ public class ListOfGroupsPage extends BasePage {
     @FindBy(xpath = "//thead//th[text()='Edit']")
     private WebElement editHeader;
     @FindBy(xpath = "//input[@placeholder=\"Group's name\"]")
-    private WebElement groupsSearchByName;
+    private WebElement searchByNameInput;
+    @FindBy(xpath = "//input[@placeholder=\"Start Date\"]")
+    private WebElement searchByDateInput;
     @FindBy( xpath = "//tbody//tr")
     private List<WebElement> tableContent;
 
@@ -59,22 +58,106 @@ public class ListOfGroupsPage extends BasePage {
     public void clickDateOfFinishHeader(){
         dateOfFinishHeader.click();
     }
-
-    public List<WebElement> getTableContent(){
-        return tableContent;
+    public void clearInputGroupName(){
+        searchByNameInput. sendKeys(Keys.chord(Keys.CONTROL, "a",Keys.DELETE));
     }
-    public WebElement getGroupsSearchByName(){
-        return groupsSearchByName;
+    public List<WebElement> getTableContent(){ return tableContent; }
+    public WebElement getSearchByNameInput(){
+        return searchByNameInput;
     }
 
     public List<WebElement> searchByGroupName(String groupName){
         if (waitVisibility(tableContent.get(0), 5)) {
-            groupsSearchByName.sendKeys(groupName);
+            searchByNameInput.sendKeys(groupName);
         } else {
             logger.error("Tables isn't loaded");
             throw new NoSuchElementException();
         }
         return tableContent;
+    }
+
+    public boolean isSearchByDateInputIsVisible(){
+        if (waitVisibility(searchByDateInput, 5)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isAddGroupButtonVisible(){
+        if (waitVisibility(addGroupButton, 5)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean isUploadGroupButtonVisible(){
+        if (waitVisibility(uploadGroupButton, 5)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+ public boolean isSearchByNameInputIsVisible(){
+        if (waitVisibility(searchByNameInput, 5)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isTableContentVisible(){
+        if (waitVisibility(tableContent.get(0), 5)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isNumberHeaderIsVisible(){
+        if (waitVisibility(rowNumberHeader, 5)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isGroupNameHeaderIsVisible(){
+        if (waitVisibility(groupNameHeader, 5)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+  public boolean isQuantityOfStudentsHeaderIsVisible(){
+        if (waitVisibility(quantityOfStudentsHeader, 5)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean isDateOfStartHeaderIsVisible(){
+        if (waitVisibility(dateOfStartHeader, 5)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean isDateOfFinishHeaderIsVisible(){
+        if (waitVisibility(dateOfFinishHeader, 5)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean isEditHeaderIsVisible(){
+        if (waitVisibility(editHeader, 5)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void clickAddGroupButton(){
@@ -96,10 +179,8 @@ public class ListOfGroupsPage extends BasePage {
         return (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;",element);
     }
 
-
     public String getTextFromSearch (){
-        return getTextByJavaScript(getGroupsSearchByName());
+        return getTextByJavaScript(getSearchByNameInput());
     }
-
 
 }

@@ -5,19 +5,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import page.group.ListOfGroupsPage;
+import step.BaseStep;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ListOfGroupsPageStep {
+public class ListOfGroupsPageStep extends BaseStep {
 
     ListOfGroupsPage listOfGroupsPage;
 
     public ListOfGroupsPageStep(WebDriver driver){
         listOfGroupsPage = new ListOfGroupsPage(driver);
     }
-
     public ListOfGroupsPageStep clickNumberHeader(){
         listOfGroupsPage.clickNumberHeader();
         return this;
@@ -45,6 +45,64 @@ public class ListOfGroupsPageStep {
         listOfGroupsPage.searchByGroupName(groupName);
         return this;
     }
+
+    public ListOfGroupsPageStep verifySearchByDateInputVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isSearchByDateInputIsVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+        public ListOfGroupsPageStep verifySearchByNameInputVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isSearchByNameInputIsVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+    public ListOfGroupsPageStep verifyAddGroupButtonVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isAddGroupButtonVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+        public ListOfGroupsPageStep verifyUploadGroupButtonVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isUploadGroupButtonVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+
+    public ListOfGroupsPageStep verifyTableContentVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isTableContentVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+   public ListOfGroupsPageStep verifyNumberHeaderVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isNumberHeaderIsVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+  public ListOfGroupsPageStep verifyGroupNameHeaderVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isGroupNameHeaderIsVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+ public ListOfGroupsPageStep verifyQuantityOfStudentsHeaderVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isQuantityOfStudentsHeaderIsVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+ public ListOfGroupsPageStep verifyDateOfStartHeaderVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isDateOfStartHeaderIsVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+public ListOfGroupsPageStep verifyDateOfFinishHeaderVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isDateOfFinishHeaderIsVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+public ListOfGroupsPageStep verifyEditHeaderVisible(boolean expected){
+        boolean isVisible = listOfGroupsPage.isEditHeaderIsVisible();
+        Assert.assertEquals(isVisible,expected );
+        return this;
+    }
+
     public ListOfGroupsPageStep clickAddGroupButton(){
         listOfGroupsPage.clickAddGroupButton();
         return this;
@@ -59,6 +117,11 @@ public class ListOfGroupsPageStep {
     }
     public ListOfGroupsPageStep clickOnRow(Integer rowNumber){
         listOfGroupsPage.clickEditIconInRow(rowNumber);
+        return this;
+    }
+
+     public ListOfGroupsPageStep clearInputGroupName(){
+        listOfGroupsPage.clearInputGroupName();
         return this;
     }
 
