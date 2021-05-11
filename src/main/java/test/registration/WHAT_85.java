@@ -16,7 +16,7 @@ public class WHAT_85 extends BaseTest {
     RegistrationPageStep registrationPageStep;
 
     @Test
-    public void atc_WHAT_73() {
+    public void atc_WHAT_85() {
         String firstName = "11111";
         String lastName = "22222";
         String email = "abbadabba";
