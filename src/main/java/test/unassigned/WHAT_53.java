@@ -9,7 +9,7 @@ import test.BaseTest;
 import static constants.Constants.UnassignedUsersSelectRole.*;
 import static constants.Constants.UnassignedUsersSort.*;
 
-public class WHAT_51 extends BaseTest {
+public class WHAT_53 extends BaseTest {
     UnassignedUsersStep coursesStep;
     SignInPage signInPage;
     @BeforeClass
@@ -25,7 +25,7 @@ public class WHAT_51 extends BaseTest {
     }
 
     @Test
-    public void atc_WHAT_51(){
+    public void atc_WHAT_53(){
         String mailOfUser = "abbadabba@gmail.com";
         String expectedSurnameUser = "Dabba";
 
@@ -34,11 +34,11 @@ public class WHAT_51 extends BaseTest {
                    .verifySurnameUser(mailOfUser, expectedSurnameUser)
 
                    .verifyAddRoleButtonEnabled(1, true)
-                   .verifyChoseSortEnabled(SYMBOL, true)
+                   .verifyChoseSortEnabled(SURNAME, true)
 
-                   .verifyChoseUserRole(1, CHOOSE, true)
-                   .choseUserRole(1, CHOOSE);
-        coursesStep.choseSortType(SYMBOL);
+                   .verifyChoseUserRole(1, MENTOR, true)
+                   .choseUserRole(1, MENTOR);
+        coursesStep.choseSortType(SURNAME);
 
 
     }
