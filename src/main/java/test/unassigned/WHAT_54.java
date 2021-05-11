@@ -39,7 +39,8 @@ public class WHAT_54 extends BaseTest {
                    .verifyChoseUserRole(1, SECRETARY, true)
                    .choseUserRole(1, SECRETARY);
         coursesStep.choseSortType(EMAIL);
-
+        coursesStep.verifyChoseSortEnabled(EMAIL, true)
+                   .verifyChoseUserRole(1, SECRETARY, true);
 
     }
 }

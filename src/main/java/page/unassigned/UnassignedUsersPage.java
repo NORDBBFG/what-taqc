@@ -102,7 +102,6 @@ public class UnassignedUsersPage extends BasePage {
         switch (unassignedUsers) {
             case UnassignedUsersSort.SYMBOL:
                 return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SYMBOL)).isEnabled();
-//                        UnassignedPage.getSort().get(Integer.parseInt(String.valueOf(SortButton.SYMBOL))).click();
             case UnassignedUsersSort.NAME:
                 return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.NAME)).isEnabled();
             case UnassignedUsersSort.SURNAME:

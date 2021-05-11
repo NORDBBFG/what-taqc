@@ -39,7 +39,8 @@ public class WHAT_51 extends BaseTest {
                    .verifyChoseUserRole(1, CHOOSE, true)
                    .choseUserRole(1, CHOOSE);
         coursesStep.choseSortType(SYMBOL);
-
+        coursesStep.verifyChoseSortEnabled(SYMBOL, true)
+                   .verifyChoseUserRole(1, CHOOSE, true);
 
     }
 }
