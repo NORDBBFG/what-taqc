@@ -6,6 +6,7 @@ import org.testng.Assert;
 import page.signin.SignInPage;
 import step.BaseStep;
 import step.Step;
+import step.registration.RegistrationPageStep;
 import step.student.ListOfStudentsPageStep;
 import step.support.SupportPageStep;
 
@@ -25,6 +26,11 @@ public class SignInPageStep extends Step {
     public SignInPageStep setPassword(String password) {
         signInPage.fillPassword(password);
         return this;
+    }
+
+    public RegistrationPageStep clickRegistrationLink(WebDriver driver) {
+        signInPage.clickRegistrationLink();
+        return new RegistrationPageStep(driver);
     }
 
     public SignInPageStep verifyEmail(String expected) {

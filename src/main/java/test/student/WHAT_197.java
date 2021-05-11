@@ -7,11 +7,11 @@ import test.BaseTest;
 
 public class WHAT_197 extends BaseTest {
 
+    String email = "admin.@gmail.com";
+    String password = "admiN_12";
+
     @Test
     public void verifyStudentDetailsLessonsDisplayed(){
-
-        String email = "admin.@gmail.com";
-        String password = "admiN_12";
 
         // step('preconditions')
         signInPageStep
@@ -21,6 +21,6 @@ public class WHAT_197 extends BaseTest {
                 .clickStudentsSidebar(ListOfStudentPage.class, driver)
         // step('1')
                 .clickCurrentStudent(driver)
-                .verifyListOfGroupsIsDisplayed();
+                .verifyListOfLessonsIsDisplayed();
     }
 }

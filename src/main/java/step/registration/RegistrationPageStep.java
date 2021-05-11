@@ -1,9 +1,19 @@
 package step.registration;
 
+import constants.Classes;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.registration.RegistrationPage;
 import step.BaseStep;
+import step.Step;
+import step.student.EditStudentDetailsPageStep;
+import step.student.ListOfStudentsPageStep;
+import step.support.SupportPageStep;
+
+import static constants.XPath.RegistrationPage.*;
+import static constants.XPath.RegistrationPage.ERROR_SIGNUP;
 
 public class RegistrationPageStep extends BaseStep {
 
@@ -68,17 +78,59 @@ public class RegistrationPageStep extends BaseStep {
         return this;
     }
 
-    // TODO: 06.05.2021 verify SignUoButton  
-    public boolean verifySignUpButtonEnable(boolean expected) {
-        registrationPage.clickSignUpButton();
+    public boolean verifySignUpBtnEnable(boolean expected) {
+        registrationPage.clickSignUpBtn();
         return true;
     }
 
-    public void clickSignUpButton() {
-        registrationPage.clickSignUpButton();
+    public boolean verifySuccessRegistrationBtnEnable(boolean expected) {
+        registrationPage.clickSignUpBtn();
+        return true;
     }
 
-    public RegistrationPageStep verifySignUpButtonEnable() {
+    public RegistrationPageStep clickSignUpBtn() {
+        registrationPage.clickSignUpBtn();
         return this;
     }
+
+    public void clickSuccessRegistrationBtn() {
+        registrationPage.clickSuccessRegistrationBtn();
+    }
+
+    public RegistrationPageStep verifySignUpBtnEnable() {
+        return this;
+    }
+
+    public RegistrationPageStep verifySuccessRegistrationBtnEnable() {
+        return this;
+    }
+    // todo
+    public RegistrationPageStep verifySuccessAlert(String expected) {
+        Assert.assertEquals(registrationPage.getSuccessAlert(), expected);
+        return this; }
+
+    public RegistrationPageStep verifyErrorFirstName(String expected) {
+        Assert.assertEquals(registrationPage.getErrorFirstName(), expected);
+        return this; }
+
+    public RegistrationPageStep verifyErrorLastName(String expected) {
+        Assert.assertEquals(registrationPage.getErrorLastName(), expected);
+        return this; }
+
+    public RegistrationPageStep verifyErrorEmail(String expected) {
+        Assert.assertEquals(registrationPage.getErrorEmail(), expected);
+        return this; }
+
+    public RegistrationPageStep verifyErrorPassword(String expected) {
+        Assert.assertEquals(registrationPage.getErrorPassword(), expected);
+        return this; }
+
+    public RegistrationPageStep verifyErrorConfirmPassword(String expected) {
+        Assert.assertEquals(registrationPage.getErrorConfirmPassword(), expected);
+        return this; }
+
+    public RegistrationPageStep verifyFailedSignUp(String expected) {
+        Assert.assertEquals(registrationPage.getFailedSignUp(), expected);
+        return this; }
+
 }

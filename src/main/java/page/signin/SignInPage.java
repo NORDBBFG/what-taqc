@@ -4,18 +4,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import page.Page;
+import static constants.XPath.SignInPage.*;
 
 public class SignInPage extends Page {
 
-    @FindBy(xpath = "//h3")
+    @FindBy(xpath = SIGNIN_HEADER)
     private WebElement labelSignIn;
-    @FindBy(xpath = "//input[@name='email']")
+    @FindBy(xpath = EMAIL_FIELD)
     private WebElement emailInput;
-    @FindBy(xpath = "//input[@name='password']")
+    @FindBy(xpath = PASSWORD_FIELD)
     private WebElement passwordInput;
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = SIGNIN_BUTTON)
     private WebElement signInButton;
-    @FindBy(xpath = "//a[@href='/registration']")
+    @FindBy(xpath = FORGOT_PASSWORD_LINK)
+    private WebElement ForgotPasswordLink;
+    @FindBy(xpath = REGISTRATION_LINK)
     private WebElement registrationLink;
 
     public SignInPage(WebDriver driver) {
