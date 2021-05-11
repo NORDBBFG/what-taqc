@@ -9,7 +9,7 @@ import test.BaseTest;
 public class WHAT_221 extends BaseTest {
 
     @Test
-    public void displayForStudent() throws InterruptedException {
+    public void displayForStudent(){
         String email = "mashalarykova@gmailexample.com";
         String password = "User1_qwerty1!";
         String courseNameBefSort = "fantasy111";

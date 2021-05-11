@@ -2,9 +2,7 @@ package test.courses;
 
 import constants.Constants;
 import org.testng.annotations.Test;
-import page.courses.CoursesPage;
 import page.student.ListOfStudentPage;
-import step.courses.CoursesStep;
 import step.student.ListOfStudentsPageStep;
 import test.BaseTest;
 
