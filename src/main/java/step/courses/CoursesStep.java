@@ -16,14 +16,22 @@ public class CoursesStep extends BaseStep {
         Assert.assertEquals(coursesPage.getPageHeaderText(), expected);
       return this;
     }
+
+    public CoursesStep verifyAddCourseToListBtnDisplayed(Boolean expected){
+        Assert.assertEquals(coursesPage.isAddCourseToListBtnDisplayed(), expected);
+      return this;
+    }
+
     public CoursesStep verifyNumberOfCoursesDisplayed(Boolean expected){
         Assert.assertEquals(coursesPage.isNumberOfCoursesDisplayed(), expected);
       return this;
     }
+
     public CoursesStep verifySearchCourseInListInputDisplayed(Boolean expected){
         Assert.assertEquals(coursesPage.isSearchCourseInListInputDisplayed(), expected);
       return this;
     }
+
     public CoursesStep verifyCourseName(int courseID, String expected){
         Assert.assertEquals(coursesPage.getCourseNameText(courseID), expected);
       return this;

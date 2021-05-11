@@ -12,12 +12,22 @@ public class AddCourseStep extends BaseStep {
         addCoursePage = new AddCoursePage(driver);
     }
 
+    public AddCourseStep verifyPageHeaderText(String expected){
+        Assert.assertEquals(addCoursePage.getPageHeaderText(), expected);
+      return this;
+    }
+
     public AddCourseStep verifySubmitButtonEnabled(boolean expected){
         Assert.assertEquals(addCoursePage.isSubmitBtnEnabled(), expected);
       return this;
     }
 
-    public AddCourseStep fillCourseNameInput(String courseName){
+    public AddCourseStep verifyInvalidCourseMessageText(String expected){
+        Assert.assertEquals(addCoursePage.getInvalidCourseNameError(), expected);
+      return this;
+    }
+
+    public AddCourseStep fillCourseNameInput(String courseName) throws InterruptedException {
         addCoursePage.fillCourseNameInput(courseName);
       return this;
     }

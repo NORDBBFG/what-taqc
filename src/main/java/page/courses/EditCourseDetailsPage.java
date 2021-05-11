@@ -1,5 +1,6 @@
 package page.courses;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,14 +38,11 @@ public class EditCourseDetailsPage extends BasePage {
         courseDetailsTab.click();
     }
 
-    public void fillEditCourseNameInput(String courseName){
-        courseNameInput.clear();
-        // Problem is here.
+    public void fillEditCourseNameInput(String courseName) throws InterruptedException {
+        Thread.sleep(1000);
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("document.evaluate('//input', document, null, 9, null).singleNodeValue.value = ''");
         courseNameInput.sendKeys(courseName);
-    }
-
-    public void clearEditCourseNameInput(){
-        courseNameInput.clear();
     }
 
     public void clickDeleteCourseBtn(){
@@ -87,8 +85,7 @@ public class EditCourseDetailsPage extends BasePage {
         return pageHeader.getText();
     }
 
-    public String getEditCourseInputValue() throws InterruptedException{
-        Thread.sleep(1000);
+    public String getEditCourseInputValue(){
         return courseNameInput.getAttribute("value");
     }
 }
