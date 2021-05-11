@@ -26,7 +26,7 @@ public class ChangePasswordPageVerifyFields extends BaseTest {
     }
 
     @Test
-    public void changePasswordVerifyFields() {
+    public void changePasswordVerifyFields() throws InterruptedException {
         String mail = "admin.@gmail.com";
         String currentPassword = "admiN_12";
         String newPassword = "123456789qQ";
