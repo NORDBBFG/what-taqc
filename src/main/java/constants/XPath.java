@@ -21,6 +21,36 @@ public class XPath {
 
     }
 
+    public interface SignInPage {
+        String  SIGNIN_HEADER = "//h3",
+                EMAIL_FIELD = "//input[@id='email']",
+                PASSWORD_FIELD = "//input[@id='password']",
+                SIGNIN_BUTTON = "//button[@type='submit']",
+                //a[@class='auth__form-link___3Q9Ou']
+                FORGOT_PASSWORD_LINK = "//a[@href='/forgot-password']",
+                REGISTRATION_LINK = "//a[@href='/registration']",
+                ERROR_SIGNIN = "//button[@type='submit']/../following-sibling::p";
+    }
+
+    public interface RegistrationPage {
+        String  SIGNUP_HEADER = "//h3",
+                FIRST_NAME_FIELD = "//input[@id='firstName']",
+                LAST_NAME_FIELD = "//input[@id='lastName']",
+                EMAIL_FIELD = "//input[@id='email']",
+                PASSWORD_FIELD = "//input[@id='password']",
+                CONFIRM_PASSWORD_FIELD = "//input[@id='confirm-password']",
+                SIGNUP_BUTTON = "//button[@type='submit']",
+                SIGNIN_LINK = "//a[@href='/auth']",
+                FIRST_NAME_ERROR_FIELD = "//input[@name='firstName']//following-sibling::p",
+                LAST_NAME_ERROR_FIELD = "//input[@name='lastName']//following-sibling::p",
+                EMAIL_ERROR_FIELD = "//input[@name='email']//following-sibling::p",
+                PASSWORD_INVALID_FIELD = "//input[@name='password']//following-sibling::p",
+                CONFIRM_PASSWORD_INVALID_FIELD = "//input[@name='confirmPassword']//following-sibling::p",
+                SUCCESSFUL_REGISTRATION_ALERT = "//p[contains(text(),'You have successfully registered')]",
+                SUCCESSFUL_REGISTRATION_BUTTON = "//button[@type='submit']",
+                ERROR_SIGNUP = "//button[@type='submit']/../following-sibling::p";
+    }
+
     public interface ChangePasswordPage {
         String EMAIL_FIELD = "//input[@id='email']",
                 CURRENT_PASSWORD_FIELD = "//input[@id='currentPassword']",
