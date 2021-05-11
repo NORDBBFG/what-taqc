@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import page.BasePage;
 
-import static constants.XPath.AddCoursePage.*;
 import static constants.XPath.Common.*;
 
 public class AddCoursePage extends BasePage {

@@ -38,15 +38,15 @@ public class CoursesPage extends BasePage {
         return pageHeader.getText();
     }
 
-    public Boolean isNumberOfCoursesDisplayed(){
+    public boolean isNumberOfCoursesDisplayed(){
         return numberOfCourses.isDisplayed();
     }
 
-    public Boolean isSearchCourseInListInputDisplayed(){
+    public boolean isSearchCourseInListInputDisplayed(){
         return searchCourseInListInput.isDisplayed();
     }
 
-    public Boolean isAddCourseToListBtnDisplayed(){
+    public boolean isAddCourseToListBtnDisplayed(){
         return addCourseToListBtn.isDisplayed();
     }
 
