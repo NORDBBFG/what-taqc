@@ -11,7 +11,7 @@ import test.BaseTest;
 public class WHAT_78 extends BaseTest {
 
     @Test
-    public void atc_WHAT_73() {
+    public void atc_WHAT_78() {
         String emptyField = "This field is required";
 
         // steps
