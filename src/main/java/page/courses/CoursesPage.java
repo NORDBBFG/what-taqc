@@ -34,6 +34,10 @@ public class CoursesPage extends BasePage {
     @FindBy(xpath = NUMBER_OF_COURSES)
     private WebElement numberOfCourses;
 
+    public CoursesPage(WebDriver driver) {
+        super(driver);
+    }
+
     public String getPageHeaderText(){
         return pageHeader.getText();
     }
@@ -61,10 +65,6 @@ public class CoursesPage extends BasePage {
             }
         }
         return null;
-    }
-
-    public CoursesPage(WebDriver driver) {
-        super(driver);
     }
 
     public void clickAddCourseToListBtn(){
