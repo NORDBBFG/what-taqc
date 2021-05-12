@@ -7,7 +7,7 @@ import step.unassigned.ListOfUnassignedUsersPageStep;
 import test.BaseTest;
 
 import static constants.Constants.UnassignedUsersSelectRole.*;
-import static constants.Constants.UnassignedUsersSort.*;
+import static constants.Constants.UsersSort.*;
 
 public class WHAT_51 extends BaseTest {
     ListOfUnassignedUsersPageStep coursesStep;

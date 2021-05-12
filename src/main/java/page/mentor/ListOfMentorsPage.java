@@ -74,35 +74,35 @@ public class ListOfMentorsPage extends BasePage {
     }
 
 
-    public boolean choseSortTypeEnabled(String unassignedUsers) {
+    public boolean choseSortTypeEnabled(String mentor) {
 
-        switch (unassignedUsers) {
-            case Constants.UnassignedUsersSort.SYMBOL:
-                return sortMentors.get(Integer.parseInt(Constants.UnassignedUsersSort.SYMBOL)).isEnabled();
-            case Constants.UnassignedUsersSort.NAME:
-                return sortMentors.get(Integer.parseInt(Constants.UnassignedUsersSort.NAME)).isEnabled();
-            case Constants.UnassignedUsersSort.SURNAME:
-                return sortMentors.get(Integer.parseInt(Constants.UnassignedUsersSort.SURNAME)).isEnabled();
-            case Constants.UnassignedUsersSort.EMAIL:
-                return sortMentors.get(Integer.parseInt(Constants.UnassignedUsersSort.EMAIL)).isEnabled();
+        switch (mentor) {
+            case Constants.UsersSort.SYMBOL:
+                return sortMentors.get(Integer.parseInt(Constants.UsersSort.SYMBOL)).isEnabled();
+            case Constants.UsersSort.NAME:
+                return sortMentors.get(Integer.parseInt(Constants.UsersSort.NAME)).isEnabled();
+            case Constants.UsersSort.SURNAME:
+                return sortMentors.get(Integer.parseInt(Constants.UsersSort.SURNAME)).isEnabled();
+            case Constants.UsersSort.EMAIL:
+                return sortMentors.get(Integer.parseInt(Constants.UsersSort.EMAIL)).isEnabled();
         }
         return false;
     }
 
-    public void choseSortType(String unassignedUsers) {
+    public void choseSortType(String mentor) {
 
-        switch (unassignedUsers) {
-            case Constants.UnassignedUsersSort.SYMBOL:
-                sortMentors.get(Integer.parseInt(Constants.UnassignedUsersSort.SYMBOL)).click();
+        switch (mentor) {
+            case Constants.UsersSort.SYMBOL:
+                sortMentors.get(Integer.parseInt(Constants.UsersSort.SYMBOL)).click();
                 break;
-            case Constants.UnassignedUsersSort.NAME:
-                sortMentors.get(Integer.parseInt(Constants.UnassignedUsersSort.NAME)).click();
+            case Constants.UsersSort.NAME:
+                sortMentors.get(Integer.parseInt(Constants.UsersSort.NAME)).click();
                 break;
-            case Constants.UnassignedUsersSort.SURNAME:
-                sortMentors.get(Integer.parseInt(Constants.UnassignedUsersSort.SURNAME)).click();
+            case Constants.UsersSort.SURNAME:
+                sortMentors.get(Integer.parseInt(Constants.UsersSort.SURNAME)).click();
                 break;
-            case Constants.UnassignedUsersSort.EMAIL:
-                sortMentors.get(Integer.parseInt(Constants.UnassignedUsersSort.EMAIL)).click();
+            case Constants.UsersSort.EMAIL:
+                sortMentors.get(Integer.parseInt(Constants.UsersSort.EMAIL)).click();
                 break;
         }
     }

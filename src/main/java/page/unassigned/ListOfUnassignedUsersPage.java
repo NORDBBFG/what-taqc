@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import constants.Constants.UnassignedUsersSort;
+import constants.Constants.UsersSort;
 import constants.Constants;
 import page.BasePage;
 import static constants.Constants.UnassignedUsersSelectRole.*;
@@ -106,14 +106,14 @@ public class ListOfUnassignedUsersPage extends BasePage {
     public boolean choseSortTypeEnabled(String unassignedUsers) {
 
         switch (unassignedUsers) {
-            case UnassignedUsersSort.SYMBOL:
-                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SYMBOL)).isEnabled();
-            case UnassignedUsersSort.NAME:
-                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.NAME)).isEnabled();
-            case UnassignedUsersSort.SURNAME:
-                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SURNAME)).isEnabled();
-            case UnassignedUsersSort.EMAIL:
-                return sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.EMAIL)).isEnabled();
+            case UsersSort.SYMBOL:
+                return sortUnassignedUsers.get(Integer.parseInt(UsersSort.SYMBOL)).isEnabled();
+            case UsersSort.NAME:
+                return sortUnassignedUsers.get(Integer.parseInt(UsersSort.NAME)).isEnabled();
+            case UsersSort.SURNAME:
+                return sortUnassignedUsers.get(Integer.parseInt(UsersSort.SURNAME)).isEnabled();
+            case UsersSort.EMAIL:
+                return sortUnassignedUsers.get(Integer.parseInt(UsersSort.EMAIL)).isEnabled();
         }
         return false;
     }
@@ -168,17 +168,17 @@ public class ListOfUnassignedUsersPage extends BasePage {
     public void choseSortType(String unassignedUsers) {
 
         switch (unassignedUsers) {
-            case UnassignedUsersSort.SYMBOL:
-                sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SYMBOL)).click();
+            case UsersSort.SYMBOL:
+                sortUnassignedUsers.get(Integer.parseInt(UsersSort.SYMBOL)).click();
                 break;
-            case UnassignedUsersSort.NAME:
-                sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.NAME)).click();
+            case UsersSort.NAME:
+                sortUnassignedUsers.get(Integer.parseInt(UsersSort.NAME)).click();
                 break;
-            case UnassignedUsersSort.SURNAME:
-                sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.SURNAME)).click();
+            case UsersSort.SURNAME:
+                sortUnassignedUsers.get(Integer.parseInt(UsersSort.SURNAME)).click();
                 break;
-            case UnassignedUsersSort.EMAIL:
-                sortUnassignedUsers.get(Integer.parseInt(UnassignedUsersSort.EMAIL)).click();
+            case UsersSort.EMAIL:
+                sortUnassignedUsers.get(Integer.parseInt(UsersSort.EMAIL)).click();
                 break;
         }
     }

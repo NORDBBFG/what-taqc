@@ -12,7 +12,7 @@ public class ListOfMentorsPageStep extends BaseStep {
 
     public ListOfMentorsPageStep(WebDriver driver) {
          listOfMentorsPage = new ListOfMentorsPage(driver);
-         listOfMentorsPage.clickSidebarItem("Assigment");
+         listOfMentorsPage.clickSidebarItem("Secretaries");
     }
     public ListOfMentorsPageStep verifyMentorsID(String email, String expected) {
 
@@ -58,12 +58,12 @@ public class ListOfMentorsPageStep extends BaseStep {
 
     public ListOfMentorsPageStep verifyChoseSortEnabled(String mentor, boolean expected) {
 
-        Assert.assertEquals(listOfMentorsPage.choseSortTypeEnabled(mentor),expected, "The expected results 'SortType' do not correspond to the real ones By 'unassignedUsers'.");
+        Assert.assertEquals(listOfMentorsPage.choseSortTypeEnabled(mentor),expected, "The expected results 'SortType' do not correspond to the real ones By 'mentor'.");
         return this;
     }
 
-    public void choseSortType(String unassignedUsers) {
+    public void choseSortType(String mentor) {
 
-        listOfMentorsPage.choseSortType(unassignedUsers);
+        listOfMentorsPage.choseSortType(mentor);
     }
 }

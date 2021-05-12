@@ -11,7 +11,7 @@ public class ListOfSecretaryPageStep extends BaseStep {
 
     public ListOfSecretaryPageStep(WebDriver driver) {
         listOfSecretaryPage = new ListOfSecretaryPage(driver);
-        listOfSecretaryPage.clickSidebarItem("Assigment");
+        listOfSecretaryPage.clickSidebarItem("Mentors");
     }
     public ListOfSecretaryPageStep verifySecretaryID(String email, String expected) {
 
@@ -57,13 +57,13 @@ public class ListOfSecretaryPageStep extends BaseStep {
 
     public ListOfSecretaryPageStep verifyChoseSortEnabled(String secretary, boolean expected) {
 
-        Assert.assertEquals(listOfSecretaryPage.choseSortTypeEnabled(secretary),expected, "The expected results 'SortType' do not correspond to the real ones By 'unassignedUsers'.");
+        Assert.assertEquals(listOfSecretaryPage.choseSortTypeEnabled(secretary),expected, "The expected results 'SortType' do not correspond to the real ones By 'secretary'.");
         return this;
     }
 
-    public void choseSortType(String unassignedUsers) {
+    public void choseSortType(String secretary) {
 
-        listOfSecretaryPage.choseSortType(unassignedUsers);
+        listOfSecretaryPage.choseSortType(secretary);
     }
 }
 
