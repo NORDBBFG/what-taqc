@@ -3,14 +3,14 @@ package test.unassigned;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.signin.SignInPage;
-import step.unassigned.UnassignedUsersStep;
+import step.unassigned.ListOfUnassignedUsersPageStep;
 import test.BaseTest;
 
 import static constants.Constants.UnassignedUsersSelectRole.*;
 import static constants.Constants.UnassignedUsersSort.*;
 
 public class WHAT_52 extends BaseTest {
-    UnassignedUsersStep coursesStep;
+    ListOfUnassignedUsersPageStep coursesStep;
     SignInPage signInPage;
     @BeforeClass
     public void preCond(){
@@ -21,7 +21,7 @@ public class WHAT_52 extends BaseTest {
         signInPage.fillEmail(email);
         signInPage.fillPassword(password);
         signInPage.clickSignInButton();
-        coursesStep = new UnassignedUsersStep(driver);
+        coursesStep = new ListOfUnassignedUsersPageStep(driver);
     }
 
     @Test
@@ -30,8 +30,8 @@ public class WHAT_52 extends BaseTest {
         String expectedSurnameUser = "Dabba";
 
 
-        coursesStep.verifySurnameUser(1, expectedSurnameUser)
-                   .verifySurnameUser(mailOfUser, expectedSurnameUser)
+        coursesStep.verifyUnassignedUserSurname(1, expectedSurnameUser)
+                   .verifyUnassignedUserSurname(mailOfUser, expectedSurnameUser)
 
                    .verifyAddRoleButtonEnabled(1, true)
                    .verifyChoseSortEnabled(NAME, true)
