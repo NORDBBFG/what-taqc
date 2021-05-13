@@ -17,6 +17,7 @@ public class WHAT_14 extends BaseTest {
         String initialCourseName = "Курс для демо";
 
         signInPageStep
+                // preconditions
                 .setEmail(email)
                 .setPassword(password)
                 .clickSignInBtn(ListOfStudentsPageStep.class, driver)
@@ -33,7 +34,7 @@ public class WHAT_14 extends BaseTest {
                 .fillEditCourseNameInput(newCourseName)
                 .verifyEditCourseNameInput(newCourseName)
                 // (step'3')
-                // Click on the 'Clear' button, verify that the 'Course Name' in it's initial state.
+                // Click on the 'Clear' button, verify that the 'Course Name' is in it's initial state.
                 .clickOnResetEditCourseNameInputBtn()
                 .verifyEditCourseNameInput(initialCourseName);
     }

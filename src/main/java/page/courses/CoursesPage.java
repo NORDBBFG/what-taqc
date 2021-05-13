@@ -34,19 +34,23 @@ public class CoursesPage extends BasePage {
     @FindBy(xpath = NUMBER_OF_COURSES)
     private WebElement numberOfCourses;
 
+    public CoursesPage(WebDriver driver) {
+        super(driver);
+    }
+
     public String getPageHeaderText(){
         return pageHeader.getText();
     }
 
-    public Boolean isNumberOfCoursesDisplayed(){
+    public boolean isNumberOfCoursesDisplayed(){
         return numberOfCourses.isDisplayed();
     }
 
-    public Boolean isSearchCourseInListInputDisplayed(){
+    public boolean isSearchCourseInListInputDisplayed(){
         return searchCourseInListInput.isDisplayed();
     }
 
-    public Boolean isAddCourseToListBtnDisplayed(){
+    public boolean isAddCourseToListBtnDisplayed(){
         return addCourseToListBtn.isDisplayed();
     }
 
@@ -61,10 +65,6 @@ public class CoursesPage extends BasePage {
             }
         }
         return null;
-    }
-
-    public CoursesPage(WebDriver driver) {
-        super(driver);
     }
 
     public void clickAddCourseToListBtn(){
