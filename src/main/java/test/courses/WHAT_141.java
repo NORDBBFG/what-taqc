@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class WHAT_141 extends BaseTest{
+public class WHAT_141 extends BaseTest {
 
     @Test
     public void getCourses200Admin(){
