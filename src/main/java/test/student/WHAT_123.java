@@ -10,9 +10,9 @@ public class WHAT_123 extends BaseTest {
 
     String email = "admin.@gmail.com";
     String password = "admiN_12";
-    String firstName = "Голлумм";
-    String lastName = "Смеагол";
-    String emailStudent = "ILoveRings@gmail.com";
+    String firstName = "student";
+    String lastName = "student";
+    String emailStudent = "student@gmail.com";
 
     @Test
     public void verifyStudentsPageSwitchBetweenTabs(){
