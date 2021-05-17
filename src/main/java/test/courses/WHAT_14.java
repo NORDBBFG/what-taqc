@@ -9,12 +9,12 @@ import test.BaseTest;
 public class WHAT_14 extends BaseTest {
 
     @Test
-    public void verifyValuesReturn() throws InterruptedException{
+    public void verifyValuesReturn() {
         String email = "admin.@gmail.com";
         String password = "admiN_12";
         String courseID = "0";
         String newCourseName = "Basic Course";
-        String initialCourseName = "Курс для демо";
+        String initialCourseName = "123 Testing";
 
         signInPageStep
                 // preconditions

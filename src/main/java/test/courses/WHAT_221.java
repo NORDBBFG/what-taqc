@@ -10,9 +10,9 @@ public class WHAT_221 extends BaseTest {
 
     @Test
     public void displayForStudent(){
-        String email = "mashalarykova@gmailexample.com";
-        String password = "User1_qwerty1!";
-        String courseNameBefSort = "fantasy111";
+        String email = "student@gmail.com";
+        String password = "What_123";
+        String courseNameBefSort = "Kulllll course";
         int courseIDBefSort = 7;
 
         signInPageStep

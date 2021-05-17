@@ -55,8 +55,8 @@ public class CoursesPage extends BasePage {
     }
 
     public String getCourseNameText(Integer courseID){
-        String courseIDXpath = "//tr[@data-student-id='"+courseID+"']/td[1]";
-        String courseNameXpath = "//tr[@data-student-id='"+courseID+"']/td[2]";
+        String courseIDXpath = "//tr[@data-student-id='"+ courseID +"']/td[1]";
+        String courseNameXpath = "//tr[@data-student-id='"+ courseID +"']/td[2]";
         if (!listOfCourseTableRows.isEmpty()) {
             for (WebElement webElement : listOfCourseTableRows) {
                 if (webElement.findElement(By.xpath(courseIDXpath)).getText().equals(courseID.toString())) {

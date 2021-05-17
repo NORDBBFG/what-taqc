@@ -23,8 +23,8 @@ public class WHAT_153 extends BaseTest{
                 body(courseMap).
                 when().post("https://whatbackend.azurewebsites.net/api/courses").
                 then().assertThat().statusCode(200).
-                and().body("id",hasToString(newCourseID)).
-                and().body("name",hasToString(courseMap.get("name"))).
+                and().body("id", hasToString(newCourseID)).
+                and().body("name", hasToString(courseMap.get("name"))).
                 and().log().body();
     }
 }
