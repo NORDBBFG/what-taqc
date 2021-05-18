@@ -5,6 +5,7 @@ import org.testng.Assert;
 import page.changepassword.ChangePasswordPage;
 import step.BaseStep;
 import step.ConfirmActionWindowSteps;
+import step.myprofile.MyProfilePageStep;
 
 public class ChangePasswordPageSteps extends BaseStep {
 
@@ -14,7 +15,7 @@ public class ChangePasswordPageSteps extends BaseStep {
         changePasswordPage = new ChangePasswordPage(driver);
     }
 
-    public ChangePasswordPageSteps verifiedElementsInitialStateStep(String email) {
+    public ChangePasswordPageSteps verifiedElementsInitialStateStep(String email) throws InterruptedException {
         Assert.assertTrue(
                 changePasswordPage.emailAddressIsFieldCorrectly(email)
                         && changePasswordPage.newPasswordFieldIsEmpty()
@@ -63,9 +64,14 @@ public class ChangePasswordPageSteps extends BaseStep {
         Assert.assertEquals(actual, expected, "Error message [" + errorString + "] did not found.");
         return this;
     }
+    public ChangePasswordPageSteps verifyFollowingAlertMessage(String Alert, boolean expected) {
+        boolean actual = changePasswordPage.verifyFollowingAlert(Alert);
+        Assert.assertEquals(actual, expected, "Alert message [" + Alert + "] did not contain.");
+        return this;
+    }
 
-    //TODO add return to method
-    public void clickCancelButtonStep(WebDriver driver) {
+    public MyProfilePageStep clickCancelButtonStep(WebDriver driver) {
         changePasswordPage.clickCancelButton();
+        return new MyProfilePageStep(driver);
     }
 }
