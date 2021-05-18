@@ -1,5 +1,6 @@
-package test.courses;
+package api_tests.courses;
 
+import api_tests.BaseTest;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 
@@ -14,8 +15,8 @@ public class WHAT_153 extends BaseTest {
     @Test
     public void createCourse200Admin() {
         Map <String, String> courseMap = new HashMap<>();
-        courseMap.put("name","uniqueTest52");
-        String newCourseID = "52";
+        courseMap.put("name","uniqueTest55");
+        String newCourseID = "55";
 
         given().
                 header("Authorization",getAdminToken()).

@@ -1,5 +1,6 @@
-package test.courses;
+package api_tests.courses;
 
+import api_tests.BaseTest;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
