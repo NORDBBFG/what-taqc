@@ -6,7 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import page.BasePage;
 
 import static constants.XPath.ChangePasswordPage.*;
-import static constants.XPath.Common.*;
+import static constants.XPath.Common.H3;
+import static constants.XPath.Common.SAVE_BUTTON;
 
 public class ChangePasswordPage extends BasePage {
 
@@ -34,6 +35,8 @@ public class ChangePasswordPage extends BasePage {
     private WebElement newPasswordErrorField;
     @FindBy(xpath = CONFIRM_PASSWORD_ERROR_FIELD)
     private WebElement confirmPasswordErrorField;
+    @FindBy(xpath = PASSWORD_SUCCESSFULLY_CHANGED_MESSAGE)
+    private WebElement followingAlert;
 
     public ChangePasswordPage(WebDriver driver) {
         super(driver);
@@ -85,6 +88,10 @@ public class ChangePasswordPage extends BasePage {
 
     public boolean verifyCurrentPasswordErrorField(String message) {
         return currentPasswordErrorField.getText().equals(message);
+    }
+    public boolean verifyFollowingAlert(String message) {
+        String alertMessage = followingAlert.getText();
+        return alertMessage.contains(message);
     }
 
     public boolean verifyNewPasswordErrorField(String message) {

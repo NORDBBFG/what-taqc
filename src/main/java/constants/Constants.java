@@ -6,7 +6,7 @@ public class Constants {
 
     public interface PageName {
         String MY_PROFILE = "My Profile",
-                CHANGE_PASSWORD = "Change Password",
+                CHANGE_PASSWORD = "Change password",
                 LOD_OUT = "Log Out",
 
         MENTOR_EDIT = "Mentor Editing",
@@ -60,15 +60,6 @@ public class Constants {
         String COURSE = "Course('s):";
     }
 
-    public interface ListUser {
-        String NAME = "Name";
-        String SURNAME = "Surname";
-
-        String EMAIL = "Email";
-
-        String ROLE = "Choose role";
-    }
-
     public interface ListFeatures {
         String EDIT = "Edit";
 
@@ -91,12 +82,12 @@ public class Constants {
         String MENTOR = "mentor";
         String SECRETARY = "secretary";
     }
-
-    public interface UnassignedUsersSort {
+    public interface UsersSort {
         String SYMBOL = "0";
         String NAME = "1";
         String SURNAME = "2";
         String EMAIL = "3";
     }
+
 
 }
