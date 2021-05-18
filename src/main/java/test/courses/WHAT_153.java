@@ -14,8 +14,8 @@ public class WHAT_153 extends BaseTest {
     @Test
     public void createCourse200Admin() {
         Map <String, String> courseMap = new HashMap<>();
-        courseMap.put("name","uniqueTest50");
-        String newCourseID = "50";
+        courseMap.put("name","uniqueTest52");
+        String newCourseID = "52";
 
         given().
                 header("Authorization",getAdminToken()).
