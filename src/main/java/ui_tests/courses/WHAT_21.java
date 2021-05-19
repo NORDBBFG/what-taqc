@@ -9,7 +9,7 @@ import ui_tests.BaseTest;
 public class WHAT_21 extends BaseTest {
 
     @Test
-    public void verifySearchFillingSymbols() throws InterruptedException {
+    public void verifySearchFillingSymbols() {
         String email = "admin.@gmail.com";
         String password = "admiN_12";
         String invalidCourseName = "!@#$%^&*()";
