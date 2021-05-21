@@ -15,17 +15,29 @@ public class WHAT_152 extends BaseTest {
     @Test
     public void updateCourseName200Admin(){
         String courseID = "60";
-        Map<String, String> courseMap = new HashMap<>();
-        courseMap.put("name","New Epic Course");
+        String adminToken = getAdminToken();
 
+        Map<String, String> newNameMap = new HashMap<>();
+        newNameMap.put("name","New Epic Course");
+
+        Map<String, String> oldNameMap = new HashMap<>();
+        oldNameMap.put("name","Course for Update Test");
+
+        // (step'1')
         given().
-                header("Authorization",getAdminToken()).
+                header("Authorization", adminToken).
                 contentType(ContentType.JSON).
-                body(courseMap).
+                body(newNameMap).
                 when().put("https://whatbackend.azurewebsites.net/api/courses/" + courseID).
                 then().assertThat().statusCode(200).
                 and().assertThat().body("id",hasToString(courseID)).
-                and().assertThat().body("name",hasToString(courseMap.get("name"))).
+                and().assertThat().body("name",hasToString(newNameMap.get("name"))).
                 and().log().body();
+
+        given().
+                header("Authorization", adminToken).
+                contentType(ContentType.JSON).
+                body(oldNameMap).
+                when().put("https://whatbackend.azurewebsites.net/api/courses/" + courseID);
     }
 }
