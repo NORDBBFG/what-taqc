@@ -2,6 +2,7 @@ package api_tests.courses;
 
 import api_tests.BaseTest;
 import io.restassured.http.ContentType;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -20,10 +21,8 @@ public class WHAT_152 extends BaseTest {
         Map<String, String> newNameMap = new HashMap<>();
         newNameMap.put("name","New Epic Course");
 
-        Map<String, String> oldNameMap = new HashMap<>();
-        oldNameMap.put("name","Course for Update Test");
-
         // (step'1')
+        System.out.println(newNameMap);
         given().
                 header("Authorization", adminToken).
                 contentType(ContentType.JSON).
@@ -34,10 +33,21 @@ public class WHAT_152 extends BaseTest {
                 and().assertThat().body("name",hasToString(newNameMap.get("name"))).
                 and().log().body();
 
+    }
+
+    @AfterClass
+    public void resetCourseName() {
+        String courseID = "60";
+        String adminToken = getAdminToken();
+
+        Map<String, String> oldNameMap = new HashMap<>();
+        oldNameMap.put("name","Course for Update Test");
+
         given().
                 header("Authorization", adminToken).
                 contentType(ContentType.JSON).
                 body(oldNameMap).
-                when().put("https://whatbackend.azurewebsites.net/api/courses/" + courseID);
+                when().put("https://whatbackend.azurewebsites.net/api/courses/" + courseID).
+                then().log().body();
     }
 }
