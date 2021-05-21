@@ -34,7 +34,12 @@ public class VerifyConfirmActionWindowIsAppeared extends BaseTest {
         String alertMessage = "The password has been successfully changed";
 
         changePasswordPageSteps
-                .verifiedElementsInitialStateStep(mail)
+                .verifyEmailAddressFieldIsDisabledStep()
+                .verifiedEmailAddressIsFieldCorrectlyStep(mail)
+                .verifyConfirmPasswordFieldInitialStateStep()
+                .verifyNewPasswordFieldInitialStateStep()
+                .verifyCurrentPasswordFieldInitialStateStep()
+                .verifyConfirmSaveButtonIsDisableStep()
                 .fillCurrentPasswordFieldStep(currentPassword)
                 .fillNewPasswordFieldStep(newPassword)
                 .fillConfirmPasswordFieldStep(newPassword)
