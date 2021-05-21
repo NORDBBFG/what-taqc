@@ -16,8 +16,8 @@ public class WHAT_153 extends BaseTest {
     public void createCourse200Admin() {
             // TODO: find out how to reset course creation.
         Map <String, String> courseMap = new HashMap<>();
-        courseMap.put("name","uniqueTest66");
-        String newCourseID = "66";
+        String newCourseID = "70";
+        courseMap.put("name","uniqueTest" + newCourseID);
 
         given().
                 header("Authorization",getAdminToken()).
