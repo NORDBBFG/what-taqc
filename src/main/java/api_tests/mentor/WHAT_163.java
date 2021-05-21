@@ -18,22 +18,22 @@ public class WHAT_163 extends BaseTest {
         String id_mentor = "38";
         Map<String, String> mapChanges = new HashMap<>();
 //        mapChanges.put("id", "115");
-        mapChanges.put("newMentorFirstName", "fn_1");
-        mapChanges.put("newMentorLastName", "fvcdsfvds");
-        mapChanges.put("newMentorEmail", "sasdsadfadf@gmail.com");
+        mapChanges.put("firstName", "fsdadsa_1");
+        mapChanges.put("lastName", "fvcdsfvds");
+        mapChanges.put("email", "asddasdvhgvhj@gmail.com");
 
 
         given().
                 header("Authorization", getAdminToken()).
                 contentType(ContentType.JSON).
                 body(mapChanges).
-                when().put("https://whatbackend.azurewebsites.net/api/mentors/  " + id_mentor).
+                when().put("https://whatbackend.azurewebsites.net/api/mentors/" + id_mentor).
                 then().assertThat().statusCode(200).
 
 //                and().body("id", equalTo(mapChanges.get("id"))).
-                and().body("firstName", hasToString(mapChanges.get("newMentorFirstName"))).
-                and().body("lastName",  hasToString(mapChanges.get("newMentorLastName"))).
-                and().body("email",     hasToString(mapChanges.get("newMentorEmail"))).
+                and().body("firstName", hasToString(mapChanges.get("firstName"))).
+                and().body("lastName",  hasToString(mapChanges.get("lastName"))).
+                and().body("email",     hasToString(mapChanges.get("email"))).
 
 
                 and().log().body();

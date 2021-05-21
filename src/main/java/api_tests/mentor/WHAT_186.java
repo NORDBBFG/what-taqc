@@ -15,18 +15,18 @@ public class WHAT_186 extends BaseTest {
 
     @Test
     public void createMentor200Admin(){
-        int id_notAssigned = 119;
-        Map <String, String> courseMap = new HashMap<>();
-        courseMap.put("newUserRole","2");
+        int id_notAssigned = 122;
+        Map <String, String> mentorMap = new HashMap<>();
+        mentorMap.put("newUserRole","2");
 
         given().
                 header("Authorization",getAdminToken()).
                 contentType(ContentType.JSON).
-                body(courseMap).
+                body(mentorMap).
                 when().post("https://whatbackend.azurewebsites.net/api/mentors/" + id_notAssigned).
                 then().assertThat().statusCode(200).
 
-                and().body("role", hasToString(courseMap.get("newUserRole"))).
+                and().body("role", hasToString(mentorMap.get("newUserRole"))).
 
                 and().log().body();
     }
