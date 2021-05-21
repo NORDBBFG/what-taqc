@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.hasToString;
 public class WHAT_172 extends BaseTest {
 
     @Test
-    public void getNotAssigned200Admin(){
+    public void resumeMentor200Admin(){
         String id_mentor = "38";
 
         given().
