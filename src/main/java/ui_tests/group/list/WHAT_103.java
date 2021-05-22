@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import step.group.ListOfGroupsPageStep;
-import test.BaseTest;
+import ui_tests.BaseTest;
 
 public class WHAT_103 extends BaseTest {
 

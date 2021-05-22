@@ -1,7 +1,8 @@
 package api_tests;
 
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,19 +11,36 @@ import static io.restassured.RestAssured.given;
 
 public class BaseTest {
 
-    public String getAdminToken() {
-        Map<String, String> credMap = new HashMap<>();
+    private final String url = "https://whatbackend.azurewebsites.net/api";
 
-        credMap.put("email", "admin.@gmail.com");
-        credMap.put("password", "admiN_12");
-        Response response = given().
-                body(credMap).
-                contentType(ContentType.JSON).
-                when().
-                post("https://whatbackend.azurewebsites.net/api/accounts/auth");
-        System.out.println(response.getHeader("authorization"));
-        return response.getHeader("authorization");
+    protected RequestSpecification requestSpecWithToken() {
+        return requestSpec().header("Authorization", getAdminToken());
     }
 
+    protected RequestSpecification requestSpec() {
+        return new RequestSpecBuilder()
+                .setBaseUri(url)
+                .setContentType(ContentType.JSON)
+                .build();
+    }
 
+    public String getAdminToken() {
+        return getToken("admin.@gmail.com", "admiN_12");
+    }
+
+    public String getToken(String email, String password) {
+        Map<String, String> credMap = new HashMap<>();
+        credMap.put("email", email);
+        credMap.put("password", password);
+
+        return given()
+                .spec(requestSpec())
+                .body(credMap)
+                .post("/accounts/auth")
+                .then()
+                .statusCode(200)
+                .extract()
+                .response()
+                .header("Authorization");
+    }
 }
