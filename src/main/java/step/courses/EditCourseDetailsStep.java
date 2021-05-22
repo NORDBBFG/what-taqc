@@ -13,7 +13,7 @@ public class EditCourseDetailsStep extends BaseStep {
         editCourseDetailsPage = new EditCourseDetailsPage(driver);
     }
 
-    public EditCourseDetailsStep verifyEditCourseNameInput(String expected) throws InterruptedException{
+    public EditCourseDetailsStep verifyEditCourseNameInput(String expected){
         Assert.assertEquals(editCourseDetailsPage.getEditCourseInputValue(), expected);
       return this;
     }
@@ -39,12 +39,8 @@ public class EditCourseDetailsStep extends BaseStep {
         editCourseDetailsPage.clickCourseDetailsTab();
       return new CourseDetailsStep(driver);
     }
-    public EditCourseDetailsStep fillEditCourseNameInput(String courseName){
+    public EditCourseDetailsStep fillEditCourseNameInput(String courseName) {
         editCourseDetailsPage.fillEditCourseNameInput(courseName);
-      return this;
-    }
-    public EditCourseDetailsStep clearEditCourseNameInput(){
-        editCourseDetailsPage.clearEditCourseNameInput();
       return this;
     }
 

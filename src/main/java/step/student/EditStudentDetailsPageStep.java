@@ -13,9 +13,9 @@ public class EditStudentDetailsPageStep extends BaseStep {
         editStudentsDetailsPage = new EditStudentsDetailsPage(driver);
     }
 
-    public EditStudentDetailsPageStep clickLabelStudentsDetails(){
+    public StudentDetailsPageStep clickLabelStudentsDetails(WebDriver driver){
         editStudentsDetailsPage.clickLabelStudentsDetails();
-        return this;
+        return new StudentDetailsPageStep(driver);
     }
 
     public EditStudentDetailsPageStep verifyLabelStudentsDetails(String expected){

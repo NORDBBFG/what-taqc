@@ -16,14 +16,22 @@ public class CoursesStep extends BaseStep {
         Assert.assertEquals(coursesPage.getPageHeaderText(), expected);
       return this;
     }
-    public CoursesStep verifyNumberOfCoursesDisplayed(Boolean expected){
+
+    public CoursesStep verifyAddCourseToListBtnDisplayed(boolean expected){
+        Assert.assertEquals(coursesPage.isAddCourseToListBtnDisplayed(), expected);
+      return this;
+    }
+
+    public CoursesStep verifyNumberOfCoursesDisplayed(boolean expected){
         Assert.assertEquals(coursesPage.isNumberOfCoursesDisplayed(), expected);
       return this;
     }
-    public CoursesStep verifySearchCourseInListInputDisplayed(Boolean expected){
+
+    public CoursesStep verifySearchCourseInListInputDisplayed(boolean expected){
         Assert.assertEquals(coursesPage.isSearchCourseInListInputDisplayed(), expected);
       return this;
     }
+
     public CoursesStep verifyCourseName(int courseID, String expected){
         Assert.assertEquals(coursesPage.getCourseNameText(courseID), expected);
       return this;
@@ -33,6 +41,7 @@ public class CoursesStep extends BaseStep {
         coursesPage.clickAddCourseToListBtn();
       return new AddCourseStep(driver);
     }
+
     public CourseDetailsStep clickCourseTableRow(String id, WebDriver driver){
         coursesPage.clickCourseTableRow(id);
         return new CourseDetailsStep(driver);
@@ -42,22 +51,27 @@ public class CoursesStep extends BaseStep {
         coursesPage.clickCourseTableEditIcon(id);
         return new EditCourseDetailsStep(driver);
     }
+
     public CoursesStep fillSearchCourseInListInput(String title){
         coursesPage.fillSearchCourseInListInput(title);
       return this;
     }
+
     public CoursesStep changeCourseListIDSortType(){
         coursesPage.changeCourseListIDSortType();
       return this;
     }
+
     public CoursesStep changeCourseListNameSortType(){
         coursesPage.changeCourseListNameSortType();
       return this;
     }
+
     public CoursesStep clickLeftNavigationArrowBtn(){
         coursesPage.clickLeftNavigationArrowBtn();
       return this;
     }
+
     public CoursesStep clickRightNavigationArrowBtn(){
         coursesPage.clickRightNavigationArrowBtn();
       return this;

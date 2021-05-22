@@ -4,18 +4,16 @@ import constants.Constants;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page.BasePage;
-import page.signin.SignInPage;
-import page.unassigned.UnassignedUsersPage;
+import step.changepassword.ChangePasswordPageSteps;
 import step.courses.CoursesStep;
 import step.group.ListOfGroupsPageStep;
 import step.lesson.ListOfLessonPageStep;
-import step.mentor.ListOfMentorsPageStep;
 import step.myprofile.MyProfilePageStep;
 import step.secretary.ListOfSecretaryPageStep;
 import step.signin.SignInPageStep;
 import step.student.ListOfStudentsPageStep;
 import step.support.SupportPageStep;
-import step.unassigned.UnassignedUsersStep;
+import step.unassigned.ListOfUnassignedUsersPageStep;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -41,9 +39,9 @@ public abstract class BaseStep extends Step {
         return new ListOfSecretaryPageStep(driver);
     }
 
-    public UnassignedUsersStep clickUnassignedSidebar(Class<? extends BasePage> context, WebDriver driver) {
+    public ListOfUnassignedUsersPageStep clickUnassignedSidebar(Class<? extends BasePage> context, WebDriver driver) {
         clickSidebarItem(context, Constants.PageName.UNASSIGNED, driver);
-        return new UnassignedUsersStep(driver);
+        return new ListOfUnassignedUsersPageStep(driver);
     }
 
     public SupportPageStep clickSupportSidebar(Class<? extends BasePage> context, WebDriver driver) {
@@ -51,9 +49,9 @@ public abstract class BaseStep extends Step {
         return new SupportPageStep(driver);
     }
 
-    public ListOfMentorsPageStep clickMentorsSidebar(Class<? extends BasePage> context, WebDriver driver) {
+    public step.mentor.ListOfMentorsPageStep clickMentorsSidebar(Class<? extends BasePage> context, WebDriver driver) {
         clickSidebarItem(context, Constants.PageName.MENTOR_LIST, driver);
-        return new ListOfMentorsPageStep(driver);
+        return new step.mentor.ListOfMentorsPageStep(driver);
     }
 
     public ListOfGroupsPageStep clickGroupsSidebar(Class<? extends BasePage> context, WebDriver driver) {
@@ -67,9 +65,9 @@ public abstract class BaseStep extends Step {
         return new MyProfilePageStep(driver);
     }
 
-    public MyProfilePageStep clickChangePassword(Class<? extends BasePage> context, WebDriver driver) {
+    public ChangePasswordPageSteps clickChangePassword(Class<? extends BasePage> context, WebDriver driver) {
         clickDropdownItem(context, Constants.PageName.CHANGE_PASSWORD, driver);
-        return new MyProfilePageStep(driver);
+        return new ChangePasswordPageSteps(driver);
     }
 
     public SignInPageStep clickLogOut(Class<? extends BasePage> context, WebDriver driver) {
@@ -156,8 +154,8 @@ public abstract class BaseStep extends Step {
                                                      boolean expected, String item, WebDriver driver) {
         try {
             BasePage basePage = pageContext.getConstructor(WebDriver.class).newInstance(driver);
-            Assert.assertEquals(basePage.dropdownItemExist(item), expected);
-            return (T) stepContext.newInstance();
+            Assert.assertEquals(basePage.sidebarItemExist(item), expected);
+            return (T) stepContext.getConstructor(WebDriver.class).newInstance(driver);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
             //TODO: add logging
             throw new RuntimeException("No such page or step");

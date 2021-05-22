@@ -1,10 +1,13 @@
 package page.courses;
 
+import org.apache.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.apache.log4j.Logger;
 import page.BasePage;
+import page.group.ListOfGroupsPage;
 
 import java.util.List;
 
@@ -12,6 +15,8 @@ import static constants.XPath.Common.H2;
 import static constants.XPath.CoursesPage.*;
 
 public class CoursesPage extends BasePage {
+
+    private final Logger logger = LogManager.getLogger(ListOfGroupsPage.class);
 
     @FindBy(xpath = ADD_COURSE_TO_LIST_BTN)
     private WebElement addCourseToListBtn;
@@ -34,21 +39,29 @@ public class CoursesPage extends BasePage {
     @FindBy(xpath = NUMBER_OF_COURSES)
     private WebElement numberOfCourses;
 
+    public CoursesPage(WebDriver driver) {
+        super(driver);
+    }
+
     public String getPageHeaderText(){
         return pageHeader.getText();
     }
 
-    public Boolean isNumberOfCoursesDisplayed(){
+    public boolean isNumberOfCoursesDisplayed(){
         return numberOfCourses.isDisplayed();
     }
 
-    public Boolean isSearchCourseInListInputDisplayed(){
+    public boolean isSearchCourseInListInputDisplayed(){
         return searchCourseInListInput.isDisplayed();
     }
 
+    public boolean isAddCourseToListBtnDisplayed(){
+        return addCourseToListBtn.isDisplayed();
+    }
+
     public String getCourseNameText(Integer courseID){
-        String courseIDXpath = "//tr[@data-student-id='"+courseID+"']/td[1]";
-        String courseNameXpath = "//tr[@data-student-id='"+courseID+"']/td[2]";
+        String courseIDXpath = "//tr[@data-student-id='"+ courseID +"']/td[1]";
+        String courseNameXpath = "//tr[@data-student-id='"+ courseID +"']/td[2]";
         if (!listOfCourseTableRows.isEmpty()) {
             for (WebElement webElement : listOfCourseTableRows) {
                 if (webElement.findElement(By.xpath(courseIDXpath)).getText().equals(courseID.toString())) {
@@ -57,10 +70,6 @@ public class CoursesPage extends BasePage {
             }
         }
         return null;
-    }
-
-    public CoursesPage(WebDriver driver) {
-        super(driver);
     }
 
     public void clickAddCourseToListBtn(){
@@ -82,12 +91,14 @@ public class CoursesPage extends BasePage {
 
     public void clickCourseTableRow(String id){
         try { listOfCourseTableRows.get(Integer.parseInt(id)).click(); }
-        catch (NumberFormatException | IndexOutOfBoundsException e) { System.out.println("Exception"); }
+        catch (NumberFormatException e) { logger.error("ID is not a String"); }
+        catch (IndexOutOfBoundsException e) { logger.error("Index of ID String is out of range"); }
     }
 
     public void clickCourseTableEditIcon(String id){
         try { listOfCourseTableEditIcons.get(Integer.parseInt(id)).click(); }
-        catch (NumberFormatException | IndexOutOfBoundsException e) { System.out.println("Exception"); }
+        catch (NumberFormatException e) { logger.error("ID is not a String"); }
+        catch (IndexOutOfBoundsException e) { logger.error("Index of ID String is out of range"); }
     }
 
     public void clickLeftNavigationArrowBtn(){
