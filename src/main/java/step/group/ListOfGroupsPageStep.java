@@ -1,5 +1,7 @@
 package step.group;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,9 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ListOfGroupsPageStep extends BaseStep {
+public class ListOfGroupsPageStep<logger> extends BaseStep {
 
     ListOfGroupsPage listOfGroupsPage;
+    //    final  static Logger logger = Logger.getLogger(ListOfGroupsPageStep.class);
+    private static final Logger logger = LogManager.getLogger(ListOfGroupsPageStep.class);
+
+//     logger.info()
 
     public ListOfGroupsPageStep(WebDriver driver){
         listOfGroupsPage = new ListOfGroupsPage(driver);

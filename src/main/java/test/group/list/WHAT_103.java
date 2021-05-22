@@ -1,5 +1,7 @@
 package test.group.list;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -7,6 +9,7 @@ import step.group.ListOfGroupsPageStep;
 import test.BaseTest;
 
 public class WHAT_103 extends BaseTest {
+
 
     ListOfGroupsPageStep listOfGroupsPageStep;
 
