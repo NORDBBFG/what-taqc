@@ -7,15 +7,16 @@ import step.group.ListOfGroupsPageStep;
 import ui_tests.BaseTest;
 
 public class WHAT_103 extends BaseTest {
-
+    String email = "admin.@gmail.com";
+    String password = "admiN_12";
 
     ListOfGroupsPageStep listOfGroupsPageStep;
 
     @BeforeClass()
     public void setBeforeGroups() {
         listOfGroupsPageStep = signInPageStep
-                .setEmail("admin.@gmail.com")
-                .setPassword("admiN_12")
+                .setEmail(email)
+                .setPassword(password)
                 .clickSignInBtn(ListOfGroupsPageStep.class, driver);
     }
 
