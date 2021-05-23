@@ -1,8 +1,5 @@
 package page.group;
 
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import page.BasePage;
@@ -11,8 +8,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class ListOfGroupsPage extends BasePage {
-
-    private final Logger logger = LogManager.getLogger(ListOfGroupsPage.class);
 
     @FindBy(xpath = "//h2[text()='Groups']")
     private WebElement groupsPageName;
@@ -70,7 +65,6 @@ public class ListOfGroupsPage extends BasePage {
         if (waitVisibility(tableContent.get(0), 5)) {
             searchByNameInput.sendKeys(groupName);
         } else {
-            logger.error("Tables isn't loaded");
             throw new NoSuchElementException();
         }
         return tableContent;
