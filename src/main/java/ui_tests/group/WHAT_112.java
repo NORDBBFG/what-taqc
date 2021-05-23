@@ -1,4 +1,4 @@
-package test.group.list;
+package ui_tests.group;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

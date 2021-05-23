@@ -1,5 +1,4 @@
-package test.group.list;
-
+package ui_tests.group;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -7,7 +6,8 @@ import org.testng.annotations.Test;
 import step.group.ListOfGroupsPageStep;
 import ui_tests.BaseTest;
 
-public class WHAT_109 extends BaseTest {
+public class WHAT_103 extends BaseTest {
+
 
     ListOfGroupsPageStep listOfGroupsPageStep;
 
@@ -20,20 +20,21 @@ public class WHAT_109 extends BaseTest {
     }
 
     @DataProvider
-    public static Object[][] existedGroupNames() {
+    public static Object[][] notExistedGroupNames() {
         return new Object[][]{
-                {"Slytherin"},
-                {"Griffindor"},
-                {"КП-89"}
+                {"AAA"},
+                {"hjHH"},
+                {"1111"}
         };
     }
 
-    @Test(groups = "groups", dataProvider = "existedGroupNames")
-    public void searchByGroupName(String name) {
+
+    @Test(groups = "groups", dataProvider = "notExistedGroupNames")
+    public void searchByInvalidGroupName(String name) {
         listOfGroupsPageStep
                 .searchByGroupName(name)
                 .verifySearchByGroupHasText(name)
-                .verifyGroupExists(name)
+                .verifyGroupNotExists()
                 .clearInputGroupName();
     }
 }

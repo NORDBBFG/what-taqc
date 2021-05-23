@@ -1,15 +1,12 @@
-package test.group.list;
+package ui_tests.group;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import step.group.ListOfGroupsPageStep;
 import ui_tests.BaseTest;
 
-public class WHAT_103 extends BaseTest {
-
+public class WHAT_109 extends BaseTest {
 
     ListOfGroupsPageStep listOfGroupsPageStep;
 
@@ -22,21 +19,20 @@ public class WHAT_103 extends BaseTest {
     }
 
     @DataProvider
-    public static Object[][] notExistedGroupNames() {
+    public static Object[][] existedGroupNames() {
         return new Object[][]{
-                {"AAA"},
-                {"hjHH"},
-                {"1111"}
+                {"Slytherin"},
+                {"Griffindor"},
+                {"КП-89"}
         };
     }
 
-
-    @Test(groups = "groups", dataProvider = "notExistedGroupNames")
-    public void searchByInvalidGroupName(String name) {
+    @Test(groups = "groups", dataProvider = "existedGroupNames")
+    public void searchByGroupName(String name) {
         listOfGroupsPageStep
                 .searchByGroupName(name)
                 .verifySearchByGroupHasText(name)
-                .verifyGroupNotExists()
+                .verifyGroupExists(name)
                 .clearInputGroupName();
     }
 }

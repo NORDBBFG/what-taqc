@@ -11,7 +11,6 @@
 .mtj.tmp/
 
 # Package Files #
-testSuit.xml
 *.jar
 *.war
 *.nar
@@ -24,6 +23,4 @@ testSuit.xml
 target
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-
-
+/src/main/java/ui_tests/testSuite.xml

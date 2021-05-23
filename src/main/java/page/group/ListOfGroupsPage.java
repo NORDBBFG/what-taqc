@@ -179,10 +179,7 @@ public class ListOfGroupsPage extends BasePage {
         return (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;",element);
     }
 
-
     public String getTextFromSearch (){
         return getTextByJavaScript(getSearchByNameInput());
     }
-
-
 }
